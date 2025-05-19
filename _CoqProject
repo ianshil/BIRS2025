@@ -1,0 +1,3 @@
+-R theories/DoNotModify DoNotModify
+-R theories/Playground Playground
+theories
