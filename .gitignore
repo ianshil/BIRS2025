@@ -21,6 +21,7 @@
 *.vo
 *.vok
 *.vos
+.DS_Store
 .coq-native
 .csdp.cache
 .lia.cache
