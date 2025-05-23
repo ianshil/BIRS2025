@@ -1,0 +1,208 @@
+DIGEST 74d87e3263e16ec80b6b52dc8d33a5d3
+FDNMformulas.syntax_facts
+R15:20 DNMformulas.syntax <> <> lib
+R49:57 stdpp.countable <> <> lib
+sec 103:107 <> order
+prf 117:126 <> weight_pos
+binder 129:130 <> φ:1
+R143:145 Coq.Init.Peano <> ::nat_scope:x_'>'_x not
+R134:139 DNMformulas.syntax <> weight def
+R141:142 DNMformulas.syntax_facts <> φ:1 var
+def 256:265 <> weight_ind
+R277:280 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R273:276 DNMformulas.syntax <> form ind
+binder 269:269 <> P:2
+R290:290 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R354:360 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R376:376 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R291:297 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
+R300:301 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
+binder 298:299 <> ψ:3
+R302:302 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R345:349 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R303:309 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
+R312:313 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
+binder 310:311 <> φ:4
+R314:314 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R336:340 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R324:326 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R315:320 DNMformulas.syntax <> weight def
+R322:323 DNMformulas.syntax_facts <> φ:4 var
+R327:332 DNMformulas.syntax <> weight def
+R334:335 DNMformulas.syntax_facts <> ψ:3 var
+R341:341 DNMformulas.syntax_facts <> P:2 var
+R343:344 DNMformulas.syntax_facts <> φ:4 var
+R350:350 DNMformulas.syntax_facts <> P:2 var
+R352:353 DNMformulas.syntax_facts <> ψ:3 var
+R361:367 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
+R370:371 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
+binder 368:369 <> φ:5
+R372:372 DNMformulas.syntax_facts <> P:2 var
+R374:375 DNMformulas.syntax_facts <> φ:5 var
+R412:417 DNMformulas.syntax <> weight def
+R412:417 DNMformulas.syntax <> weight def
+R452:456 Coq.Unicode.Utf8 <> :::x_'≤'_x not
+R443:448 DNMformulas.syntax <> weight def
+R452:456 Coq.Unicode.Utf8 <> :::x_'≤'_x not
+R443:448 DNMformulas.syntax <> weight def
+R546:555 DNMformulas.syntax_facts <> weight_pos thm
+R546:555 DNMformulas.syntax_facts <> weight_pos thm
+def 695:704 <> form_order
+binder 707:708 <> φ:6
+binder 710:711 <> ψ:7
+R725:727 Coq.Init.Peano <> ::nat_scope:x_'>'_x not
+R716:721 DNMformulas.syntax <> weight def
+R723:724 DNMformulas.syntax_facts <> φ:6 var
+R728:733 DNMformulas.syntax <> weight def
+R735:736 DNMformulas.syntax_facts <> ψ:7 var
+inst 756:776 <> transitive_form_order
+R781:790 Coq.Classes.RelationClasses <> Transitive class
+R792:801 DNMformulas.syntax_facts <> form_order def
+R818:827 DNMformulas.syntax_facts <> form_order def
+inst 865:886 <> irreflexive_form_order
+R891:901 Coq.Classes.RelationClasses <> Irreflexive class
+R903:912 DNMformulas.syntax_facts <> form_order def
+R929:938 DNMformulas.syntax_facts <> form_order def
+R990:999 DNMformulas.syntax_facts <> form_order def
+not 973:973 order :::x_'≺f'_x
+R1029:1033 DNMformulas.syntax_facts order <> sec
+R1476:1484 stdpp.countable <> <> lib
+R1502:1521 Coq.Program.Equality <> <> lib
+inst 1541:1553 <> fomula_bottom
+R1557:1567 stdpp.base <> Bottom class
+R1569:1572 DNMformulas.syntax <> form ind
+R1577:1579 DNMformulas.syntax <> Bot constr
+inst 1598:1607 <> fomula_top
+R1611:1618 stdpp.base <> Top class
+R1620:1623 DNMformulas.syntax <> form ind
+R1628:1631 DNMformulas.syntax <> fTop def
+sec 1643:1661 <> decidable_countable
+inst 1725:1735 <> form_eq_dec
+R1739:1748 stdpp.base <> EqDecision abbrev
+R1750:1753 DNMformulas.syntax <> form ind
+R1782:1789 stdpp.base <> Decision class
+prf 1887:1897 <> In_form_dec
+R1901:1907 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
+R1919:1921 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
+binder 1908:1908 <> l:8
+R1915:1918 DNMformulas.syntax <> form ind
+binder 1911:1911 <> A:9
+R1922:1922 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R1934:1938 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R1959:1959 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R1923:1929 Coq.Lists.List <> In def
+R1933:1933 DNMformulas.syntax_facts <> l:8 var
+R1931:1931 DNMformulas.syntax_facts <> A:9 var
+R1950:1953 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1939:1945 Coq.Lists.List <> In def
+R1949:1949 DNMformulas.syntax_facts <> l:8 var
+R1947:1947 DNMformulas.syntax_facts <> A:9 var
+R1954:1958 stdpp.base <> ::type_scope:'False' not
+R2041:2051 DNMformulas.syntax_facts <> form_eq_dec inst
+R2041:2051 DNMformulas.syntax_facts <> form_eq_dec inst
+def 2296:2311 <> form_to_gen_tree
+R2320:2323 DNMformulas.syntax <> form ind
+binder 2315:2316 <> φ:10
+R2328:2335 stdpp.countable <> gen_tree ind
+R2338:2343 Coq.Init.Datatypes <> option ind
+R2345:2347 Coq.Init.Datatypes <> nat ind
+R2359:2360 DNMformulas.syntax_facts <> φ:10 var
+R2369:2371 DNMformulas.syntax <> Bot constr
+R2376:2382 stdpp.countable <> GenLeaf constr
+R2385:2388 Coq.Init.Datatypes <> None constr
+R2392:2394 DNMformulas.syntax <> Var constr
+R2401:2407 stdpp.countable <> GenLeaf constr
+R2410:2413 Coq.Init.Datatypes <> Some constr
+R2422:2426 DNMformulas.syntax <> :::x_'∧'_x not
+R2433:2439 stdpp.countable <> GenNode constr
+R2443:2443 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2463:2465 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2485:2485 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2444:2459 DNMformulas.syntax_facts <> form_to_gen_tree:11 def
+R2461:2462 DNMformulas.syntax_facts <> φ:10 var
+R2466:2481 DNMformulas.syntax_facts <> form_to_gen_tree:11 def
+R2491:2495 DNMformulas.syntax <> :::x_'∨'_x not
+R2502:2508 stdpp.countable <> GenNode constr
+R2512:2512 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2532:2534 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2554:2554 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2513:2528 DNMformulas.syntax_facts <> form_to_gen_tree:11 def
+R2530:2531 DNMformulas.syntax_facts <> φ:10 var
+R2535:2550 DNMformulas.syntax_facts <> form_to_gen_tree:11 def
+R2560:2565 DNMformulas.syntax <> :::x_'→'_x not
+R2572:2578 stdpp.countable <> GenNode constr
+R2582:2582 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2602:2604 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2624:2624 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2583:2598 DNMformulas.syntax_facts <> form_to_gen_tree:11 def
+R2600:2601 DNMformulas.syntax_facts <> φ:10 var
+R2605:2620 DNMformulas.syntax_facts <> form_to_gen_tree:11 def
+def 2647:2662 <> gen_tree_to_form
+R2670:2677 stdpp.countable <> gen_tree ind
+R2680:2685 Coq.Init.Datatypes <> option ind
+R2687:2689 Coq.Init.Datatypes <> nat ind
+binder 2666:2666 <> t:13
+R2695:2700 Coq.Init.Datatypes <> option ind
+R2702:2705 DNMformulas.syntax <> form ind
+R2716:2716 DNMformulas.syntax_facts <> t:13 var
+R2725:2731 stdpp.countable <> GenLeaf constr
+R2733:2736 Coq.Init.Datatypes <> None constr
+R2741:2744 Coq.Init.Datatypes <> Some constr
+R2746:2748 DNMformulas.syntax <> Bot constr
+R2752:2758 stdpp.countable <> GenLeaf constr
+R2761:2764 Coq.Init.Datatypes <> Some constr
+R2772:2775 Coq.Init.Datatypes <> Some constr
+R2778:2780 DNMformulas.syntax <> Var constr
+R2787:2793 stdpp.countable <> GenNode constr
+R2797:2797 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2800:2802 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2805:2805 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2833:2838 stdpp.base <> ::stdpp_scope:x_'≫='_x not
+binder 2843:2844 <> φ:16
+R2868:2873 stdpp.base <> ::stdpp_scope:x_'≫='_x not
+binder 2878:2879 <> ψ:17
+R2890:2893 Coq.Init.Datatypes <> Some constr
+R2898:2902 DNMformulas.syntax <> :::x_'∧'_x not
+R2896:2897 DNMformulas.syntax_facts <> φ:16 var
+R2903:2904 DNMformulas.syntax_facts <> ψ:17 var
+R2849:2864 DNMformulas.syntax_facts <> gen_tree_to_form:14 def
+R2814:2829 DNMformulas.syntax_facts <> gen_tree_to_form:14 def
+R2909:2915 stdpp.countable <> GenNode constr
+R2919:2919 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2922:2924 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2927:2927 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2955:2960 stdpp.base <> ::stdpp_scope:x_'≫='_x not
+binder 2965:2966 <> φ:18
+R2990:2995 stdpp.base <> ::stdpp_scope:x_'≫='_x not
+binder 3000:3001 <> ψ:19
+R3012:3015 Coq.Init.Datatypes <> Some constr
+R3020:3024 DNMformulas.syntax <> :::x_'∨'_x not
+R3018:3019 DNMformulas.syntax_facts <> φ:18 var
+R3025:3026 DNMformulas.syntax_facts <> ψ:19 var
+R2971:2986 DNMformulas.syntax_facts <> gen_tree_to_form:14 def
+R2936:2951 DNMformulas.syntax_facts <> gen_tree_to_form:14 def
+R3031:3037 stdpp.countable <> GenNode constr
+R3041:3041 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3044:3046 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3049:3049 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3077:3082 stdpp.base <> ::stdpp_scope:x_'≫='_x not
+binder 3087:3088 <> φ:20
+R3112:3117 stdpp.base <> ::stdpp_scope:x_'≫='_x not
+binder 3122:3123 <> ψ:21
+R3134:3137 Coq.Init.Datatypes <> Some constr
+R3142:3147 DNMformulas.syntax <> :::x_'→'_x not
+R3140:3141 DNMformulas.syntax_facts <> φ:20 var
+R3148:3149 DNMformulas.syntax_facts <> ψ:21 var
+R3093:3108 DNMformulas.syntax_facts <> gen_tree_to_form:14 def
+R3058:3073 DNMformulas.syntax_facts <> gen_tree_to_form:14 def
+R3158:3161 Coq.Init.Datatypes <> None constr
+inst 3185:3194 <> form_count
+R3198:3206 stdpp.countable <> Countable class
+R3208:3211 DNMformulas.syntax <> form ind
+R3255:3270 DNMformulas.syntax_facts <> form_to_gen_tree def
+R3279:3294 DNMformulas.syntax_facts <> gen_tree_to_form def
+R3230:3242 stdpp.countable <> inj_countable def
+R3255:3270 DNMformulas.syntax_facts <> form_to_gen_tree def
+R3279:3294 DNMformulas.syntax_facts <> gen_tree_to_form def
+R3230:3242 stdpp.countable <> inj_countable def
+R3397:3415 DNMformulas.syntax_facts decidable_countable <> sec

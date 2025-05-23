@@ -1,0 +1,349 @@
+DIGEST e639fde5ff166bd2143f8fd9ec7cca35
+FDNMlistseq.list_sequent
+R15:20 DNMformulas.syntax <> <> lib
+R22:33 DNMformulas.syntax_facts <> <> lib
+ind 136:143 <> Provable
+constr 178:181 <> Atom
+constr 224:230 <> ExFalso
+constr 272:275 <> AndR
+constr 348:351 <> AndL
+constr 450:453 <> OrR1
+constr 510:513 <> OrR2
+constr 570:572 <> OrL
+constr 697:700 <> ImpR
+constr 821:828 <> ImpLVar1
+constr 959:966 <> ImpLVar2
+constr 1097:1103 <> ImpLAnd
+constr 1235:1240 <> ImpLOr
+constr 1379:1385 <> ImpLImp
+R156:159 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R147:150 Coq.Init.Datatypes <> list ind
+R152:155 DNMformulas.syntax <> form ind
+R164:167 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R160:163 DNMformulas.syntax <> form ind
+R1570:1577 DNMlistseq.list_sequent <> Provable:2 ind
+binder 183:185 <> Γ0:3
+binder 187:189 <> Γ1:4
+binder 191:191 <> p:5
+R212:217 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R220:220 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R198:201 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R195:197 DNMlistseq.list_sequent <> Γ0:3 var
+R205:208 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R202:203 DNMformulas.syntax <> :::'#'_x not
+R204:204 DNMlistseq.list_sequent <> p:5 var
+R209:211 DNMlistseq.list_sequent <> Γ1:4 var
+R218:218 DNMformulas.syntax <> :::'#'_x not
+R219:219 DNMlistseq.list_sequent <> p:5 var
+binder 232:234 <> Γ0:6
+binder 236:238 <> Γ1:7
+binder 240:241 <> φ:8
+R262:266 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R248:251 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R245:247 DNMlistseq.list_sequent <> Γ0:6 var
+R255:258 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R252:254 DNMformulas.syntax <> :::'⊥' not
+R259:261 DNMlistseq.list_sequent <> Γ1:7 var
+R267:268 DNMlistseq.list_sequent <> φ:8 var
+binder 277:278 <> Γ:9
+binder 280:281 <> φ:10
+binder 283:284 <> ψ:11
+R301:307 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R294:298 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R292:293 DNMlistseq.list_sequent <> Γ:9 var
+R299:300 DNMlistseq.list_sequent <> φ:10 var
+R317:326 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R310:314 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R308:309 DNMlistseq.list_sequent <> Γ:9 var
+R315:316 DNMlistseq.list_sequent <> ψ:11 var
+R329:334 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R344:344 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R327:328 DNMlistseq.list_sequent <> Γ:9 var
+R337:341 DNMformulas.syntax <> :::x_'∧'_x not
+R335:336 DNMlistseq.list_sequent <> φ:10 var
+R342:343 DNMlistseq.list_sequent <> ψ:11 var
+binder 353:355 <> Γ0:12
+binder 357:359 <> Γ1:13
+binder 361:362 <> φ:14
+binder 364:365 <> ψ:15
+binder 367:368 <> θ:16
+R405:414 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R398:402 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R379:382 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R376:378 DNMlistseq.list_sequent <> Γ0:12 var
+R385:388 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R383:384 DNMlistseq.list_sequent <> φ:14 var
+R391:394 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R389:390 DNMlistseq.list_sequent <> ψ:15 var
+R395:397 DNMlistseq.list_sequent <> Γ1:13 var
+R403:404 DNMlistseq.list_sequent <> θ:16 var
+R440:444 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R418:421 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R415:417 DNMlistseq.list_sequent <> Γ0:12 var
+R422:422 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R432:436 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R425:429 DNMformulas.syntax <> :::x_'∧'_x not
+R423:424 DNMlistseq.list_sequent <> φ:14 var
+R430:431 DNMlistseq.list_sequent <> ψ:15 var
+R437:439 DNMlistseq.list_sequent <> Γ1:13 var
+R445:446 DNMlistseq.list_sequent <> θ:16 var
+binder 455:456 <> Γ:17
+binder 458:459 <> φ:18
+binder 461:462 <> ψ:19
+R479:488 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R472:476 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R470:471 DNMlistseq.list_sequent <> Γ:17 var
+R477:478 DNMlistseq.list_sequent <> φ:18 var
+R491:496 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R506:506 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R489:490 DNMlistseq.list_sequent <> Γ:17 var
+R499:503 DNMformulas.syntax <> :::x_'∨'_x not
+R497:498 DNMlistseq.list_sequent <> φ:18 var
+R504:505 DNMlistseq.list_sequent <> ψ:19 var
+binder 515:516 <> Γ:20
+binder 518:519 <> φ:21
+binder 521:522 <> ψ:22
+R539:548 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R532:536 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R530:531 DNMlistseq.list_sequent <> Γ:20 var
+R537:538 DNMlistseq.list_sequent <> ψ:22 var
+R551:556 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R566:566 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R549:550 DNMlistseq.list_sequent <> Γ:20 var
+R559:563 DNMformulas.syntax <> :::x_'∨'_x not
+R557:558 DNMlistseq.list_sequent <> φ:21 var
+R564:565 DNMlistseq.list_sequent <> ψ:22 var
+binder 574:576 <> Γ0:23
+binder 578:580 <> Γ1:24
+binder 582:583 <> φ:25
+binder 585:586 <> ψ:26
+binder 588:589 <> θ:27
+R621:628 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R613:618 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R600:603 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R597:599 DNMlistseq.list_sequent <> Γ0:23 var
+R606:609 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R604:605 DNMlistseq.list_sequent <> φ:25 var
+R610:612 DNMlistseq.list_sequent <> Γ1:24 var
+R619:620 DNMlistseq.list_sequent <> θ:27 var
+R652:661 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R645:649 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R632:635 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R629:631 DNMlistseq.list_sequent <> Γ0:23 var
+R638:641 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R636:637 DNMlistseq.list_sequent <> ψ:26 var
+R642:644 DNMlistseq.list_sequent <> Γ1:24 var
+R650:651 DNMlistseq.list_sequent <> θ:27 var
+R687:691 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R665:668 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R662:664 DNMlistseq.list_sequent <> Γ0:23 var
+R669:669 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R679:683 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R672:676 DNMformulas.syntax <> :::x_'∨'_x not
+R670:671 DNMlistseq.list_sequent <> φ:25 var
+R677:678 DNMlistseq.list_sequent <> ψ:26 var
+R684:686 DNMlistseq.list_sequent <> Γ1:24 var
+R692:693 DNMlistseq.list_sequent <> θ:27 var
+binder 702:703 <> Γ:28
+binder 705:706 <> φ:29
+binder 708:709 <> ψ:30
+R732:741 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R725:729 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R719:722 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R717:718 DNMlistseq.list_sequent <> φ:29 var
+R723:724 DNMlistseq.list_sequent <> Γ:28 var
+R730:731 DNMlistseq.list_sequent <> ψ:30 var
+R744:749 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R759:759 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R742:743 DNMlistseq.list_sequent <> Γ:28 var
+R752:756 DNMformulas.syntax <> :::x_'→'_x not
+R750:751 DNMlistseq.list_sequent <> φ:29 var
+R757:758 DNMlistseq.list_sequent <> ψ:30 var
+binder 830:832 <> Γ0:31
+binder 834:836 <> Γ1:32
+binder 838:840 <> Γ2:33
+binder 842:842 <> p:34
+binder 844:845 <> φ:35
+binder 847:848 <> ψ:36
+R895:904 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R888:892 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R859:862 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R856:858 DNMlistseq.list_sequent <> Γ0:31 var
+R868:871 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R863:865 DNMformulas.syntax <> Var constr
+R867:867 DNMlistseq.list_sequent <> p:34 var
+R875:878 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R872:874 DNMlistseq.list_sequent <> Γ1:32 var
+R881:884 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R879:880 DNMlistseq.list_sequent <> φ:35 var
+R885:887 DNMlistseq.list_sequent <> Γ2:33 var
+R893:894 DNMlistseq.list_sequent <> ψ:36 var
+R949:953 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R908:911 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R905:907 DNMlistseq.list_sequent <> Γ0:31 var
+R917:920 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R912:914 DNMformulas.syntax <> Var constr
+R916:916 DNMlistseq.list_sequent <> p:34 var
+R924:927 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R921:923 DNMlistseq.list_sequent <> Γ1:32 var
+R928:928 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R941:945 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R934:938 DNMformulas.syntax <> :::x_'→'_x not
+R929:931 DNMformulas.syntax <> Var constr
+R933:933 DNMlistseq.list_sequent <> p:34 var
+R939:940 DNMlistseq.list_sequent <> φ:35 var
+R946:948 DNMlistseq.list_sequent <> Γ2:33 var
+R954:955 DNMlistseq.list_sequent <> ψ:36 var
+binder 968:970 <> Γ0:37
+binder 972:974 <> Γ1:38
+binder 976:978 <> Γ2:39
+binder 980:980 <> p:40
+binder 982:983 <> φ:41
+binder 985:986 <> ψ:42
+R1033:1042 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1026:1030 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R997:1000 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R994:996 DNMlistseq.list_sequent <> Γ0:37 var
+R1003:1006 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1001:1002 DNMlistseq.list_sequent <> φ:41 var
+R1010:1013 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R1007:1009 DNMlistseq.list_sequent <> Γ1:38 var
+R1019:1022 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1014:1016 DNMformulas.syntax <> Var constr
+R1018:1018 DNMlistseq.list_sequent <> p:40 var
+R1023:1025 DNMlistseq.list_sequent <> Γ2:39 var
+R1031:1032 DNMlistseq.list_sequent <> ψ:42 var
+R1087:1091 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R1046:1049 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R1043:1045 DNMlistseq.list_sequent <> Γ0:37 var
+R1050:1050 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1063:1067 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1056:1060 DNMformulas.syntax <> :::x_'→'_x not
+R1051:1053 DNMformulas.syntax <> Var constr
+R1055:1055 DNMlistseq.list_sequent <> p:40 var
+R1061:1062 DNMlistseq.list_sequent <> φ:41 var
+R1071:1074 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R1068:1070 DNMlistseq.list_sequent <> Γ1:38 var
+R1080:1083 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1075:1077 DNMformulas.syntax <> Var constr
+R1079:1079 DNMlistseq.list_sequent <> p:40 var
+R1084:1086 DNMlistseq.list_sequent <> Γ2:39 var
+R1092:1093 DNMlistseq.list_sequent <> ψ:42 var
+binder 1105:1107 <> Γ0:43
+binder 1109:1111 <> Γ1:44
+binder 1113:1115 <> φ1:45
+binder 1117:1119 <> φ2:46
+binder 1121:1123 <> φ3:47
+binder 1125:1126 <> ψ:48
+R1178:1187 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1171:1175 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R1137:1140 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R1134:1136 DNMlistseq.list_sequent <> Γ0:43 var
+R1141:1141 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1163:1167 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1145:1150 DNMformulas.syntax <> :::x_'→'_x not
+R1162:1162 DNMformulas.syntax <> :::x_'→'_x not
+R1142:1144 DNMlistseq.list_sequent <> φ1:45 var
+R1154:1158 DNMformulas.syntax <> :::x_'→'_x not
+R1151:1153 DNMlistseq.list_sequent <> φ2:46 var
+R1159:1161 DNMlistseq.list_sequent <> φ3:47 var
+R1168:1170 DNMlistseq.list_sequent <> Γ1:44 var
+R1176:1177 DNMlistseq.list_sequent <> ψ:48 var
+R1225:1229 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R1191:1194 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R1188:1190 DNMlistseq.list_sequent <> Γ0:43 var
+R1195:1195 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1217:1221 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1196:1196 DNMformulas.syntax <> :::x_'→'_x not
+R1208:1213 DNMformulas.syntax <> :::x_'→'_x not
+R1200:1204 DNMformulas.syntax <> :::x_'∧'_x not
+R1197:1199 DNMlistseq.list_sequent <> φ1:45 var
+R1205:1207 DNMlistseq.list_sequent <> φ2:46 var
+R1214:1216 DNMlistseq.list_sequent <> φ3:47 var
+R1222:1224 DNMlistseq.list_sequent <> Γ1:44 var
+R1230:1231 DNMlistseq.list_sequent <> ψ:48 var
+binder 1242:1244 <> Γ0:49
+binder 1246:1248 <> Γ1:50
+binder 1250:1252 <> φ1:51
+binder 1254:1256 <> φ2:52
+binder 1258:1260 <> φ3:53
+binder 1262:1263 <> ψ:54
+R1322:1331 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1315:1319 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R1274:1277 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R1271:1273 DNMlistseq.list_sequent <> Γ0:49 var
+R1278:1278 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1290:1294 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1282:1286 DNMformulas.syntax <> :::x_'→'_x not
+R1279:1281 DNMlistseq.list_sequent <> φ1:51 var
+R1287:1289 DNMlistseq.list_sequent <> φ3:53 var
+R1295:1295 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1307:1311 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1299:1303 DNMformulas.syntax <> :::x_'→'_x not
+R1296:1298 DNMlistseq.list_sequent <> φ2:52 var
+R1304:1306 DNMlistseq.list_sequent <> φ3:53 var
+R1312:1314 DNMlistseq.list_sequent <> Γ1:50 var
+R1320:1321 DNMlistseq.list_sequent <> ψ:54 var
+R1369:1373 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R1335:1338 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R1332:1334 DNMlistseq.list_sequent <> Γ0:49 var
+R1339:1339 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1361:1365 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1340:1340 DNMformulas.syntax <> :::x_'→'_x not
+R1352:1357 DNMformulas.syntax <> :::x_'→'_x not
+R1344:1348 DNMformulas.syntax <> :::x_'∨'_x not
+R1341:1343 DNMlistseq.list_sequent <> φ1:51 var
+R1349:1351 DNMlistseq.list_sequent <> φ2:52 var
+R1358:1360 DNMlistseq.list_sequent <> φ3:53 var
+R1366:1368 DNMlistseq.list_sequent <> Γ1:50 var
+R1374:1375 DNMlistseq.list_sequent <> ψ:54 var
+binder 1387:1389 <> Γ0:55
+binder 1391:1393 <> Γ1:56
+binder 1395:1397 <> φ1:57
+binder 1399:1401 <> φ2:58
+binder 1403:1405 <> φ3:59
+binder 1407:1408 <> ψ:60
+R1461:1468 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1443:1448 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R1460:1460 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R1419:1422 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R1416:1418 DNMlistseq.list_sequent <> Γ0:55 var
+R1423:1423 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1435:1439 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1427:1431 DNMformulas.syntax <> :::x_'→'_x not
+R1424:1426 DNMlistseq.list_sequent <> φ2:58 var
+R1432:1434 DNMlistseq.list_sequent <> φ3:59 var
+R1440:1442 DNMlistseq.list_sequent <> Γ1:56 var
+R1452:1456 DNMformulas.syntax <> :::x_'→'_x not
+R1449:1451 DNMlistseq.list_sequent <> φ1:57 var
+R1457:1459 DNMlistseq.list_sequent <> φ2:58 var
+R1493:1502 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1486:1490 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R1472:1475 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R1469:1471 DNMlistseq.list_sequent <> Γ0:55 var
+R1479:1482 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1476:1478 DNMlistseq.list_sequent <> φ3:59 var
+R1483:1485 DNMlistseq.list_sequent <> Γ1:56 var
+R1491:1492 DNMlistseq.list_sequent <> ψ:60 var
+R1540:1544 DNMlistseq.list_sequent <> :::x_'⊢'_x not
+R1506:1509 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R1503:1505 DNMlistseq.list_sequent <> Γ0:55 var
+R1510:1510 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1532:1536 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1511:1511 DNMformulas.syntax <> :::x_'→'_x not
+R1523:1528 DNMformulas.syntax <> :::x_'→'_x not
+R1515:1519 DNMformulas.syntax <> :::x_'→'_x not
+R1512:1514 DNMlistseq.list_sequent <> φ1:57 var
+R1520:1522 DNMlistseq.list_sequent <> φ2:58 var
+R1529:1531 DNMlistseq.list_sequent <> φ3:59 var
+R1537:1539 DNMlistseq.list_sequent <> Γ1:56 var
+R1545:1546 DNMlistseq.list_sequent <> ψ:60 var
+scheme 136:143 <> Provable_rect
+scheme 136:143 <> Provable_ind
+scheme 136:143 <> Provable_rec
+scheme 136:143 <> Provable_sind
+R1570:1577 DNMlistseq.list_sequent <> Provable ind
+not 1554:1554 <> :::x_'⊢'_x
+R1617:1624 DNMlistseq.list_sequent <> Provable ind
+not 1597:1597 <> :::x_'⊢G4ip'_x
+R1674:1681 DNMlistseq.list_sequent <> Provable ind

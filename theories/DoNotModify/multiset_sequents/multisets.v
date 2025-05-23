@@ -13,7 +13,7 @@ Require Import Coq.Program.Wf.
 Require Export stdpp.gmultiset.
 
 (** Our propositional formulas, including their countability. *)
-Require Export syntax.
+Require Export syntax syntax_facts.
 
 Require Import Coq.Program.Equality.
 

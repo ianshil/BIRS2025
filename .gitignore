@@ -7,7 +7,6 @@
 *.cmx
 *.cmxa
 *.cmxs
-*.glob
 *.ml.d
 *.ml4.d
 *.mlg.d
@@ -18,9 +17,6 @@
 *.o
 *.v.d
 *.vio
-*.vo
-*.vok
-*.vos
 .DS_Store
 .coq-native
 .csdp.cache

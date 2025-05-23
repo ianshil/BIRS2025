@@ -1,0 +1,921 @@
+DIGEST 2763c2766b8d4ccd5b458b53782d4cfa
+FDNMaxioms.axiomatic
+R15:23 Coq.Sets.Ensembles <> <> lib
+R60:63 Coq.Lists.List <> <> lib
+R123:135 Coq.Lists.List ListNotations <> mod
+R153:158 DNMformulas.syntax <> <> lib
+sec 198:215 <> axiomatic_calculus
+ind 278:283 <> Axioms
+constr 310:311 <> A1
+constr 363:364 <> A2
+constr 455:456 <> A3
+constr 508:509 <> A4
+constr 561:562 <> A5
+constr 653:654 <> A6
+constr 706:707 <> A7
+constr 759:760 <> A8
+constr 851:852 <> A9
+R291:294 DNMformulas.syntax <> form ind
+binder 286:287 <> φ:1
+binder 313:314 <> ψ:4
+binder 316:317 <> χ:5
+R346:349 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R323:326 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R345:345 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R321:322 DNMaxioms.axiomatic <> φ:1 var
+R329:334 DNMformulas.syntax <> :::x_'→'_x not
+R344:344 DNMformulas.syntax <> :::x_'→'_x not
+R327:328 DNMaxioms.axiomatic <> ψ:4 var
+R337:341 DNMformulas.syntax <> :::x_'→'_x not
+R335:336 DNMaxioms.axiomatic <> χ:5 var
+R342:343 DNMaxioms.axiomatic <> ψ:4 var
+R350:355 DNMaxioms.axiomatic <> Axioms:2 ind
+R357:358 DNMaxioms.axiomatic <> φ:1 var
+binder 366:367 <> ψ:6
+binder 369:370 <> χ:7
+binder 372:373 <> δ:8
+R438:441 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R379:382 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R437:437 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R377:378 DNMaxioms.axiomatic <> φ:1 var
+R383:383 DNMformulas.syntax <> :::x_'→'_x not
+R402:408 DNMformulas.syntax <> :::x_'→'_x not
+R436:436 DNMformulas.syntax <> :::x_'→'_x not
+R386:391 DNMformulas.syntax <> :::x_'→'_x not
+R401:401 DNMformulas.syntax <> :::x_'→'_x not
+R384:385 DNMaxioms.axiomatic <> ψ:6 var
+R394:398 DNMformulas.syntax <> :::x_'→'_x not
+R392:393 DNMaxioms.axiomatic <> χ:7 var
+R399:400 DNMaxioms.axiomatic <> δ:8 var
+R409:409 DNMformulas.syntax <> :::x_'→'_x not
+R419:425 DNMformulas.syntax <> :::x_'→'_x not
+R435:435 DNMformulas.syntax <> :::x_'→'_x not
+R412:416 DNMformulas.syntax <> :::x_'→'_x not
+R410:411 DNMaxioms.axiomatic <> ψ:6 var
+R417:418 DNMaxioms.axiomatic <> χ:7 var
+R428:432 DNMformulas.syntax <> :::x_'→'_x not
+R426:427 DNMaxioms.axiomatic <> ψ:6 var
+R433:434 DNMaxioms.axiomatic <> δ:8 var
+R442:447 DNMaxioms.axiomatic <> Axioms:2 ind
+R449:450 DNMaxioms.axiomatic <> φ:1 var
+binder 458:459 <> ψ:9
+binder 461:462 <> χ:10
+R491:494 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R468:471 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R490:490 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R466:467 DNMaxioms.axiomatic <> φ:1 var
+R474:479 DNMformulas.syntax <> :::x_'→'_x not
+R489:489 DNMformulas.syntax <> :::x_'→'_x not
+R472:473 DNMaxioms.axiomatic <> ψ:9 var
+R482:486 DNMformulas.syntax <> :::x_'∨'_x not
+R480:481 DNMaxioms.axiomatic <> ψ:9 var
+R487:488 DNMaxioms.axiomatic <> χ:10 var
+R495:500 DNMaxioms.axiomatic <> Axioms:2 ind
+R502:503 DNMaxioms.axiomatic <> φ:1 var
+binder 511:512 <> ψ:11
+binder 514:515 <> χ:12
+R544:547 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R521:524 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R543:543 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R519:520 DNMaxioms.axiomatic <> φ:1 var
+R527:532 DNMformulas.syntax <> :::x_'→'_x not
+R542:542 DNMformulas.syntax <> :::x_'→'_x not
+R525:526 DNMaxioms.axiomatic <> χ:12 var
+R535:539 DNMformulas.syntax <> :::x_'∨'_x not
+R533:534 DNMaxioms.axiomatic <> ψ:11 var
+R540:541 DNMaxioms.axiomatic <> χ:12 var
+R548:553 DNMaxioms.axiomatic <> Axioms:2 ind
+R555:556 DNMaxioms.axiomatic <> φ:1 var
+binder 564:565 <> ψ:13
+binder 567:568 <> χ:14
+binder 570:571 <> δ:15
+R636:639 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R577:580 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R635:635 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R575:576 DNMaxioms.axiomatic <> φ:1 var
+R581:581 DNMformulas.syntax <> :::x_'→'_x not
+R591:597 DNMformulas.syntax <> :::x_'→'_x not
+R634:634 DNMformulas.syntax <> :::x_'→'_x not
+R584:588 DNMformulas.syntax <> :::x_'→'_x not
+R582:583 DNMaxioms.axiomatic <> ψ:13 var
+R589:590 DNMaxioms.axiomatic <> δ:15 var
+R598:598 DNMformulas.syntax <> :::x_'→'_x not
+R608:614 DNMformulas.syntax <> :::x_'→'_x not
+R633:633 DNMformulas.syntax <> :::x_'→'_x not
+R601:605 DNMformulas.syntax <> :::x_'→'_x not
+R599:600 DNMaxioms.axiomatic <> χ:14 var
+R606:607 DNMaxioms.axiomatic <> δ:15 var
+R615:615 DNMformulas.syntax <> :::x_'→'_x not
+R625:630 DNMformulas.syntax <> :::x_'→'_x not
+R618:622 DNMformulas.syntax <> :::x_'∨'_x not
+R616:617 DNMaxioms.axiomatic <> ψ:13 var
+R623:624 DNMaxioms.axiomatic <> χ:14 var
+R631:632 DNMaxioms.axiomatic <> δ:15 var
+R640:645 DNMaxioms.axiomatic <> Axioms:2 ind
+R647:648 DNMaxioms.axiomatic <> φ:1 var
+binder 656:657 <> ψ:16
+binder 659:660 <> χ:17
+R689:692 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R666:669 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R688:688 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R664:665 DNMaxioms.axiomatic <> φ:1 var
+R670:670 DNMformulas.syntax <> :::x_'→'_x not
+R680:685 DNMformulas.syntax <> :::x_'→'_x not
+R673:677 DNMformulas.syntax <> :::x_'∧'_x not
+R671:672 DNMaxioms.axiomatic <> ψ:16 var
+R678:679 DNMaxioms.axiomatic <> χ:17 var
+R686:687 DNMaxioms.axiomatic <> ψ:16 var
+R693:698 DNMaxioms.axiomatic <> Axioms:2 ind
+R700:701 DNMaxioms.axiomatic <> φ:1 var
+binder 709:710 <> ψ:18
+binder 712:713 <> χ:19
+R742:745 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R719:722 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R741:741 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R717:718 DNMaxioms.axiomatic <> φ:1 var
+R723:723 DNMformulas.syntax <> :::x_'→'_x not
+R733:738 DNMformulas.syntax <> :::x_'→'_x not
+R726:730 DNMformulas.syntax <> :::x_'∧'_x not
+R724:725 DNMaxioms.axiomatic <> ψ:18 var
+R731:732 DNMaxioms.axiomatic <> χ:19 var
+R739:740 DNMaxioms.axiomatic <> χ:19 var
+R746:751 DNMaxioms.axiomatic <> Axioms:2 ind
+R753:754 DNMaxioms.axiomatic <> φ:1 var
+binder 762:763 <> ψ:20
+binder 765:766 <> χ:21
+binder 768:769 <> δ:22
+R834:837 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R775:778 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R833:833 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R773:774 DNMaxioms.axiomatic <> φ:1 var
+R779:779 DNMformulas.syntax <> :::x_'→'_x not
+R789:795 DNMformulas.syntax <> :::x_'→'_x not
+R832:832 DNMformulas.syntax <> :::x_'→'_x not
+R782:786 DNMformulas.syntax <> :::x_'→'_x not
+R780:781 DNMaxioms.axiomatic <> ψ:20 var
+R787:788 DNMaxioms.axiomatic <> χ:21 var
+R796:796 DNMformulas.syntax <> :::x_'→'_x not
+R806:812 DNMformulas.syntax <> :::x_'→'_x not
+R831:831 DNMformulas.syntax <> :::x_'→'_x not
+R799:803 DNMformulas.syntax <> :::x_'→'_x not
+R797:798 DNMaxioms.axiomatic <> ψ:20 var
+R804:805 DNMaxioms.axiomatic <> δ:22 var
+R815:820 DNMformulas.syntax <> :::x_'→'_x not
+R830:830 DNMformulas.syntax <> :::x_'→'_x not
+R813:814 DNMaxioms.axiomatic <> ψ:20 var
+R823:827 DNMformulas.syntax <> :::x_'∧'_x not
+R821:822 DNMaxioms.axiomatic <> χ:21 var
+R828:829 DNMaxioms.axiomatic <> δ:22 var
+R838:843 DNMaxioms.axiomatic <> Axioms:2 ind
+R845:846 DNMaxioms.axiomatic <> φ:1 var
+binder 854:855 <> ψ:23
+R876:879 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R861:864 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R875:875 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R859:860 DNMaxioms.axiomatic <> φ:1 var
+R868:872 DNMformulas.syntax <> :::x_'→'_x not
+R865:867 DNMformulas.syntax <> :::'⊥' not
+R873:874 DNMaxioms.axiomatic <> ψ:23 var
+R880:885 DNMaxioms.axiomatic <> Axioms:2 ind
+R887:888 DNMaxioms.axiomatic <> φ:1 var
+scheme 278:283 <> Axioms_ind
+scheme 278:283 <> Axioms_sind
+ind 968:974 <> IPH_prv
+constr 1016:1017 <> Id
+constr 1054:1055 <> Ax
+constr 1096:1097 <> MP
+R978:978 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R991:995 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R983:986 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R979:982 DNMformulas.syntax <> form ind
+R1000:1003 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R996:999 DNMformulas.syntax <> form ind
+binder 1019:1020 <> Γ:26
+binder 1022:1023 <> φ:27
+R1032:1035 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1027:1028 DNMaxioms.axiomatic <> Γ:26 var
+R1030:1031 DNMaxioms.axiomatic <> φ:27 var
+R1036:1042 DNMaxioms.axiomatic <> IPH_prv:24 ind
+R1047:1048 DNMaxioms.axiomatic <> φ:27 var
+R1044:1045 DNMaxioms.axiomatic <> Γ:26 var
+binder 1057:1058 <> Γ:28
+binder 1060:1061 <> φ:29
+R1074:1077 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1065:1070 DNMaxioms.axiomatic <> Axioms ind
+R1072:1073 DNMaxioms.axiomatic <> φ:29 var
+R1078:1084 DNMaxioms.axiomatic <> IPH_prv:24 ind
+R1089:1090 DNMaxioms.axiomatic <> φ:29 var
+R1086:1087 DNMaxioms.axiomatic <> Γ:28 var
+binder 1099:1100 <> Γ:30
+binder 1102:1103 <> φ:31
+binder 1105:1106 <> ψ:32
+R1132:1135 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1110:1116 DNMaxioms.axiomatic <> IPH_prv:24 ind
+R1124:1128 DNMformulas.syntax <> :::x_'→'_x not
+R1122:1123 DNMaxioms.axiomatic <> φ:31 var
+R1129:1130 DNMaxioms.axiomatic <> ψ:32 var
+R1118:1119 DNMaxioms.axiomatic <> Γ:30 var
+R1149:1152 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1136:1142 DNMaxioms.axiomatic <> IPH_prv:24 ind
+R1147:1148 DNMaxioms.axiomatic <> φ:31 var
+R1144:1145 DNMaxioms.axiomatic <> Γ:30 var
+R1153:1159 DNMaxioms.axiomatic <> IPH_prv:24 ind
+R1164:1165 DNMaxioms.axiomatic <> ψ:32 var
+R1161:1162 DNMaxioms.axiomatic <> Γ:30 var
+scheme 968:974 <> IPH_prv_ind
+scheme 968:974 <> IPH_prv_sind
+R1173:1190 DNMaxioms.axiomatic axiomatic_calculus <> sec
+sec 1207:1211 <> logic
+prf 1487:1495 <> IPH_monot
+binder 1506:1507 <> Γ:33
+binder 1509:1510 <> φ:34
+R1536:1549 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1523:1529 DNMaxioms.axiomatic <> IPH_prv ind
+R1531:1532 DNMaxioms.axiomatic <> Γ:33 var
+R1534:1535 DNMaxioms.axiomatic <> φ:34 var
+binder 1557:1559 <> Γ1:35
+R1562:1562 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1580:1594 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1563:1570 Coq.Sets.Ensembles <> Included def
+R1574:1575 DNMaxioms.axiomatic <> Γ:33 var
+R1577:1579 DNMaxioms.axiomatic <> Γ1:35 var
+R1595:1601 DNMaxioms.axiomatic <> IPH_prv ind
+R1603:1605 DNMaxioms.axiomatic <> Γ1:35 var
+R1607:1608 DNMaxioms.axiomatic <> φ:34 var
+R1684:1685 DNMaxioms.axiomatic <> Id constr
+R1684:1685 DNMaxioms.axiomatic <> Id constr
+R1725:1726 DNMaxioms.axiomatic <> Ax constr
+R1725:1726 DNMaxioms.axiomatic <> Ax constr
+R1753:1754 DNMaxioms.axiomatic <> MP constr
+R1753:1754 DNMaxioms.axiomatic <> MP constr
+prf 1810:1817 <> IPH_comp
+binder 1828:1829 <> Γ:36
+binder 1831:1832 <> φ:37
+R1858:1871 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1845:1851 DNMaxioms.axiomatic <> IPH_prv ind
+R1853:1854 DNMaxioms.axiomatic <> Γ:36 var
+R1856:1857 DNMaxioms.axiomatic <> φ:37 var
+binder 1879:1881 <> Γ':38
+R1884:1884 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1919:1933 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+binder 1892:1893 <> ψ:39
+R1901:1904 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1896:1897 DNMaxioms.axiomatic <> Γ:36 var
+R1899:1900 DNMaxioms.axiomatic <> ψ:39 var
+R1905:1911 DNMaxioms.axiomatic <> IPH_prv ind
+R1913:1915 DNMaxioms.axiomatic <> Γ':38 var
+R1917:1918 DNMaxioms.axiomatic <> ψ:39 var
+R1934:1940 DNMaxioms.axiomatic <> IPH_prv ind
+R1942:1944 DNMaxioms.axiomatic <> Γ':38 var
+R1946:1947 DNMaxioms.axiomatic <> φ:37 var
+R2032:2033 DNMaxioms.axiomatic <> Ax constr
+R2032:2033 DNMaxioms.axiomatic <> Ax constr
+R2060:2061 DNMaxioms.axiomatic <> MP constr
+R2060:2061 DNMaxioms.axiomatic <> MP constr
+prf 2137:2144 <> subst_Ax
+binder 2155:2155 <> A:40
+binder 2157:2157 <> f:41
+R2160:2160 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2169:2174 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2193:2193 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2161:2166 DNMaxioms.axiomatic <> Axioms ind
+R2168:2168 DNMaxioms.axiomatic <> A:40 var
+R2175:2180 DNMaxioms.axiomatic <> Axioms ind
+R2183:2187 DNMformulas.syntax <> subst def
+R2189:2189 DNMaxioms.axiomatic <> f:41 var
+R2191:2191 DNMaxioms.axiomatic <> A:40 var
+R2259:2260 DNMaxioms.axiomatic <> A1 constr
+R2285:2286 DNMaxioms.axiomatic <> A2 constr
+R2311:2312 DNMaxioms.axiomatic <> A3 constr
+R2342:2343 DNMaxioms.axiomatic <> A4 constr
+R2368:2369 DNMaxioms.axiomatic <> A5 constr
+R2394:2395 DNMaxioms.axiomatic <> A6 constr
+R2425:2426 DNMaxioms.axiomatic <> A7 constr
+R2451:2452 DNMaxioms.axiomatic <> A8 constr
+R2477:2478 DNMaxioms.axiomatic <> A9 constr
+R2259:2260 DNMaxioms.axiomatic <> A1 constr
+R2285:2286 DNMaxioms.axiomatic <> A2 constr
+R2311:2312 DNMaxioms.axiomatic <> A3 constr
+R2342:2343 DNMaxioms.axiomatic <> A4 constr
+R2368:2369 DNMaxioms.axiomatic <> A5 constr
+R2394:2395 DNMaxioms.axiomatic <> A6 constr
+R2425:2426 DNMaxioms.axiomatic <> A7 constr
+R2451:2452 DNMaxioms.axiomatic <> A8 constr
+R2477:2478 DNMaxioms.axiomatic <> A9 constr
+prf 2531:2540 <> IPH_struct
+binder 2551:2552 <> Γ:42
+binder 2554:2555 <> φ:43
+R2581:2594 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2568:2574 DNMaxioms.axiomatic <> IPH_prv ind
+R2576:2577 DNMaxioms.axiomatic <> Γ:42 var
+R2579:2580 DNMaxioms.axiomatic <> φ:43 var
+R2610:2613 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2607:2609 Coq.Init.Datatypes <> nat ind
+R2614:2617 DNMformulas.syntax <> form ind
+binder 2603:2603 <> f:44
+R2631:2637 DNMaxioms.axiomatic <> IPH_prv ind
+binder 2644:2644 <> y:45
+R2649:2655 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R2658:2659 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 2656:2657 <> ψ:46
+R2665:2668 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R2660:2661 DNMaxioms.axiomatic <> Γ:42 var
+R2663:2664 DNMaxioms.axiomatic <> ψ:46 var
+R2670:2673 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2684:2684 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2669:2669 DNMaxioms.axiomatic <> y:45 var
+R2674:2678 DNMformulas.syntax <> subst def
+R2680:2680 DNMaxioms.axiomatic <> f:44 var
+R2682:2683 DNMaxioms.axiomatic <> ψ:46 var
+R2688:2692 DNMformulas.syntax <> subst def
+R2694:2694 DNMaxioms.axiomatic <> f:44 var
+R2696:2697 DNMaxioms.axiomatic <> φ:43 var
+R2767:2768 DNMaxioms.axiomatic <> Id constr
+R2779:2780 Coq.Lists.List <> In def
+R2767:2768 DNMaxioms.axiomatic <> Id constr
+R2819:2820 DNMaxioms.axiomatic <> Ax constr
+R2819:2820 DNMaxioms.axiomatic <> Ax constr
+R2829:2836 DNMaxioms.axiomatic <> subst_Ax thm
+R2829:2836 DNMaxioms.axiomatic <> subst_Ax thm
+R2882:2886 DNMformulas.syntax <> subst def
+R2873:2874 DNMaxioms.axiomatic <> MP constr
+R2882:2886 DNMformulas.syntax <> subst def
+R2873:2874 DNMaxioms.axiomatic <> MP constr
+prf 2934:2943 <> IPH_finite
+binder 2954:2955 <> Γ:47
+binder 2957:2958 <> φ:48
+R2984:2997 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2971:2977 DNMaxioms.axiomatic <> IPH_prv ind
+R2979:2980 DNMaxioms.axiomatic <> Γ:47 var
+R2982:2983 DNMaxioms.axiomatic <> φ:48 var
+R2998:3004 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R3008:3009 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 3005:3007 <> Fin:49
+R3027:3057 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R3010:3017 Coq.Sets.Ensembles <> Included def
+R3021:3023 DNMaxioms.axiomatic <> Fin:49 var
+R3025:3026 DNMaxioms.axiomatic <> Γ:47 var
+R3072:3102 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R3058:3064 DNMaxioms.axiomatic <> IPH_prv ind
+R3066:3068 DNMaxioms.axiomatic <> Fin:49 var
+R3070:3071 DNMaxioms.axiomatic <> φ:48 var
+R3103:3109 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R3111:3112 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 3110:3110 <> l:50
+binder 3120:3121 <> ψ:51
+R3124:3124 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R3147:3152 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R3175:3175 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R3131:3134 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3125:3127 DNMaxioms.axiomatic <> Fin:49 var
+R3129:3130 DNMaxioms.axiomatic <> ψ:51 var
+R3135:3141 Coq.Lists.List <> In def
+R3146:3146 DNMaxioms.axiomatic <> l:50 var
+R3143:3144 DNMaxioms.axiomatic <> ψ:51 var
+R3165:3168 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3153:3159 Coq.Lists.List <> In def
+R3164:3164 DNMaxioms.axiomatic <> l:50 var
+R3161:3162 DNMaxioms.axiomatic <> ψ:51 var
+R3169:3171 DNMaxioms.axiomatic <> Fin:49 var
+R3173:3174 DNMaxioms.axiomatic <> ψ:51 var
+binder 3239:3239 <> x:52
+R3245:3247 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3244:3244 DNMaxioms.axiomatic <> x:52 var
+binder 3239:3239 <> x:53
+R3245:3247 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3244:3244 DNMaxioms.axiomatic <> x:53 var
+R3323:3324 DNMaxioms.axiomatic <> Id constr
+R3335:3336 Coq.Lists.List <> In def
+R3323:3324 DNMaxioms.axiomatic <> Id constr
+R3357:3357 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R3360:3360 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R3357:3357 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R3360:3360 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R3404:3408 Coq.Lists.List <> in_eq thm
+R3404:3408 Coq.Lists.List <> in_eq thm
+R3470:3478 Coq.Sets.Ensembles <> Empty_set ind
+R3470:3478 Coq.Sets.Ensembles <> Empty_set ind
+R3547:3548 DNMaxioms.axiomatic <> Ax constr
+R3547:3548 DNMaxioms.axiomatic <> Ax constr
+R3569:3570 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R3569:3570 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R3743:3747 Coq.Sets.Ensembles <> Union ind
+R3743:3747 Coq.Sets.Ensembles <> Union ind
+R3842:3843 DNMaxioms.axiomatic <> MP constr
+R3842:3843 DNMaxioms.axiomatic <> MP constr
+R3865:3873 DNMaxioms.axiomatic <> IPH_monot thm
+R3865:3873 DNMaxioms.axiomatic <> IPH_monot thm
+R3913:3924 Coq.Sets.Ensembles <> Union_introl constr
+R3913:3924 Coq.Sets.Ensembles <> Union_introl constr
+R3945:3953 DNMaxioms.axiomatic <> IPH_monot thm
+R3945:3953 DNMaxioms.axiomatic <> IPH_monot thm
+R3994:4005 Coq.Sets.Ensembles <> Union_intror constr
+R3994:4005 Coq.Sets.Ensembles <> Union_intror constr
+R4029:4032 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R4029:4032 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R4071:4079 Coq.Lists.List <> in_or_app thm
+R4071:4079 Coq.Lists.List <> in_or_app thm
+R4133:4141 Coq.Lists.List <> in_app_or thm
+R4133:4141 Coq.Lists.List <> in_app_or thm
+R4160:4171 Coq.Sets.Ensembles <> Union_introl constr
+R4160:4171 Coq.Sets.Ensembles <> Union_introl constr
+R4193:4204 Coq.Sets.Ensembles <> Union_intror constr
+R4193:4204 Coq.Sets.Ensembles <> Union_intror constr
+R4230:4234 DNMaxioms.axiomatic logic <> sec
+sec 4252:4261 <> properties
+prf 4387:4395 <> Thm_irrel
+binder 4397:4398 <> φ:54
+binder 4400:4401 <> ψ:55
+binder 4403:4404 <> Γ:56
+R4408:4414 DNMaxioms.axiomatic <> IPH_prv ind
+R4416:4417 DNMaxioms.axiomatic <> Γ:56 var
+R4422:4427 DNMformulas.syntax <> :::x_'→'_x not
+R4437:4437 DNMformulas.syntax <> :::x_'→'_x not
+R4420:4421 DNMaxioms.axiomatic <> φ:54 var
+R4430:4434 DNMformulas.syntax <> :::x_'→'_x not
+R4428:4429 DNMaxioms.axiomatic <> ψ:55 var
+R4435:4436 DNMaxioms.axiomatic <> φ:54 var
+R4454:4455 DNMaxioms.axiomatic <> Ax constr
+R4454:4455 DNMaxioms.axiomatic <> Ax constr
+R4465:4466 DNMaxioms.axiomatic <> A1 constr
+R4465:4466 DNMaxioms.axiomatic <> A1 constr
+prf 4495:4504 <> imp_Id_gen
+binder 4506:4507 <> φ:57
+binder 4509:4510 <> Γ:58
+R4514:4520 DNMaxioms.axiomatic <> IPH_prv ind
+R4522:4523 DNMaxioms.axiomatic <> Γ:58 var
+R4528:4532 DNMformulas.syntax <> :::x_'→'_x not
+R4526:4527 DNMaxioms.axiomatic <> φ:57 var
+R4533:4534 DNMaxioms.axiomatic <> φ:57 var
+R4552:4553 DNMaxioms.axiomatic <> MP constr
+R4552:4553 DNMaxioms.axiomatic <> MP constr
+R4565:4566 DNMaxioms.axiomatic <> MP constr
+R4565:4566 DNMaxioms.axiomatic <> MP constr
+R4579:4580 DNMaxioms.axiomatic <> Ax constr
+R4579:4580 DNMaxioms.axiomatic <> Ax constr
+R4604:4608 DNMformulas.syntax <> :::x_'→'_x not
+R4601:4603 DNMformulas.syntax <> :::'⊤' not
+R4612:4616 DNMformulas.syntax <> :::x_'→'_x not
+R4609:4611 DNMformulas.syntax <> :::'⊥' not
+R4617:4619 DNMformulas.syntax <> :::'⊤' not
+R4589:4590 DNMaxioms.axiomatic <> A2 constr
+R4604:4608 DNMformulas.syntax <> :::x_'→'_x not
+R4601:4603 DNMformulas.syntax <> :::'⊤' not
+R4612:4616 DNMformulas.syntax <> :::x_'→'_x not
+R4609:4611 DNMformulas.syntax <> :::'⊥' not
+R4617:4619 DNMformulas.syntax <> :::'⊤' not
+R4589:4590 DNMaxioms.axiomatic <> A2 constr
+R4649:4650 DNMaxioms.axiomatic <> Ax constr
+R4649:4650 DNMaxioms.axiomatic <> Ax constr
+R4674:4678 DNMformulas.syntax <> :::x_'→'_x not
+R4671:4673 DNMformulas.syntax <> :::'⊤' not
+R4682:4686 DNMformulas.syntax <> :::x_'→'_x not
+R4679:4681 DNMformulas.syntax <> :::'⊥' not
+R4687:4689 DNMformulas.syntax <> :::'⊤' not
+R4659:4660 DNMaxioms.axiomatic <> A1 constr
+R4674:4678 DNMformulas.syntax <> :::x_'→'_x not
+R4671:4673 DNMformulas.syntax <> :::'⊤' not
+R4682:4686 DNMformulas.syntax <> :::x_'→'_x not
+R4679:4681 DNMformulas.syntax <> :::'⊥' not
+R4687:4689 DNMformulas.syntax <> :::'⊤' not
+R4659:4660 DNMaxioms.axiomatic <> A1 constr
+R4716:4717 DNMaxioms.axiomatic <> MP constr
+R4716:4717 DNMaxioms.axiomatic <> MP constr
+R4730:4731 DNMaxioms.axiomatic <> Ax constr
+R4730:4731 DNMaxioms.axiomatic <> Ax constr
+R4752:4756 DNMformulas.syntax <> :::x_'→'_x not
+R4749:4751 DNMformulas.syntax <> :::'⊤' not
+R4760:4764 DNMformulas.syntax <> :::x_'→'_x not
+R4757:4759 DNMformulas.syntax <> :::'⊥' not
+R4765:4767 DNMformulas.syntax <> :::'⊤' not
+R4740:4741 DNMaxioms.axiomatic <> A1 constr
+R4752:4756 DNMformulas.syntax <> :::x_'→'_x not
+R4749:4751 DNMformulas.syntax <> :::'⊤' not
+R4760:4764 DNMformulas.syntax <> :::x_'→'_x not
+R4757:4759 DNMformulas.syntax <> :::'⊥' not
+R4765:4767 DNMformulas.syntax <> :::'⊤' not
+R4740:4741 DNMaxioms.axiomatic <> A1 constr
+R4798:4799 DNMaxioms.axiomatic <> Ax constr
+R4798:4799 DNMaxioms.axiomatic <> Ax constr
+R4816:4818 DNMformulas.syntax <> :::'⊤' not
+R4820:4822 DNMformulas.syntax <> :::'⊥' not
+R4808:4809 DNMaxioms.axiomatic <> A1 constr
+R4816:4818 DNMformulas.syntax <> :::'⊤' not
+R4820:4822 DNMformulas.syntax <> :::'⊥' not
+R4808:4809 DNMaxioms.axiomatic <> A1 constr
+prf 4979:4987 <> Imp_trans
+binder 4998:4999 <> φ:59
+binder 5001:5002 <> ψ:60
+binder 5004:5005 <> χ:61
+binder 5007:5008 <> Γ:62
+R5011:5017 DNMaxioms.axiomatic <> IPH_prv ind
+R5019:5020 DNMaxioms.axiomatic <> Γ:62 var
+R5023:5023 DNMformulas.syntax <> :::x_'→'_x not
+R5033:5038 DNMformulas.syntax <> :::x_'→'_x not
+R5026:5030 DNMformulas.syntax <> :::x_'→'_x not
+R5024:5025 DNMaxioms.axiomatic <> φ:59 var
+R5031:5032 DNMaxioms.axiomatic <> ψ:60 var
+R5039:5039 DNMformulas.syntax <> :::x_'→'_x not
+R5049:5055 DNMformulas.syntax <> :::x_'→'_x not
+R5065:5065 DNMformulas.syntax <> :::x_'→'_x not
+R5042:5046 DNMformulas.syntax <> :::x_'→'_x not
+R5040:5041 DNMaxioms.axiomatic <> ψ:60 var
+R5047:5048 DNMaxioms.axiomatic <> χ:61 var
+R5058:5062 DNMformulas.syntax <> :::x_'→'_x not
+R5056:5057 DNMaxioms.axiomatic <> φ:59 var
+R5063:5064 DNMaxioms.axiomatic <> χ:61 var
+R5091:5092 DNMaxioms.axiomatic <> MP constr
+R5091:5092 DNMaxioms.axiomatic <> MP constr
+R5104:5105 DNMaxioms.axiomatic <> MP constr
+R5104:5105 DNMaxioms.axiomatic <> MP constr
+R5119:5120 DNMaxioms.axiomatic <> MP constr
+R5119:5120 DNMaxioms.axiomatic <> MP constr
+R5136:5137 DNMaxioms.axiomatic <> MP constr
+R5147:5148 DNMaxioms.axiomatic <> Ax constr
+R5159:5160 DNMaxioms.axiomatic <> A2 constr
+R5136:5137 DNMaxioms.axiomatic <> MP constr
+R5147:5148 DNMaxioms.axiomatic <> Ax constr
+R5147:5148 DNMaxioms.axiomatic <> Ax constr
+R5159:5160 DNMaxioms.axiomatic <> A2 constr
+R5159:5160 DNMaxioms.axiomatic <> A2 constr
+R5190:5191 DNMaxioms.axiomatic <> MP constr
+R5201:5202 DNMaxioms.axiomatic <> Ax constr
+R5190:5191 DNMaxioms.axiomatic <> MP constr
+R5201:5202 DNMaxioms.axiomatic <> Ax constr
+R5201:5202 DNMaxioms.axiomatic <> Ax constr
+R5221:5222 DNMaxioms.axiomatic <> A1 constr
+R5221:5222 DNMaxioms.axiomatic <> A1 constr
+R5255:5256 DNMaxioms.axiomatic <> A2 constr
+R5255:5256 DNMaxioms.axiomatic <> A2 constr
+R5284:5285 DNMaxioms.axiomatic <> MP constr
+R5284:5285 DNMaxioms.axiomatic <> MP constr
+R5300:5301 DNMaxioms.axiomatic <> Ax constr
+R5312:5313 DNMaxioms.axiomatic <> A1 constr
+R5300:5301 DNMaxioms.axiomatic <> Ax constr
+R5312:5313 DNMaxioms.axiomatic <> A1 constr
+R5343:5344 DNMaxioms.axiomatic <> MP constr
+R5343:5344 DNMaxioms.axiomatic <> MP constr
+R5364:5365 DNMaxioms.axiomatic <> MP constr
+R5364:5365 DNMaxioms.axiomatic <> MP constr
+R5386:5387 DNMaxioms.axiomatic <> MP constr
+R5397:5398 DNMaxioms.axiomatic <> Ax constr
+R5409:5410 DNMaxioms.axiomatic <> A2 constr
+R5386:5387 DNMaxioms.axiomatic <> MP constr
+R5397:5398 DNMaxioms.axiomatic <> Ax constr
+R5397:5398 DNMaxioms.axiomatic <> Ax constr
+R5409:5410 DNMaxioms.axiomatic <> A2 constr
+R5409:5410 DNMaxioms.axiomatic <> A2 constr
+R5445:5446 DNMaxioms.axiomatic <> MP constr
+R5445:5446 DNMaxioms.axiomatic <> MP constr
+R5468:5469 DNMaxioms.axiomatic <> Ax constr
+R5480:5481 DNMaxioms.axiomatic <> A1 constr
+R5468:5469 DNMaxioms.axiomatic <> Ax constr
+R5480:5481 DNMaxioms.axiomatic <> A1 constr
+R5519:5520 DNMaxioms.axiomatic <> MP constr
+R5530:5531 DNMaxioms.axiomatic <> Ax constr
+R5542:5543 DNMaxioms.axiomatic <> A1 constr
+R5519:5520 DNMaxioms.axiomatic <> MP constr
+R5530:5531 DNMaxioms.axiomatic <> Ax constr
+R5530:5531 DNMaxioms.axiomatic <> Ax constr
+R5542:5543 DNMaxioms.axiomatic <> A1 constr
+R5542:5543 DNMaxioms.axiomatic <> A1 constr
+R5576:5577 DNMaxioms.axiomatic <> MP constr
+R5576:5577 DNMaxioms.axiomatic <> MP constr
+R5599:5600 DNMaxioms.axiomatic <> MP constr
+R5599:5600 DNMaxioms.axiomatic <> MP constr
+R5623:5624 DNMaxioms.axiomatic <> MP constr
+R5634:5635 DNMaxioms.axiomatic <> Ax constr
+R5646:5647 DNMaxioms.axiomatic <> A2 constr
+R5623:5624 DNMaxioms.axiomatic <> MP constr
+R5634:5635 DNMaxioms.axiomatic <> Ax constr
+R5634:5635 DNMaxioms.axiomatic <> Ax constr
+R5646:5647 DNMaxioms.axiomatic <> A2 constr
+R5646:5647 DNMaxioms.axiomatic <> A2 constr
+R5684:5685 DNMaxioms.axiomatic <> MP constr
+R5695:5696 DNMaxioms.axiomatic <> Ax constr
+R5707:5708 DNMaxioms.axiomatic <> A1 constr
+R5684:5685 DNMaxioms.axiomatic <> MP constr
+R5695:5696 DNMaxioms.axiomatic <> Ax constr
+R5695:5696 DNMaxioms.axiomatic <> Ax constr
+R5707:5708 DNMaxioms.axiomatic <> A1 constr
+R5707:5708 DNMaxioms.axiomatic <> A1 constr
+R5743:5744 DNMaxioms.axiomatic <> MP constr
+R5754:5755 DNMaxioms.axiomatic <> Ax constr
+R5743:5744 DNMaxioms.axiomatic <> MP constr
+R5754:5755 DNMaxioms.axiomatic <> Ax constr
+R5754:5755 DNMaxioms.axiomatic <> Ax constr
+R5778:5779 DNMaxioms.axiomatic <> A1 constr
+R5778:5779 DNMaxioms.axiomatic <> A1 constr
+R5816:5817 DNMaxioms.axiomatic <> A2 constr
+R5816:5817 DNMaxioms.axiomatic <> A2 constr
+R5843:5844 DNMaxioms.axiomatic <> MP constr
+R5843:5844 DNMaxioms.axiomatic <> MP constr
+R5858:5859 DNMaxioms.axiomatic <> MP constr
+R5858:5859 DNMaxioms.axiomatic <> MP constr
+R5875:5876 DNMaxioms.axiomatic <> MP constr
+R5886:5887 DNMaxioms.axiomatic <> Ax constr
+R5898:5899 DNMaxioms.axiomatic <> A2 constr
+R5875:5876 DNMaxioms.axiomatic <> MP constr
+R5886:5887 DNMaxioms.axiomatic <> Ax constr
+R5886:5887 DNMaxioms.axiomatic <> Ax constr
+R5898:5899 DNMaxioms.axiomatic <> A2 constr
+R5898:5899 DNMaxioms.axiomatic <> A2 constr
+R5930:5931 DNMaxioms.axiomatic <> MP constr
+R5941:5942 DNMaxioms.axiomatic <> Ax constr
+R5953:5954 DNMaxioms.axiomatic <> A1 constr
+R5930:5931 DNMaxioms.axiomatic <> MP constr
+R5941:5942 DNMaxioms.axiomatic <> Ax constr
+R5941:5942 DNMaxioms.axiomatic <> Ax constr
+R5953:5954 DNMaxioms.axiomatic <> A1 constr
+R5953:5954 DNMaxioms.axiomatic <> A1 constr
+R5982:5983 DNMaxioms.axiomatic <> MP constr
+R5993:5994 DNMaxioms.axiomatic <> Ax constr
+R5982:5983 DNMaxioms.axiomatic <> MP constr
+R5993:5994 DNMaxioms.axiomatic <> Ax constr
+R5993:5994 DNMaxioms.axiomatic <> Ax constr
+R6010:6011 DNMaxioms.axiomatic <> A1 constr
+R6010:6011 DNMaxioms.axiomatic <> A1 constr
+R6041:6042 DNMaxioms.axiomatic <> A2 constr
+R6041:6042 DNMaxioms.axiomatic <> A2 constr
+prf 6071:6077 <> Imp_And
+binder 6088:6089 <> φ:63
+binder 6091:6092 <> ψ:64
+binder 6094:6095 <> χ:65
+binder 6097:6098 <> Γ:66
+R6101:6107 DNMaxioms.axiomatic <> IPH_prv ind
+R6109:6110 DNMaxioms.axiomatic <> Γ:66 var
+R6113:6113 DNMformulas.syntax <> :::x_'→'_x not
+R6132:6138 DNMformulas.syntax <> :::x_'→'_x not
+R6157:6157 DNMformulas.syntax <> :::x_'→'_x not
+R6116:6121 DNMformulas.syntax <> :::x_'→'_x not
+R6131:6131 DNMformulas.syntax <> :::x_'→'_x not
+R6114:6115 DNMaxioms.axiomatic <> φ:63 var
+R6124:6128 DNMformulas.syntax <> :::x_'→'_x not
+R6122:6123 DNMaxioms.axiomatic <> ψ:64 var
+R6129:6130 DNMaxioms.axiomatic <> χ:65 var
+R6139:6139 DNMformulas.syntax <> :::x_'→'_x not
+R6149:6154 DNMformulas.syntax <> :::x_'→'_x not
+R6142:6146 DNMformulas.syntax <> :::x_'∧'_x not
+R6140:6141 DNMaxioms.axiomatic <> φ:63 var
+R6147:6148 DNMaxioms.axiomatic <> ψ:64 var
+R6155:6156 DNMaxioms.axiomatic <> χ:65 var
+R6197:6198 DNMaxioms.axiomatic <> MP constr
+R6197:6198 DNMaxioms.axiomatic <> MP constr
+R6212:6213 DNMaxioms.axiomatic <> MP constr
+R6212:6213 DNMaxioms.axiomatic <> MP constr
+R6229:6237 DNMaxioms.axiomatic <> Imp_trans thm
+R6229:6237 DNMaxioms.axiomatic <> Imp_trans thm
+R6253:6254 DNMaxioms.axiomatic <> MP constr
+R6253:6254 DNMaxioms.axiomatic <> MP constr
+R6272:6280 DNMaxioms.axiomatic <> Imp_trans thm
+R6272:6280 DNMaxioms.axiomatic <> Imp_trans thm
+R6298:6299 DNMaxioms.axiomatic <> Ax constr
+R6310:6311 DNMaxioms.axiomatic <> A6 constr
+R6298:6299 DNMaxioms.axiomatic <> Ax constr
+R6310:6311 DNMaxioms.axiomatic <> A6 constr
+R6339:6340 DNMaxioms.axiomatic <> MP constr
+R6339:6340 DNMaxioms.axiomatic <> MP constr
+R6356:6357 DNMaxioms.axiomatic <> MP constr
+R6367:6368 DNMaxioms.axiomatic <> Ax constr
+R6379:6380 DNMaxioms.axiomatic <> A2 constr
+R6356:6357 DNMaxioms.axiomatic <> MP constr
+R6367:6368 DNMaxioms.axiomatic <> Ax constr
+R6367:6368 DNMaxioms.axiomatic <> Ax constr
+R6379:6380 DNMaxioms.axiomatic <> A2 constr
+R6379:6380 DNMaxioms.axiomatic <> A2 constr
+R6410:6411 DNMaxioms.axiomatic <> MP constr
+R6410:6411 DNMaxioms.axiomatic <> MP constr
+R6429:6430 DNMaxioms.axiomatic <> Ax constr
+R6441:6442 DNMaxioms.axiomatic <> A1 constr
+R6429:6430 DNMaxioms.axiomatic <> Ax constr
+R6441:6442 DNMaxioms.axiomatic <> A1 constr
+R6474:6475 DNMaxioms.axiomatic <> Ax constr
+R6486:6487 DNMaxioms.axiomatic <> A7 constr
+R6474:6475 DNMaxioms.axiomatic <> Ax constr
+R6486:6487 DNMaxioms.axiomatic <> A7 constr
+prf 6821:6827 <> ND_BotE
+binder 6829:6830 <> Γ:67
+binder 6832:6833 <> φ:68
+R6851:6854 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6837:6843 DNMaxioms.axiomatic <> IPH_prv ind
+R6845:6846 DNMaxioms.axiomatic <> Γ:67 var
+R6848:6850 DNMformulas.syntax <> :::'⊥' not
+R6855:6861 DNMaxioms.axiomatic <> IPH_prv ind
+R6863:6864 DNMaxioms.axiomatic <> Γ:67 var
+R6866:6867 DNMaxioms.axiomatic <> φ:68 var
+R6895:6896 DNMaxioms.axiomatic <> MP constr
+R6895:6896 DNMaxioms.axiomatic <> MP constr
+R6908:6909 DNMaxioms.axiomatic <> Ax constr
+R6920:6921 DNMaxioms.axiomatic <> A9 constr
+R6908:6909 DNMaxioms.axiomatic <> Ax constr
+R6920:6921 DNMaxioms.axiomatic <> A9 constr
+prf 6962:6968 <> ND_AndI
+binder 6970:6971 <> Γ:69
+binder 6973:6974 <> φ:70
+binder 6976:6977 <> ψ:71
+R6994:6997 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6981:6987 DNMaxioms.axiomatic <> IPH_prv ind
+R6989:6990 DNMaxioms.axiomatic <> Γ:69 var
+R6992:6993 DNMaxioms.axiomatic <> φ:70 var
+R7011:7014 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6998:7004 DNMaxioms.axiomatic <> IPH_prv ind
+R7006:7007 DNMaxioms.axiomatic <> Γ:69 var
+R7009:7010 DNMaxioms.axiomatic <> ψ:71 var
+R7015:7021 DNMaxioms.axiomatic <> IPH_prv ind
+R7023:7024 DNMaxioms.axiomatic <> Γ:69 var
+R7029:7033 DNMformulas.syntax <> :::x_'∧'_x not
+R7027:7028 DNMaxioms.axiomatic <> φ:70 var
+R7034:7035 DNMaxioms.axiomatic <> ψ:71 var
+R7069:7070 DNMaxioms.axiomatic <> MP constr
+R7083:7084 DNMaxioms.axiomatic <> MP constr
+R7097:7098 DNMaxioms.axiomatic <> MP constr
+R7111:7112 DNMaxioms.axiomatic <> Ax constr
+R7123:7124 DNMaxioms.axiomatic <> A8 constr
+R7148:7157 DNMaxioms.axiomatic <> imp_Id_gen thm
+R7069:7070 DNMaxioms.axiomatic <> MP constr
+R7083:7084 DNMaxioms.axiomatic <> MP constr
+R7097:7098 DNMaxioms.axiomatic <> MP constr
+R7111:7112 DNMaxioms.axiomatic <> Ax constr
+R7123:7124 DNMaxioms.axiomatic <> A8 constr
+R7148:7157 DNMaxioms.axiomatic <> imp_Id_gen thm
+R7176:7177 DNMaxioms.axiomatic <> MP constr
+R7189:7197 DNMaxioms.axiomatic <> Thm_irrel thm
+R7176:7177 DNMaxioms.axiomatic <> MP constr
+R7189:7197 DNMaxioms.axiomatic <> Thm_irrel thm
+prf 7236:7243 <> ND_AndE1
+binder 7245:7246 <> Γ:72
+binder 7248:7249 <> φ:73
+binder 7251:7252 <> ψ:74
+R7278:7281 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7256:7262 DNMaxioms.axiomatic <> IPH_prv ind
+R7264:7265 DNMaxioms.axiomatic <> Γ:72 var
+R7270:7274 DNMformulas.syntax <> :::x_'∧'_x not
+R7268:7269 DNMaxioms.axiomatic <> φ:73 var
+R7275:7276 DNMaxioms.axiomatic <> ψ:74 var
+R7282:7288 DNMaxioms.axiomatic <> IPH_prv ind
+R7290:7291 DNMaxioms.axiomatic <> Γ:72 var
+R7293:7294 DNMaxioms.axiomatic <> φ:73 var
+R7322:7323 DNMaxioms.axiomatic <> MP constr
+R7336:7337 DNMaxioms.axiomatic <> Ax constr
+R7348:7349 DNMaxioms.axiomatic <> A6 constr
+R7322:7323 DNMaxioms.axiomatic <> MP constr
+R7336:7337 DNMaxioms.axiomatic <> Ax constr
+R7348:7349 DNMaxioms.axiomatic <> A6 constr
+prf 7391:7398 <> ND_AndE2
+binder 7400:7401 <> Γ:75
+binder 7403:7404 <> φ:76
+binder 7406:7407 <> ψ:77
+R7433:7436 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7411:7417 DNMaxioms.axiomatic <> IPH_prv ind
+R7419:7420 DNMaxioms.axiomatic <> Γ:75 var
+R7425:7429 DNMformulas.syntax <> :::x_'∧'_x not
+R7423:7424 DNMaxioms.axiomatic <> φ:76 var
+R7430:7431 DNMaxioms.axiomatic <> ψ:77 var
+R7437:7443 DNMaxioms.axiomatic <> IPH_prv ind
+R7445:7446 DNMaxioms.axiomatic <> Γ:75 var
+R7448:7449 DNMaxioms.axiomatic <> ψ:77 var
+R7477:7478 DNMaxioms.axiomatic <> MP constr
+R7491:7492 DNMaxioms.axiomatic <> Ax constr
+R7503:7504 DNMaxioms.axiomatic <> A7 constr
+R7477:7478 DNMaxioms.axiomatic <> MP constr
+R7491:7492 DNMaxioms.axiomatic <> Ax constr
+R7503:7504 DNMaxioms.axiomatic <> A7 constr
+prf 7546:7552 <> ND_OrI1
+binder 7554:7555 <> Γ:78
+binder 7557:7558 <> φ:79
+binder 7560:7561 <> ψ:80
+R7578:7581 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7565:7571 DNMaxioms.axiomatic <> IPH_prv ind
+R7573:7574 DNMaxioms.axiomatic <> Γ:78 var
+R7576:7577 DNMaxioms.axiomatic <> φ:79 var
+R7582:7588 DNMaxioms.axiomatic <> IPH_prv ind
+R7590:7591 DNMaxioms.axiomatic <> Γ:78 var
+R7596:7600 DNMformulas.syntax <> :::x_'∨'_x not
+R7594:7595 DNMaxioms.axiomatic <> φ:79 var
+R7601:7602 DNMaxioms.axiomatic <> ψ:80 var
+R7631:7632 DNMaxioms.axiomatic <> MP constr
+R7645:7646 DNMaxioms.axiomatic <> Ax constr
+R7657:7658 DNMaxioms.axiomatic <> A3 constr
+R7631:7632 DNMaxioms.axiomatic <> MP constr
+R7645:7646 DNMaxioms.axiomatic <> Ax constr
+R7657:7658 DNMaxioms.axiomatic <> A3 constr
+prf 7700:7706 <> ND_OrI2
+binder 7708:7709 <> Γ:81
+binder 7711:7712 <> φ:82
+binder 7714:7715 <> ψ:83
+R7732:7735 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7719:7725 DNMaxioms.axiomatic <> IPH_prv ind
+R7727:7728 DNMaxioms.axiomatic <> Γ:81 var
+R7730:7731 DNMaxioms.axiomatic <> ψ:83 var
+R7736:7742 DNMaxioms.axiomatic <> IPH_prv ind
+R7744:7745 DNMaxioms.axiomatic <> Γ:81 var
+R7750:7754 DNMformulas.syntax <> :::x_'∨'_x not
+R7748:7749 DNMaxioms.axiomatic <> φ:82 var
+R7755:7756 DNMaxioms.axiomatic <> ψ:83 var
+R7785:7786 DNMaxioms.axiomatic <> MP constr
+R7799:7800 DNMaxioms.axiomatic <> Ax constr
+R7811:7812 DNMaxioms.axiomatic <> A4 constr
+R7785:7786 DNMaxioms.axiomatic <> MP constr
+R7799:7800 DNMaxioms.axiomatic <> Ax constr
+R7811:7812 DNMaxioms.axiomatic <> A4 constr
+prf 7854:7859 <> ND_OrE
+binder 7861:7862 <> Γ:84
+binder 7864:7865 <> φ:85
+binder 7867:7868 <> ψ:86
+binder 7870:7871 <> χ:87
+R7897:7904 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7875:7881 DNMaxioms.axiomatic <> IPH_prv ind
+R7883:7884 DNMaxioms.axiomatic <> Γ:84 var
+R7889:7893 DNMformulas.syntax <> :::x_'∨'_x not
+R7887:7888 DNMaxioms.axiomatic <> φ:85 var
+R7894:7895 DNMaxioms.axiomatic <> ψ:86 var
+R7927:7930 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7905:7911 DNMaxioms.axiomatic <> IPH_prv ind
+R7913:7914 DNMaxioms.axiomatic <> Γ:84 var
+R7919:7923 DNMformulas.syntax <> :::x_'→'_x not
+R7917:7918 DNMaxioms.axiomatic <> φ:85 var
+R7924:7925 DNMaxioms.axiomatic <> χ:87 var
+R7953:7961 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7931:7937 DNMaxioms.axiomatic <> IPH_prv ind
+R7939:7940 DNMaxioms.axiomatic <> Γ:84 var
+R7945:7949 DNMformulas.syntax <> :::x_'→'_x not
+R7943:7944 DNMaxioms.axiomatic <> ψ:86 var
+R7950:7951 DNMaxioms.axiomatic <> χ:87 var
+R7962:7968 DNMaxioms.axiomatic <> IPH_prv ind
+R7970:7971 DNMaxioms.axiomatic <> Γ:84 var
+R7973:7974 DNMaxioms.axiomatic <> χ:87 var
+R8011:8012 DNMaxioms.axiomatic <> MP constr
+R8025:8026 DNMaxioms.axiomatic <> MP constr
+R8039:8040 DNMaxioms.axiomatic <> MP constr
+R8053:8054 DNMaxioms.axiomatic <> Ax constr
+R8065:8066 DNMaxioms.axiomatic <> A5 constr
+R8011:8012 DNMaxioms.axiomatic <> MP constr
+R8025:8026 DNMaxioms.axiomatic <> MP constr
+R8039:8040 DNMaxioms.axiomatic <> MP constr
+R8053:8054 DNMaxioms.axiomatic <> Ax constr
+R8065:8066 DNMaxioms.axiomatic <> A5 constr
+prf 8137:8164 <> Deduction_Detachment_Theorem
+binder 8175:8176 <> φ:88
+binder 8178:8179 <> ψ:89
+binder 8181:8182 <> Γ:90
+R8218:8222 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R8196:8202 DNMaxioms.axiomatic <> IPH_prv ind
+R8204:8205 DNMaxioms.axiomatic <> Γ:90 var
+R8210:8214 DNMformulas.syntax <> :::x_'→'_x not
+R8208:8209 DNMaxioms.axiomatic <> φ:88 var
+R8215:8216 DNMaxioms.axiomatic <> ψ:89 var
+R8223:8229 DNMaxioms.axiomatic <> IPH_prv ind
+R8233:8237 Coq.Sets.Ensembles <> Union ind
+R8241:8242 DNMaxioms.axiomatic <> Γ:90 var
+R8246:8254 Coq.Sets.Ensembles <> Singleton ind
+R8259:8260 DNMaxioms.axiomatic <> φ:88 var
+R8265:8266 DNMaxioms.axiomatic <> ψ:89 var
+R8344:8345 DNMaxioms.axiomatic <> MP constr
+R8344:8345 DNMaxioms.axiomatic <> MP constr
+R8359:8367 DNMaxioms.axiomatic <> IPH_monot thm
+R8375:8379 DNMformulas.syntax <> :::x_'→'_x not
+R8359:8367 DNMaxioms.axiomatic <> IPH_monot thm
+R8375:8379 DNMformulas.syntax <> :::x_'→'_x not
+R8416:8427 Coq.Sets.Ensembles <> Union_introl constr
+R8416:8427 Coq.Sets.Ensembles <> Union_introl constr
+R8447:8448 DNMaxioms.axiomatic <> Id constr
+R8447:8448 DNMaxioms.axiomatic <> Id constr
+R8487:8491 Coq.Sets.Ensembles <> Union ind
+R8499:8507 Coq.Sets.Ensembles <> Singleton ind
+R8487:8491 Coq.Sets.Ensembles <> Union ind
+R8499:8507 Coq.Sets.Ensembles <> Singleton ind
+R8644:8645 DNMaxioms.axiomatic <> MP constr
+R8644:8645 DNMaxioms.axiomatic <> MP constr
+R8663:8671 DNMaxioms.axiomatic <> Thm_irrel thm
+R8663:8671 DNMaxioms.axiomatic <> Thm_irrel thm
+R8689:8690 DNMaxioms.axiomatic <> Id constr
+R8689:8690 DNMaxioms.axiomatic <> Id constr
+R8734:8743 DNMaxioms.axiomatic <> imp_Id_gen thm
+R8734:8743 DNMaxioms.axiomatic <> imp_Id_gen thm
+R8768:8769 DNMaxioms.axiomatic <> MP constr
+R8768:8769 DNMaxioms.axiomatic <> MP constr
+R8784:8792 DNMaxioms.axiomatic <> Thm_irrel thm
+R8784:8792 DNMaxioms.axiomatic <> Thm_irrel thm
+R8807:8808 DNMaxioms.axiomatic <> Ax constr
+R8807:8808 DNMaxioms.axiomatic <> Ax constr
+R8846:8847 DNMaxioms.axiomatic <> MP constr
+R8846:8847 DNMaxioms.axiomatic <> MP constr
+R8863:8864 DNMaxioms.axiomatic <> MP constr
+R8863:8864 DNMaxioms.axiomatic <> MP constr
+R8882:8890 DNMaxioms.axiomatic <> Imp_trans thm
+R8882:8890 DNMaxioms.axiomatic <> Imp_trans thm
+R8909:8910 DNMaxioms.axiomatic <> MP constr
+R8909:8910 DNMaxioms.axiomatic <> MP constr
+R8931:8932 DNMaxioms.axiomatic <> MP constr
+R8931:8932 DNMaxioms.axiomatic <> MP constr
+R8954:8955 DNMaxioms.axiomatic <> Ax constr
+R8966:8967 DNMaxioms.axiomatic <> A8 constr
+R8954:8955 DNMaxioms.axiomatic <> Ax constr
+R8966:8967 DNMaxioms.axiomatic <> A8 constr
+R9003:9012 DNMaxioms.axiomatic <> imp_Id_gen thm
+R9003:9012 DNMaxioms.axiomatic <> imp_Id_gen thm
+R9058:9059 DNMaxioms.axiomatic <> MP constr
+R9058:9059 DNMaxioms.axiomatic <> MP constr
+R9077:9083 DNMaxioms.axiomatic <> Imp_And thm
+R9077:9083 DNMaxioms.axiomatic <> Imp_And thm
+R9162:9171 DNMaxioms.axiomatic properties <> sec

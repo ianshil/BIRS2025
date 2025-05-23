@@ -1,0 +1,612 @@
+DIGEST 98e3dd75bc4cc77a811c4d4d1b212007
+FDNMmsseq.ms_sequent
+R144:152 DNMmsseq.multisets <> <> lib
+ind 1135:1142 <> Provable
+constr 1171:1174 <> Atom
+constr 1220:1226 <> ExFalso
+constr 1261:1264 <> AndR
+constr 1342:1345 <> AndL
+constr 1431:1434 <> OrR1
+constr 1499:1502 <> OrR2
+constr 1567:1569 <> OrL
+constr 1673:1676 <> ImpR
+constr 1745:1751 <> ImpLVar
+constr 1852:1858 <> ImpLAnd
+constr 1977:1982 <> ImpLOr
+constr 2110:2116 <> ImpLImp
+R1149:1152 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1146:1148 DNMmsseq.multisets <> env def
+R1157:1160 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1153:1156 DNMformulas.syntax <> form ind
+R2276:2283 DNMmsseq.ms_sequent <> Provable:2 ind
+R1181:1184 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R1189:1190 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+binder 1185:1186 <> Γ:3
+binder 1188:1188 <> p:4
+R1205:1210 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1216:1216 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1193:1198 DNMmsseq.multisets <> :::x_'•'_x not
+R1204:1204 DNMmsseq.multisets <> :::x_'•'_x not
+R1191:1192 DNMmsseq.ms_sequent <> Γ:3 var
+R1199:1201 DNMformulas.syntax <> Var constr
+R1203:1203 DNMmsseq.ms_sequent <> p:4 var
+R1211:1213 DNMformulas.syntax <> Var constr
+R1215:1215 DNMmsseq.ms_sequent <> p:4 var
+R1230:1233 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R1239:1240 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+binder 1234:1235 <> Γ:5
+binder 1237:1238 <> φ:6
+R1251:1255 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1243:1247 DNMmsseq.multisets <> :::x_'•'_x not
+R1241:1242 DNMmsseq.ms_sequent <> Γ:5 var
+R1248:1250 stdpp.base <> ::stdpp_scope:'⊥' not
+R1256:1257 DNMmsseq.ms_sequent <> φ:6 var
+R1268:1271 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R1280:1285 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+binder 1272:1273 <> Γ:7
+binder 1275:1276 <> φ:8
+binder 1278:1279 <> ψ:9
+R1295:1301 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1288:1292 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1286:1287 DNMmsseq.ms_sequent <> Γ:7 var
+R1293:1294 DNMmsseq.ms_sequent <> φ:8 var
+R1311:1320 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1304:1308 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1302:1303 DNMmsseq.ms_sequent <> Γ:7 var
+R1309:1310 DNMmsseq.ms_sequent <> ψ:9 var
+R1323:1328 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1338:1338 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1321:1322 DNMmsseq.ms_sequent <> Γ:7 var
+R1331:1335 DNMformulas.syntax <> :::x_'∧'_x not
+R1329:1330 DNMmsseq.ms_sequent <> φ:8 var
+R1336:1337 DNMmsseq.ms_sequent <> ψ:9 var
+R1349:1352 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R1364:1369 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+binder 1353:1354 <> Γ:10
+binder 1356:1357 <> φ:11
+binder 1359:1360 <> ψ:12
+binder 1362:1363 <> θ:13
+R1393:1402 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1386:1390 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1379:1383 DNMmsseq.multisets <> :::x_'•'_x not
+R1372:1376 DNMmsseq.multisets <> :::x_'•'_x not
+R1370:1371 DNMmsseq.ms_sequent <> Γ:10 var
+R1377:1378 DNMmsseq.ms_sequent <> φ:11 var
+R1384:1385 DNMmsseq.ms_sequent <> ψ:12 var
+R1391:1392 DNMmsseq.ms_sequent <> θ:13 var
+R1421:1425 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1405:1410 DNMmsseq.multisets <> :::x_'•'_x not
+R1420:1420 DNMmsseq.multisets <> :::x_'•'_x not
+R1403:1404 DNMmsseq.ms_sequent <> Γ:10 var
+R1413:1417 DNMformulas.syntax <> :::x_'∧'_x not
+R1411:1412 DNMmsseq.ms_sequent <> φ:11 var
+R1418:1419 DNMmsseq.ms_sequent <> ψ:12 var
+R1426:1427 DNMmsseq.ms_sequent <> θ:13 var
+R1441:1444 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R1453:1458 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+binder 1445:1446 <> Γ:14
+binder 1448:1449 <> φ:15
+binder 1451:1452 <> ψ:16
+R1468:1477 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1461:1465 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1459:1460 DNMmsseq.ms_sequent <> Γ:14 var
+R1466:1467 DNMmsseq.ms_sequent <> φ:15 var
+R1480:1485 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1495:1495 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1478:1479 DNMmsseq.ms_sequent <> Γ:14 var
+R1488:1492 DNMformulas.syntax <> :::x_'∨'_x not
+R1486:1487 DNMmsseq.ms_sequent <> φ:15 var
+R1493:1494 DNMmsseq.ms_sequent <> ψ:16 var
+R1509:1512 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R1521:1526 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+binder 1513:1514 <> Γ:17
+binder 1516:1517 <> φ:18
+binder 1519:1520 <> ψ:19
+R1536:1545 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1529:1533 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1527:1528 DNMmsseq.ms_sequent <> Γ:17 var
+R1534:1535 DNMmsseq.ms_sequent <> ψ:19 var
+R1548:1553 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1563:1563 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1546:1547 DNMmsseq.ms_sequent <> Γ:17 var
+R1556:1560 DNMformulas.syntax <> :::x_'∨'_x not
+R1554:1555 DNMmsseq.ms_sequent <> φ:18 var
+R1561:1562 DNMmsseq.ms_sequent <> ψ:19 var
+R1577:1580 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R1592:1597 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+binder 1581:1582 <> Γ:20
+binder 1584:1585 <> φ:21
+binder 1587:1588 <> ψ:22
+binder 1590:1591 <> θ:23
+R1615:1618 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1607:1612 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1600:1604 DNMmsseq.multisets <> :::x_'•'_x not
+R1598:1599 DNMmsseq.ms_sequent <> Γ:20 var
+R1605:1606 DNMmsseq.ms_sequent <> φ:21 var
+R1613:1614 DNMmsseq.ms_sequent <> θ:23 var
+R1635:1644 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1628:1632 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1621:1625 DNMmsseq.multisets <> :::x_'•'_x not
+R1619:1620 DNMmsseq.ms_sequent <> Γ:20 var
+R1626:1627 DNMmsseq.ms_sequent <> ψ:22 var
+R1633:1634 DNMmsseq.ms_sequent <> θ:23 var
+R1663:1667 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1647:1652 DNMmsseq.multisets <> :::x_'•'_x not
+R1662:1662 DNMmsseq.multisets <> :::x_'•'_x not
+R1645:1646 DNMmsseq.ms_sequent <> Γ:20 var
+R1655:1659 DNMformulas.syntax <> :::x_'∨'_x not
+R1653:1654 DNMmsseq.ms_sequent <> φ:21 var
+R1660:1661 DNMmsseq.ms_sequent <> ψ:22 var
+R1668:1669 DNMmsseq.ms_sequent <> θ:23 var
+R1680:1683 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R1692:1697 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+binder 1684:1685 <> Γ:24
+binder 1687:1688 <> φ:25
+binder 1690:1691 <> ψ:26
+R1714:1723 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1707:1711 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1700:1704 DNMmsseq.multisets <> :::x_'•'_x not
+R1698:1699 DNMmsseq.ms_sequent <> Γ:24 var
+R1705:1706 DNMmsseq.ms_sequent <> φ:25 var
+R1712:1713 DNMmsseq.ms_sequent <> ψ:26 var
+R1726:1731 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1741:1741 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1724:1725 DNMmsseq.ms_sequent <> Γ:24 var
+R1734:1738 DNMformulas.syntax <> :::x_'→'_x not
+R1732:1733 DNMmsseq.ms_sequent <> φ:25 var
+R1739:1740 DNMmsseq.ms_sequent <> ψ:26 var
+R1755:1758 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R1769:1774 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+binder 1759:1760 <> Γ:27
+binder 1762:1762 <> p:28
+binder 1764:1765 <> φ:29
+binder 1767:1768 <> ψ:30
+R1801:1810 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1794:1798 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1787:1791 DNMmsseq.multisets <> :::x_'•'_x not
+R1777:1781 DNMmsseq.multisets <> :::x_'•'_x not
+R1775:1776 DNMmsseq.ms_sequent <> Γ:27 var
+R1782:1784 DNMformulas.syntax <> Var constr
+R1786:1786 DNMmsseq.ms_sequent <> p:28 var
+R1792:1793 DNMmsseq.ms_sequent <> φ:29 var
+R1799:1800 DNMmsseq.ms_sequent <> ψ:30 var
+R1842:1846 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1823:1828 DNMmsseq.multisets <> :::x_'•'_x not
+R1841:1841 DNMmsseq.multisets <> :::x_'•'_x not
+R1813:1817 DNMmsseq.multisets <> :::x_'•'_x not
+R1811:1812 DNMmsseq.ms_sequent <> Γ:27 var
+R1818:1820 DNMformulas.syntax <> Var constr
+R1822:1822 DNMmsseq.ms_sequent <> p:28 var
+R1834:1838 DNMformulas.syntax <> :::x_'→'_x not
+R1829:1831 DNMformulas.syntax <> Var constr
+R1833:1833 DNMmsseq.ms_sequent <> p:28 var
+R1839:1840 DNMmsseq.ms_sequent <> φ:29 var
+R1847:1848 DNMmsseq.ms_sequent <> ψ:30 var
+R1862:1866 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R1884:1889 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+binder 1867:1868 <> Γ:31
+binder 1870:1872 <> φ1:32
+binder 1874:1876 <> φ2:33
+binder 1878:1880 <> φ3:34
+binder 1882:1883 <> ψ:35
+R1927:1936 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1920:1924 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1892:1897 DNMmsseq.multisets <> :::x_'•'_x not
+R1919:1919 DNMmsseq.multisets <> :::x_'•'_x not
+R1890:1891 DNMmsseq.ms_sequent <> Γ:31 var
+R1901:1906 DNMformulas.syntax <> :::x_'→'_x not
+R1918:1918 DNMformulas.syntax <> :::x_'→'_x not
+R1898:1900 DNMmsseq.ms_sequent <> φ1:32 var
+R1910:1914 DNMformulas.syntax <> :::x_'→'_x not
+R1907:1909 DNMmsseq.ms_sequent <> φ2:33 var
+R1915:1917 DNMmsseq.ms_sequent <> φ3:34 var
+R1925:1926 DNMmsseq.ms_sequent <> ψ:35 var
+R1967:1971 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R1939:1944 DNMmsseq.multisets <> :::x_'•'_x not
+R1966:1966 DNMmsseq.multisets <> :::x_'•'_x not
+R1937:1938 DNMmsseq.ms_sequent <> Γ:31 var
+R1945:1945 DNMformulas.syntax <> :::x_'→'_x not
+R1957:1962 DNMformulas.syntax <> :::x_'→'_x not
+R1949:1953 DNMformulas.syntax <> :::x_'∧'_x not
+R1946:1948 DNMmsseq.ms_sequent <> φ1:32 var
+R1954:1956 DNMmsseq.ms_sequent <> φ2:33 var
+R1963:1965 DNMmsseq.ms_sequent <> φ3:34 var
+R1972:1973 DNMmsseq.ms_sequent <> ψ:35 var
+R1987:1991 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R2009:2014 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+binder 1992:1993 <> Γ:36
+binder 1995:1997 <> φ1:37
+binder 1999:2001 <> φ2:38
+binder 2003:2005 <> φ3:39
+binder 2007:2008 <> ψ:40
+R2060:2069 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2053:2057 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R2035:2040 DNMmsseq.multisets <> :::x_'•'_x not
+R2052:2052 DNMmsseq.multisets <> :::x_'•'_x not
+R2017:2022 DNMmsseq.multisets <> :::x_'•'_x not
+R2034:2034 DNMmsseq.multisets <> :::x_'•'_x not
+R2015:2016 DNMmsseq.ms_sequent <> Γ:36 var
+R2026:2030 DNMformulas.syntax <> :::x_'→'_x not
+R2023:2025 DNMmsseq.ms_sequent <> φ1:37 var
+R2031:2033 DNMmsseq.ms_sequent <> φ3:39 var
+R2044:2048 DNMformulas.syntax <> :::x_'→'_x not
+R2041:2043 DNMmsseq.ms_sequent <> φ2:38 var
+R2049:2051 DNMmsseq.ms_sequent <> φ3:39 var
+R2058:2059 DNMmsseq.ms_sequent <> ψ:40 var
+R2100:2104 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R2072:2077 DNMmsseq.multisets <> :::x_'•'_x not
+R2099:2099 DNMmsseq.multisets <> :::x_'•'_x not
+R2070:2071 DNMmsseq.ms_sequent <> Γ:36 var
+R2078:2078 DNMformulas.syntax <> :::x_'→'_x not
+R2090:2095 DNMformulas.syntax <> :::x_'→'_x not
+R2082:2086 DNMformulas.syntax <> :::x_'∨'_x not
+R2079:2081 DNMmsseq.ms_sequent <> φ1:37 var
+R2087:2089 DNMmsseq.ms_sequent <> φ2:38 var
+R2096:2098 DNMmsseq.ms_sequent <> φ3:39 var
+R2105:2106 DNMmsseq.ms_sequent <> ψ:40 var
+R2120:2124 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R2142:2147 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+binder 2125:2126 <> Γ:41
+binder 2128:2130 <> φ1:42
+binder 2132:2134 <> φ2:43
+binder 2136:2138 <> φ3:44
+binder 2140:2141 <> ψ:45
+R2186:2188 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2168:2173 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R2185:2185 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R2150:2155 DNMmsseq.multisets <> :::x_'•'_x not
+R2167:2167 DNMmsseq.multisets <> :::x_'•'_x not
+R2148:2149 DNMmsseq.ms_sequent <> Γ:41 var
+R2159:2163 DNMformulas.syntax <> :::x_'→'_x not
+R2156:2158 DNMmsseq.ms_sequent <> φ2:43 var
+R2164:2166 DNMmsseq.ms_sequent <> φ3:44 var
+R2177:2181 DNMformulas.syntax <> :::x_'→'_x not
+R2174:2176 DNMmsseq.ms_sequent <> φ1:42 var
+R2182:2184 DNMmsseq.ms_sequent <> φ2:43 var
+R2206:2215 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2199:2203 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R2191:2195 DNMmsseq.multisets <> :::x_'•'_x not
+R2189:2190 DNMmsseq.ms_sequent <> Γ:41 var
+R2196:2198 DNMmsseq.ms_sequent <> φ3:44 var
+R2204:2205 DNMmsseq.ms_sequent <> ψ:45 var
+R2246:2250 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R2218:2223 DNMmsseq.multisets <> :::x_'•'_x not
+R2245:2245 DNMmsseq.multisets <> :::x_'•'_x not
+R2216:2217 DNMmsseq.ms_sequent <> Γ:41 var
+R2224:2224 DNMformulas.syntax <> :::x_'→'_x not
+R2236:2241 DNMformulas.syntax <> :::x_'→'_x not
+R2228:2232 DNMformulas.syntax <> :::x_'→'_x not
+R2225:2227 DNMmsseq.ms_sequent <> φ1:42 var
+R2233:2235 DNMmsseq.ms_sequent <> φ2:43 var
+R2242:2244 DNMmsseq.ms_sequent <> φ3:44 var
+R2251:2252 DNMmsseq.ms_sequent <> ψ:45 var
+scheme 1135:1142 <> Provable_rect
+scheme 1135:1142 <> Provable_ind
+scheme 1135:1142 <> Provable_rec
+scheme 1135:1142 <> Provable_sind
+R2276:2283 DNMmsseq.ms_sequent <> Provable ind
+not 2260:2260 <> :::x_'⊢'_x
+R2323:2330 DNMmsseq.ms_sequent <> Provable ind
+not 2303:2303 <> :::x_'⊢G4ip'_x
+R2380:2387 DNMmsseq.ms_sequent <> Provable ind
+inst 2479:2493 <> proper_Provable
+R2498:2503 Coq.Classes.Morphisms <> Proper class
+R2535:2542 DNMmsseq.ms_sequent <> Provable ind
+R2517:2521 Coq.Classes.Morphisms ProperNotations ::signature_scope:x_'==>'_x not
+R2506:2511 stdpp.base <> ::stdpp_scope:'(≡@{'_x_'}'_')' not
+R2515:2516 stdpp.base <> ::stdpp_scope:'(≡@{'_x_'}'_')' not
+R2512:2514 DNMmsseq.multisets <> env def
+R2525:2529 Coq.Classes.Morphisms ProperNotations ::signature_scope:x_'==>'_x not
+R2522:2524 stdpp.base <> ::stdpp_scope:'(=)' not
+R2530:2532 stdpp.base <> ::stdpp_scope:'(=)' not
+R2638:2656 DNMmsseq.multisets <> list_to_set_disj_rm thm
+R2679:2702 DNMmsseq.multisets <> list_to_set_disj_env_add thm
+R2726:2745 DNMmsseq.multisets <> difference_singleton thm
+R2775:2793 DNMmsseq.multisets <> list_to_set_disj_rm thm
+R2811:2828 DNMmsseq.multisets <> union_difference_L thm
+R2858:2875 DNMmsseq.multisets <> union_difference_R thm
+R3069:3083 DNMmsseq.ms_sequent <> proper_Provable inst
+R3414:3414 Coq.Init.Datatypes <> O constr
+R3414:3414 Coq.Init.Datatypes <> O constr
+R3535:3535 Coq.Init.Datatypes <> S constr
+R3537:3537 Coq.Init.Datatypes <> O constr
+R3535:3535 Coq.Init.Datatypes <> S constr
+R3537:3537 Coq.Init.Datatypes <> O constr
+R3635:3635 Coq.Init.Datatypes <> S constr
+R3638:3638 Coq.Init.Datatypes <> S constr
+R3640:3640 Coq.Init.Datatypes <> O constr
+R3635:3635 Coq.Init.Datatypes <> S constr
+R3638:3638 Coq.Init.Datatypes <> S constr
+R3640:3640 Coq.Init.Datatypes <> O constr
+R3766:3766 Coq.Init.Datatypes <> S constr
+R3769:3769 Coq.Init.Datatypes <> S constr
+R3772:3772 Coq.Init.Datatypes <> S constr
+R3774:3774 Coq.Init.Datatypes <> O constr
+R3766:3766 Coq.Init.Datatypes <> S constr
+R3769:3769 Coq.Init.Datatypes <> S constr
+R3772:3772 Coq.Init.Datatypes <> S constr
+R3774:3774 Coq.Init.Datatypes <> O constr
+R3790:3804 DNMmsseq.ms_sequent <> proper_Provable inst
+R3811:3835 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R3837:3861 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R3863:3887 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R3890:3901 DNMmsseq.multisets <> env_add_comm thm
+R3917:3923 Coq.Init.Logic <> eq_refl constr
+R3655:3669 DNMmsseq.ms_sequent <> proper_Provable inst
+R3676:3700 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R3702:3726 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R3729:3740 DNMmsseq.multisets <> env_add_comm thm
+R3755:3761 Coq.Init.Logic <> eq_refl constr
+R3551:3565 DNMmsseq.ms_sequent <> proper_Provable inst
+R3572:3596 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R3599:3610 DNMmsseq.multisets <> env_add_comm thm
+R3624:3630 Coq.Init.Logic <> eq_refl constr
+R3454:3458 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R3447:3451 DNMmsseq.multisets <> :::x_'•'_x not
+R3440:3444 DNMmsseq.multisets <> :::x_'•'_x not
+R3454:3458 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R3447:3451 DNMmsseq.multisets <> :::x_'•'_x not
+R3440:3444 DNMmsseq.multisets <> :::x_'•'_x not
+R3475:3489 DNMmsseq.ms_sequent <> proper_Provable inst
+R3496:3507 DNMmsseq.multisets <> env_add_comm thm
+R3520:3526 Coq.Init.Logic <> eq_refl constr
+R4382:4396 DNMmsseq.ms_sequent <> proper_Provable inst
+R4403:4427 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R4429:4453 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R4456:4480 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R4483:4502 DNMmsseq.multisets <> difference_singleton thm
+R4520:4526 Coq.Init.Logic <> eq_refl constr
+R4246:4260 DNMmsseq.ms_sequent <> proper_Provable inst
+R4267:4291 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R4294:4318 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R4321:4340 DNMmsseq.multisets <> difference_singleton thm
+R4357:4363 Coq.Init.Logic <> eq_refl constr
+R4138:4152 DNMmsseq.ms_sequent <> proper_Provable inst
+R4159:4183 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R4186:4205 DNMmsseq.multisets <> difference_singleton thm
+R4221:4227 Coq.Init.Logic <> eq_refl constr
+R4058:4072 DNMmsseq.ms_sequent <> proper_Provable inst
+R4079:4098 DNMmsseq.multisets <> difference_singleton thm
+R4113:4119 Coq.Init.Logic <> eq_refl constr
+R4777:4781 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R4754:4754 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R4764:4769 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R4758:4760 DNMmsseq.multisets <> :::x_'•'_x not
+R4770:4771 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R4775:4776 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R4777:4781 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R4754:4754 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R4764:4769 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R4758:4760 DNMmsseq.multisets <> :::x_'•'_x not
+R4770:4771 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R4775:4776 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R4945:4949 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R4941:4943 DNMmsseq.multisets <> :::x_'•'_x not
+R4918:4918 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R4928:4933 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R4922:4924 DNMmsseq.multisets <> :::x_'•'_x not
+R4934:4935 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R4939:4940 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R4945:4949 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R4941:4943 DNMmsseq.multisets <> :::x_'•'_x not
+R4918:4918 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R4928:4933 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R4922:4924 DNMmsseq.multisets <> :::x_'•'_x not
+R4934:4935 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R4939:4940 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R5155:5159 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R5151:5153 DNMmsseq.multisets <> :::x_'•'_x not
+R5147:5149 DNMmsseq.multisets <> :::x_'•'_x not
+R5124:5124 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R5134:5139 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R5128:5130 DNMmsseq.multisets <> :::x_'•'_x not
+R5140:5141 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R5145:5146 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R5155:5159 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R5151:5153 DNMmsseq.multisets <> :::x_'•'_x not
+R5147:5149 DNMmsseq.multisets <> :::x_'•'_x not
+R5124:5124 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R5134:5139 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R5128:5130 DNMmsseq.multisets <> :::x_'•'_x not
+R5140:5141 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R5145:5146 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R5404:5408 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R5400:5402 DNMmsseq.multisets <> :::x_'•'_x not
+R5396:5398 DNMmsseq.multisets <> :::x_'•'_x not
+R5392:5394 DNMmsseq.multisets <> :::x_'•'_x not
+R5369:5369 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R5379:5384 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R5373:5375 DNMmsseq.multisets <> :::x_'•'_x not
+R5385:5386 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R5390:5391 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R5404:5408 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R5400:5402 DNMmsseq.multisets <> :::x_'•'_x not
+R5396:5398 DNMmsseq.multisets <> :::x_'•'_x not
+R5392:5394 DNMmsseq.multisets <> :::x_'•'_x not
+R5369:5369 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R5379:5384 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R5373:5375 DNMmsseq.multisets <> :::x_'•'_x not
+R5385:5386 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R5390:5391 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R5692:5696 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R5688:5690 DNMmsseq.multisets <> :::x_'•'_x not
+R5684:5686 DNMmsseq.multisets <> :::x_'•'_x not
+R5680:5682 DNMmsseq.multisets <> :::x_'•'_x not
+R5676:5678 DNMmsseq.multisets <> :::x_'•'_x not
+R5653:5653 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R5663:5668 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R5657:5659 DNMmsseq.multisets <> :::x_'•'_x not
+R5669:5670 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R5674:5675 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R5692:5696 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R5688:5690 DNMmsseq.multisets <> :::x_'•'_x not
+R5684:5686 DNMmsseq.multisets <> :::x_'•'_x not
+R5680:5682 DNMmsseq.multisets <> :::x_'•'_x not
+R5676:5678 DNMmsseq.multisets <> :::x_'•'_x not
+R5653:5653 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R5663:5668 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R5657:5659 DNMmsseq.multisets <> :::x_'•'_x not
+R5669:5670 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R5674:5675 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R5747:5751 stdpp.base <> ::stdpp_scope:x_'∈'_x not
+R5774:5788 DNMmsseq.ms_sequent <> proper_Provable inst
+R5795:5819 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R5821:5845 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R5847:5871 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R5873:5897 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R5900:5910 DNMmsseq.multisets <> env_replace thm
+R5928:5934 Coq.Init.Logic <> eq_refl constr
+R5459:5463 stdpp.base <> ::stdpp_scope:x_'∈'_x not
+R5486:5500 DNMmsseq.ms_sequent <> proper_Provable inst
+R5507:5531 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R5533:5557 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R5559:5583 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R5586:5596 DNMmsseq.multisets <> env_replace thm
+R5613:5619 Coq.Init.Logic <> eq_refl constr
+R5210:5214 stdpp.base <> ::stdpp_scope:x_'∈'_x not
+R5237:5251 DNMmsseq.ms_sequent <> proper_Provable inst
+R5258:5282 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R5284:5308 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R5311:5321 DNMmsseq.multisets <> env_replace thm
+R5337:5343 Coq.Init.Logic <> eq_refl constr
+R5000:5004 stdpp.base <> ::stdpp_scope:x_'∈'_x not
+R5027:5041 DNMmsseq.ms_sequent <> proper_Provable inst
+R5048:5072 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R5075:5085 DNMmsseq.multisets <> env_replace thm
+R5100:5106 Coq.Init.Logic <> eq_refl constr
+R4832:4836 stdpp.base <> ::stdpp_scope:x_'∈'_x not
+R4859:4873 DNMmsseq.ms_sequent <> proper_Provable inst
+R4880:4890 DNMmsseq.multisets <> env_replace thm
+R4904:4910 Coq.Init.Logic <> eq_refl constr
+R6211:6215 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R6205:6207 DNMmsseq.multisets <> :::x_'•'_x not
+R6193:6197 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R6198:6199 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R6203:6204 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R6211:6215 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R6205:6207 DNMmsseq.multisets <> :::x_'•'_x not
+R6193:6197 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R6198:6199 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R6203:6204 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R6408:6412 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R6402:6404 DNMmsseq.multisets <> :::x_'•'_x not
+R6398:6400 DNMmsseq.multisets <> :::x_'•'_x not
+R6386:6390 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R6391:6392 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R6396:6397 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R6408:6412 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R6402:6404 DNMmsseq.multisets <> :::x_'•'_x not
+R6398:6400 DNMmsseq.multisets <> :::x_'•'_x not
+R6386:6390 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R6391:6392 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R6396:6397 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R6649:6653 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R6643:6645 DNMmsseq.multisets <> :::x_'•'_x not
+R6639:6641 DNMmsseq.multisets <> :::x_'•'_x not
+R6635:6637 DNMmsseq.multisets <> :::x_'•'_x not
+R6623:6627 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R6628:6629 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R6633:6634 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R6649:6653 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R6643:6645 DNMmsseq.multisets <> :::x_'•'_x not
+R6639:6641 DNMmsseq.multisets <> :::x_'•'_x not
+R6635:6637 DNMmsseq.multisets <> :::x_'•'_x not
+R6623:6627 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R6628:6629 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R6633:6634 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R6926:6930 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R6920:6922 DNMmsseq.multisets <> :::x_'•'_x not
+R6916:6918 DNMmsseq.multisets <> :::x_'•'_x not
+R6912:6914 DNMmsseq.multisets <> :::x_'•'_x not
+R6908:6910 DNMmsseq.multisets <> :::x_'•'_x not
+R6896:6900 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R6901:6902 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R6906:6907 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R6926:6930 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R6920:6922 DNMmsseq.multisets <> :::x_'•'_x not
+R6916:6918 DNMmsseq.multisets <> :::x_'•'_x not
+R6912:6914 DNMmsseq.multisets <> :::x_'•'_x not
+R6908:6910 DNMmsseq.multisets <> :::x_'•'_x not
+R6896:6900 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R6901:6902 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R6906:6907 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R7242:7246 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R7236:7238 DNMmsseq.multisets <> :::x_'•'_x not
+R7232:7234 DNMmsseq.multisets <> :::x_'•'_x not
+R7228:7230 DNMmsseq.multisets <> :::x_'•'_x not
+R7224:7226 DNMmsseq.multisets <> :::x_'•'_x not
+R7220:7222 DNMmsseq.multisets <> :::x_'•'_x not
+R7208:7212 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R7213:7214 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R7218:7219 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R7242:7246 DNMmsseq.ms_sequent <> :::x_'⊢'_x not
+R7236:7238 DNMmsseq.multisets <> :::x_'•'_x not
+R7232:7234 DNMmsseq.multisets <> :::x_'•'_x not
+R7228:7230 DNMmsseq.multisets <> :::x_'•'_x not
+R7224:7226 DNMmsseq.multisets <> :::x_'•'_x not
+R7220:7222 DNMmsseq.multisets <> :::x_'•'_x not
+R7208:7212 stdpp.base <> ::stdpp_scope:x_'∖'_x not
+R7213:7214 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R7218:7219 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R7297:7301 stdpp.base <> ::stdpp_scope:x_'∈'_x not
+R7378:7392 DNMmsseq.ms_sequent <> proper_Provable inst
+R7399:7406 Coq.Classes.RelationClasses <> symmetry def
+R7408:7432 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R7434:7458 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R7460:7484 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R7486:7510 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R7513:7523 DNMmsseq.multisets <> env_replace thm
+R7542:7548 Coq.Init.Logic <> eq_refl constr
+R6981:6985 stdpp.base <> ::stdpp_scope:x_'∈'_x not
+R7054:7068 DNMmsseq.ms_sequent <> proper_Provable inst
+R7075:7082 Coq.Classes.RelationClasses <> symmetry def
+R7084:7108 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R7110:7134 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R7136:7160 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R7163:7173 DNMmsseq.multisets <> env_replace thm
+R7191:7197 Coq.Init.Logic <> eq_refl constr
+R6704:6708 stdpp.base <> ::stdpp_scope:x_'∈'_x not
+R6769:6783 DNMmsseq.ms_sequent <> proper_Provable inst
+R6790:6797 Coq.Classes.RelationClasses <> symmetry def
+R6799:6823 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R6825:6849 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R6852:6862 DNMmsseq.multisets <> env_replace thm
+R6879:6885 Coq.Init.Logic <> eq_refl constr
+R6463:6467 stdpp.base <> ::stdpp_scope:x_'∈'_x not
+R6524:6538 DNMmsseq.ms_sequent <> proper_Provable inst
+R6545:6552 Coq.Classes.RelationClasses <> symmetry def
+R6554:6578 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R6581:6591 DNMmsseq.multisets <> env_replace thm
+R6606:6612 Coq.Init.Logic <> eq_refl constr
+R6266:6270 stdpp.base <> ::stdpp_scope:x_'∈'_x not
+R6315:6329 DNMmsseq.ms_sequent <> proper_Provable inst
+R6336:6343 Coq.Classes.RelationClasses <> symmetry def
+R6345:6355 DNMmsseq.multisets <> env_replace thm
+R6369:6375 Coq.Init.Logic <> eq_refl constr
+R8251:8265 DNMmsseq.ms_sequent <> proper_Provable inst
+R8272:8296 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R8298:8322 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R8324:8348 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R8350:8374 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R8377:8401 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R8416:8422 Coq.Init.Logic <> eq_refl constr
+R8087:8101 DNMmsseq.ms_sequent <> proper_Provable inst
+R8108:8132 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R8134:8158 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R8160:8184 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R8187:8211 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R8225:8231 Coq.Init.Logic <> eq_refl constr
+R7951:7965 DNMmsseq.ms_sequent <> proper_Provable inst
+R7972:7996 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R7998:8022 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R8024:8048 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R8061:8067 Coq.Init.Logic <> eq_refl constr
+R7842:7856 DNMmsseq.ms_sequent <> proper_Provable inst
+R7863:7887 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R7889:7913 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R7925:7931 Coq.Init.Logic <> eq_refl constr
+R7760:7774 DNMmsseq.ms_sequent <> proper_Provable inst
+R7781:7805 DNMmsseq.multisets <> equiv_disj_union_compat_r thm
+R7816:7822 Coq.Init.Logic <> eq_refl constr
+R7706:7720 DNMmsseq.ms_sequent <> proper_Provable inst
+R7734:7740 Coq.Init.Logic <> eq_refl constr

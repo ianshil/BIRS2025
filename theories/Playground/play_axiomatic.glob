@@ -1,0 +1,223 @@
+DIGEST 924bc06a7fec5a5b985453e0ec03b4dc
+FPlayground.play_axiomatic
+R15:23 Coq.Sets.Ensembles <> <> lib
+R42:47 DNMformulas.syntax <> <> lib
+ind 110:115 <> Axioms
+constr 142:143 <> A1
+constr 195:196 <> A2
+constr 287:288 <> A3
+constr 340:341 <> A4
+constr 393:394 <> A5
+constr 485:486 <> A6
+constr 538:539 <> A7
+constr 591:592 <> A8
+constr 683:684 <> A9
+R123:126 DNMformulas.syntax <> form ind
+binder 118:119 <> φ:1
+binder 145:146 <> ψ:4
+binder 148:149 <> χ:5
+R178:181 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R155:158 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R177:177 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R153:154 Playground.play_axiomatic <> φ:1 var
+R161:166 DNMformulas.syntax <> :::x_'→'_x not
+R176:176 DNMformulas.syntax <> :::x_'→'_x not
+R159:160 Playground.play_axiomatic <> ψ:4 var
+R169:173 DNMformulas.syntax <> :::x_'→'_x not
+R167:168 Playground.play_axiomatic <> χ:5 var
+R174:175 Playground.play_axiomatic <> ψ:4 var
+R182:187 Playground.play_axiomatic <> Axioms:2 ind
+R189:190 Playground.play_axiomatic <> φ:1 var
+binder 198:199 <> ψ:6
+binder 201:202 <> χ:7
+binder 204:205 <> δ:8
+R270:273 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R211:214 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R269:269 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R209:210 Playground.play_axiomatic <> φ:1 var
+R215:215 DNMformulas.syntax <> :::x_'→'_x not
+R234:240 DNMformulas.syntax <> :::x_'→'_x not
+R268:268 DNMformulas.syntax <> :::x_'→'_x not
+R218:223 DNMformulas.syntax <> :::x_'→'_x not
+R233:233 DNMformulas.syntax <> :::x_'→'_x not
+R216:217 Playground.play_axiomatic <> ψ:6 var
+R226:230 DNMformulas.syntax <> :::x_'→'_x not
+R224:225 Playground.play_axiomatic <> χ:7 var
+R231:232 Playground.play_axiomatic <> δ:8 var
+R241:241 DNMformulas.syntax <> :::x_'→'_x not
+R251:257 DNMformulas.syntax <> :::x_'→'_x not
+R267:267 DNMformulas.syntax <> :::x_'→'_x not
+R244:248 DNMformulas.syntax <> :::x_'→'_x not
+R242:243 Playground.play_axiomatic <> ψ:6 var
+R249:250 Playground.play_axiomatic <> χ:7 var
+R260:264 DNMformulas.syntax <> :::x_'→'_x not
+R258:259 Playground.play_axiomatic <> ψ:6 var
+R265:266 Playground.play_axiomatic <> δ:8 var
+R274:279 Playground.play_axiomatic <> Axioms:2 ind
+R281:282 Playground.play_axiomatic <> φ:1 var
+binder 290:291 <> ψ:9
+binder 293:294 <> χ:10
+R323:326 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R300:303 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R322:322 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R298:299 Playground.play_axiomatic <> φ:1 var
+R306:311 DNMformulas.syntax <> :::x_'→'_x not
+R321:321 DNMformulas.syntax <> :::x_'→'_x not
+R304:305 Playground.play_axiomatic <> ψ:9 var
+R314:318 DNMformulas.syntax <> :::x_'∨'_x not
+R312:313 Playground.play_axiomatic <> ψ:9 var
+R319:320 Playground.play_axiomatic <> χ:10 var
+R327:332 Playground.play_axiomatic <> Axioms:2 ind
+R334:335 Playground.play_axiomatic <> φ:1 var
+binder 343:344 <> ψ:11
+binder 346:347 <> χ:12
+R376:379 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R353:356 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R375:375 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R351:352 Playground.play_axiomatic <> φ:1 var
+R359:364 DNMformulas.syntax <> :::x_'→'_x not
+R374:374 DNMformulas.syntax <> :::x_'→'_x not
+R357:358 Playground.play_axiomatic <> χ:12 var
+R367:371 DNMformulas.syntax <> :::x_'∨'_x not
+R365:366 Playground.play_axiomatic <> ψ:11 var
+R372:373 Playground.play_axiomatic <> χ:12 var
+R380:385 Playground.play_axiomatic <> Axioms:2 ind
+R387:388 Playground.play_axiomatic <> φ:1 var
+binder 396:397 <> ψ:13
+binder 399:400 <> χ:14
+binder 402:403 <> δ:15
+R468:471 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R409:412 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R467:467 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R407:408 Playground.play_axiomatic <> φ:1 var
+R413:413 DNMformulas.syntax <> :::x_'→'_x not
+R423:429 DNMformulas.syntax <> :::x_'→'_x not
+R466:466 DNMformulas.syntax <> :::x_'→'_x not
+R416:420 DNMformulas.syntax <> :::x_'→'_x not
+R414:415 Playground.play_axiomatic <> ψ:13 var
+R421:422 Playground.play_axiomatic <> δ:15 var
+R430:430 DNMformulas.syntax <> :::x_'→'_x not
+R440:446 DNMformulas.syntax <> :::x_'→'_x not
+R465:465 DNMformulas.syntax <> :::x_'→'_x not
+R433:437 DNMformulas.syntax <> :::x_'→'_x not
+R431:432 Playground.play_axiomatic <> χ:14 var
+R438:439 Playground.play_axiomatic <> δ:15 var
+R447:447 DNMformulas.syntax <> :::x_'→'_x not
+R457:462 DNMformulas.syntax <> :::x_'→'_x not
+R450:454 DNMformulas.syntax <> :::x_'∨'_x not
+R448:449 Playground.play_axiomatic <> ψ:13 var
+R455:456 Playground.play_axiomatic <> χ:14 var
+R463:464 Playground.play_axiomatic <> δ:15 var
+R472:477 Playground.play_axiomatic <> Axioms:2 ind
+R479:480 Playground.play_axiomatic <> φ:1 var
+binder 488:489 <> ψ:16
+binder 491:492 <> χ:17
+R521:524 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R498:501 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R520:520 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R496:497 Playground.play_axiomatic <> φ:1 var
+R502:502 DNMformulas.syntax <> :::x_'→'_x not
+R512:517 DNMformulas.syntax <> :::x_'→'_x not
+R505:509 DNMformulas.syntax <> :::x_'∧'_x not
+R503:504 Playground.play_axiomatic <> ψ:16 var
+R510:511 Playground.play_axiomatic <> χ:17 var
+R518:519 Playground.play_axiomatic <> ψ:16 var
+R525:530 Playground.play_axiomatic <> Axioms:2 ind
+R532:533 Playground.play_axiomatic <> φ:1 var
+binder 541:542 <> ψ:18
+binder 544:545 <> χ:19
+R574:577 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R551:554 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R573:573 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R549:550 Playground.play_axiomatic <> φ:1 var
+R555:555 DNMformulas.syntax <> :::x_'→'_x not
+R565:570 DNMformulas.syntax <> :::x_'→'_x not
+R558:562 DNMformulas.syntax <> :::x_'∧'_x not
+R556:557 Playground.play_axiomatic <> ψ:18 var
+R563:564 Playground.play_axiomatic <> χ:19 var
+R571:572 Playground.play_axiomatic <> χ:19 var
+R578:583 Playground.play_axiomatic <> Axioms:2 ind
+R585:586 Playground.play_axiomatic <> φ:1 var
+binder 594:595 <> ψ:20
+binder 597:598 <> χ:21
+binder 600:601 <> δ:22
+R666:669 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R607:610 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R665:665 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R605:606 Playground.play_axiomatic <> φ:1 var
+R611:611 DNMformulas.syntax <> :::x_'→'_x not
+R621:627 DNMformulas.syntax <> :::x_'→'_x not
+R664:664 DNMformulas.syntax <> :::x_'→'_x not
+R614:618 DNMformulas.syntax <> :::x_'→'_x not
+R612:613 Playground.play_axiomatic <> ψ:20 var
+R619:620 Playground.play_axiomatic <> χ:21 var
+R628:628 DNMformulas.syntax <> :::x_'→'_x not
+R638:644 DNMformulas.syntax <> :::x_'→'_x not
+R663:663 DNMformulas.syntax <> :::x_'→'_x not
+R631:635 DNMformulas.syntax <> :::x_'→'_x not
+R629:630 Playground.play_axiomatic <> ψ:20 var
+R636:637 Playground.play_axiomatic <> δ:22 var
+R647:652 DNMformulas.syntax <> :::x_'→'_x not
+R662:662 DNMformulas.syntax <> :::x_'→'_x not
+R645:646 Playground.play_axiomatic <> ψ:20 var
+R655:659 DNMformulas.syntax <> :::x_'∧'_x not
+R653:654 Playground.play_axiomatic <> χ:21 var
+R660:661 Playground.play_axiomatic <> δ:22 var
+R670:675 Playground.play_axiomatic <> Axioms:2 ind
+R677:678 Playground.play_axiomatic <> φ:1 var
+binder 686:687 <> ψ:23
+R708:711 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R693:696 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R707:707 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R691:692 Playground.play_axiomatic <> φ:1 var
+R700:704 DNMformulas.syntax <> :::x_'→'_x not
+R697:699 DNMformulas.syntax <> :::'⊥' not
+R705:706 Playground.play_axiomatic <> ψ:23 var
+R712:717 Playground.play_axiomatic <> Axioms:2 ind
+R719:720 Playground.play_axiomatic <> φ:1 var
+scheme 110:115 <> Axioms_ind
+scheme 110:115 <> Axioms_sind
+ind 800:806 <> IPH_prv
+constr 848:849 <> Id
+constr 886:887 <> Ax
+constr 928:929 <> MP
+R810:810 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R823:827 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R815:818 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R811:814 DNMformulas.syntax <> form ind
+R832:835 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R828:831 DNMformulas.syntax <> form ind
+binder 851:852 <> Γ:26
+binder 854:855 <> φ:27
+R864:867 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R859:860 Playground.play_axiomatic <> Γ:26 var
+R862:863 Playground.play_axiomatic <> φ:27 var
+R868:874 Playground.play_axiomatic <> IPH_prv:24 ind
+R879:880 Playground.play_axiomatic <> φ:27 var
+R876:877 Playground.play_axiomatic <> Γ:26 var
+binder 889:890 <> Γ:28
+binder 892:893 <> φ:29
+R906:909 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R897:902 Playground.play_axiomatic <> Axioms ind
+R904:905 Playground.play_axiomatic <> φ:29 var
+R910:916 Playground.play_axiomatic <> IPH_prv:24 ind
+R921:922 Playground.play_axiomatic <> φ:29 var
+R918:919 Playground.play_axiomatic <> Γ:28 var
+binder 931:932 <> Γ:30
+binder 934:935 <> φ:31
+binder 937:938 <> ψ:32
+R964:967 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R942:948 Playground.play_axiomatic <> IPH_prv:24 ind
+R956:960 DNMformulas.syntax <> :::x_'→'_x not
+R954:955 Playground.play_axiomatic <> φ:31 var
+R961:962 Playground.play_axiomatic <> ψ:32 var
+R950:951 Playground.play_axiomatic <> Γ:30 var
+R981:984 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R968:974 Playground.play_axiomatic <> IPH_prv:24 ind
+R979:980 Playground.play_axiomatic <> φ:31 var
+R976:977 Playground.play_axiomatic <> Γ:30 var
+R985:991 Playground.play_axiomatic <> IPH_prv:24 ind
+R996:997 Playground.play_axiomatic <> ψ:32 var
+R993:994 Playground.play_axiomatic <> Γ:30 var
+scheme 800:806 <> IPH_prv_ind
+scheme 800:806 <> IPH_prv_sind

@@ -386,7 +386,7 @@ Proof. destruct Hp; simpl; lia. Qed.
   (* STOPPED HERE *)
 
 (** Lemma 4.2 in (Dyckhoff & Negri 2000), showing that a "duplication" in the context of the implication-case of the implication-left rule is admissible. *)
-
+(* 
 Lemma ImpLImp_dup  Γ φ1 φ2 φ3 θ:
   Γ•((φ1 → φ2) → φ3) ⊢ θ ->
     Γ•φ1 •(φ2 → φ3) •(φ2 → φ3) ⊢ θ.
@@ -690,3 +690,5 @@ induction l ; cbn ; intros ; auto.
   + intro H1. apply OrR2. apply IHl with ψ ; auto.
     destruct H ; [ contradiction | auto].
 Qed.
+
+*)
