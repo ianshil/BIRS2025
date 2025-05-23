@@ -1,5 +1,9 @@
 .*.aux
 .*.d
+*.vok
+*.vo
+*.vos
+*.glob
 *.a
 *.cma
 *.cmi
