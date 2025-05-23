@@ -1,69 +1,23 @@
-Require Import List.
-Export ListNotations.
-Require Import Arith.
 Require Import Ensembles.
 
-Require Import im_syntax.
+Require Import syntax.
 
 (* We define here the intuitionistic axioms. *)
 
-Inductive IAxioms (F : form) : Prop :=
- | IA1 A B : F = (A → (B → A)) -> IAxioms F
- | IA2 A B C : F = ((A → (B → C)) → ((A → B) → (A → C))) -> IAxioms F
- | IA3 A B : F = (A → (A ∨ B)) -> IAxioms F
- | IA4 A B : F = (B → (A ∨ B)) -> IAxioms F
- | IA5 A B C : F = ((A → C) → ((B → C) → ((A ∨ B) → C))) -> IAxioms F
- | IA6 A B : F = ((A ∧ B) → A) -> IAxioms F
- | IA7 A B : F = ((A ∧ B) → B) -> IAxioms F
- | IA8 A B C : F = ((A → B) → ((A → C) → (A → (B ∧ C)))) -> IAxioms F
- | IA9 A : F = (⊥ → A) -> IAxioms F.
+Inductive Axioms (φ : form) : Prop :=
+ | A1 ψ χ : φ = (ψ → (χ → ψ)) -> Axioms φ
+ | A2 ψ χ δ : φ = ((ψ → (χ → δ)) → ((ψ → χ) → (ψ → δ))) -> Axioms φ
+ | A3 ψ χ : φ = (ψ → (ψ ∨ χ)) -> Axioms φ
+ | A4 ψ χ : φ = (χ → (ψ ∨ χ)) -> Axioms φ
+ | A5 ψ χ δ : φ = ((ψ → δ) → ((χ → δ) → ((ψ ∨ χ) → δ))) -> Axioms φ
+ | A6 ψ χ : φ = ((ψ ∧ χ) → ψ) -> Axioms φ
+ | A7 ψ χ : φ = ((ψ ∧ χ) → χ) -> Axioms φ
+ | A8 ψ χ δ : φ = ((ψ → χ) → ((ψ → δ) → (ψ → (χ ∧ δ)))) -> Axioms φ
+ | A9 ψ : φ = (⊥ → ψ) -> Axioms φ.
 
-(* We then define the modal axioms. *)
+(* We can then define the generalised Hilbert system for IPL. *)
 
-Inductive MAxioms (F : form) : Prop :=
- | Kb A B : F = ((□ (A → B)) → ((□ A) → □ B)) -> MAxioms F
- | Kd A B : F = ((□ (A → B)) → ((◊A) → ◊B)) -> MAxioms F.
-
-(* And join both set of axioms. *)
-
-Definition Axioms (A : form) : Prop := IAxioms A \/ MAxioms A.
-
-(* Here are additional specific axioms. *)
-
-Definition Cd A B := (◊(A ∨ B))→  (◊A) ∨ (◊B).
-Definition Idb A B := ((◊A) → (□B)) →  □(A → B).
-Definition Nd := (◊⊥) → ⊥.
-Definition Ndb := (◊⊥) → (□⊥).
-Definition wCD A B := (□(A ∨ B)) → ((◊A) → (□B)) →  □ B.
-
-(* We can then define the generalised Hilbert system for CK parametrised
-    in a set of additional axioms. *)
-
-Inductive extCKH_prv (AdAx: form -> Prop) : (form -> Prop) -> form -> Prop :=
-  | Id Γ A : In _ Γ A -> extCKH_prv AdAx Γ A
-  | Ax Γ A : (Axioms A \/ AdAx A) -> extCKH_prv AdAx Γ A
-  | MP Γ A B : extCKH_prv AdAx Γ (A → B) ->  extCKH_prv AdAx Γ A -> extCKH_prv AdAx Γ B
-  | Nec Γ A : extCKH_prv AdAx (Empty_set _) A -> extCKH_prv AdAx Γ (□ A).
-
-(* We give names to some instances of the general definition above. *)
-
-Definition CKH_prv := extCKH_prv (fun x => False).
-(* One axiom. *)
-Definition CKCdH_prv := extCKH_prv (fun x => exists A B, Cd A B = x).
-Definition CKIdbH_prv := extCKH_prv (fun x => exists A B, Idb A B = x).
-Definition WKH_prv := extCKH_prv (fun x => Nd = x).
-Definition CKNdbH_prv := extCKH_prv (fun x => Ndb = x).
-Definition CKwCDH_prv := extCKH_prv (fun x => exists A B, wCD A B = x).
-(* Two axioms. *)
-Definition CKCdIdbH_prv := extCKH_prv (fun x => exists A B, Cd A B = x \/ Idb A B = x).
-Definition CKCdNdH_prv := extCKH_prv (fun x => (exists A B, Cd A B = x) \/ Nd = x).
-Definition CKIdbNdH_prv := extCKH_prv (fun x => (exists A B, Idb A B = x) \/ Nd = x).
-Definition CKCdNdbH_prv := extCKH_prv (fun x => (exists A B, Cd A B = x) \/ Ndb = x).
-Definition CKIdbNdbH_prv := extCKH_prv (fun x => (exists A B, Idb A B = x) \/ Ndb = x).
-Definition CKCdwCDH_prv := extCKH_prv (fun x => exists A B, Cd A B = x \/ wCD A B = x).
-Definition CKwCDNdH_prv := extCKH_prv (fun x => (exists A B, wCD A B = x) \/ Nd = x).
-(* Three axioms. *)
-Definition CKCdIdbNdbH_prv := extCKH_prv (fun x => (exists A B, Cd A B = x \/ Idb A B = x) \/ Ndb = x).
-Definition FIKH_prv := extCKH_prv (fun x => (exists A B, Cd A B = x \/ wCD A B = x) \/ Nd = x).
-Definition IKH_prv := extCKH_prv (fun x => (exists A B, Cd A B = x \/ Idb A B = x) \/ Nd = x).
-
+Inductive IPH_prv : (form -> Prop) -> form -> Prop :=
+  | Id Γ φ : Γ φ -> IPH_prv Γ φ
+  | Ax Γ φ : Axioms φ -> IPH_prv Γ φ
+  | MP Γ φ ψ : IPH_prv Γ (φ → ψ) -> IPH_prv Γ φ -> IPH_prv Γ ψ.

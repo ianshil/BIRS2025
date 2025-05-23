@@ -1,8 +1,3 @@
-Require Import List.
-Export ListNotations.
-Require Import Arith.
-Require Import Ensembles.
-
 (* First, let us define propositional formulas. *)
 
 Inductive form : Type :=
@@ -10,9 +5,7 @@ Inductive form : Type :=
  | Bot : form
  | And : form -> form -> form
  | Or : form -> form -> form
- | Imp : form -> form -> form
- | Box : form -> form
- | Diam : form -> form.
+ | Imp : form -> form -> form.
 
 (* We define negation and top. *)
 
@@ -28,22 +21,12 @@ Notation " ⊤ " := Top.
 Notation " φ ∧ ψ" := (And φ ψ) (at level 80, ψ at level 80).
 Notation " φ ∨ ψ" := (Or φ ψ) (at level 85, ψ at level 85).
 Notation " φ → ψ" := (Imp φ ψ) (at level 99, ψ at level 200).
-Notation "□ φ" := (Box φ) (at level 75, φ at level 75).
-Notation "◊ φ" := (Diam φ) (at level 42).
 
-(* We define the property of formulas of being diamond-free. *)
 
-Fixpoint diam_free φ : Prop :=
-match φ with
-| # p => True
-| ⊥ => True
-| ψ ∧ χ => diam_free ψ /\ diam_free χ
-| ψ ∨ χ => diam_free ψ /\ diam_free χ
-| ψ → χ => diam_free ψ /\ diam_free χ
-| □ ψ => diam_free ψ
-| ◊ ψ => False
-end.
 
+(* We can import a library about sets ("ensembles" in French). *)
+
+Require Import Ensembles.
 
 (* Next, we define the set of subformulas of a formula, and
     extend this notion to lists of formulas. *)
@@ -55,14 +38,21 @@ match φ with
 | ψ ∧ χ => Union _ (Singleton _ (ψ ∧ χ)) (Union _ (subform ψ) (subform χ))
 | ψ ∨ χ => Union _ (Singleton _ (ψ ∨ χ)) (Union _ (subform ψ) (subform χ))
 | ψ → χ => Union _ (Singleton _ (ψ → χ)) (Union _ (subform ψ) (subform χ))
-| □ ψ => Union _ (Singleton _ (□ ψ)) (subform ψ)
-| ◊ ψ => Union _ (Singleton _ (◊ ψ)) (subform ψ)
 end.
 
 Lemma subform_id : forall φ, (subform φ) φ.
 Proof.
 destruct φ ; cbn. 1-2: split. all: left ; split.
 Qed.
+
+
+
+
+(* We can also talk about the same notion but with lists. 
+   So, let's import the library about lists. *)
+
+Require Import List.
+Export ListNotations. (* And notations for lists. *)
 
 Fixpoint subformlist (φ : form) : list form :=
 match φ with
@@ -71,32 +61,24 @@ match φ with
 | ψ ∧ χ => (ψ ∧ χ) :: (subformlist ψ) ++ (subformlist χ)
 | ψ ∨ χ => (ψ ∨ χ) :: (subformlist ψ) ++ (subformlist χ)
 | ψ → χ => (Imp ψ χ) :: (subformlist ψ) ++ (subformlist χ)
-| □ ψ => (□ ψ) :: (subformlist ψ)
-| ◊ ψ => (◊ ψ) :: (subformlist ψ)
 end.
+
+(* We can prove some sort of transitivitiy of subformlist. *)
 
 Lemma subform_trans : forall φ ψ χ, List.In φ (subformlist ψ) ->
   List.In χ (subformlist φ) -> List.In χ (subformlist ψ).
 Proof.
-intros φ ψ χ. revert ψ χ φ. induction ψ.
-- intros. simpl. simpl in H. destruct H ; subst ; auto.
-- intros. simpl. simpl in H. destruct H ; subst ; auto.
-- intros. simpl. simpl in H. destruct H ; subst ; auto.
-  apply in_app_or in H ; destruct H. right. apply in_or_app ; left.
-  apply IHψ1 with (φ:=φ) ; auto. right. apply in_or_app ; right.
-  apply IHψ2 with (φ:=φ) ; auto.
-- intros. simpl. simpl in H. destruct H ; subst ; auto.
-  apply in_app_or in H ; destruct H. right. apply in_or_app ; left.
-  apply IHψ1 with (φ:=φ) ; auto. right. apply in_or_app ; right.
-  apply IHψ2 with (φ:=φ) ; auto.
-- intros. simpl. simpl in H. destruct H ; subst ; auto.
-  apply in_app_or in H ; destruct H. right. apply in_or_app ; left.
-  apply IHψ1 with (φ:=φ) ; auto. right. apply in_or_app ; right.
-  apply IHψ2 with (φ:=φ) ; auto.
-- intros. simpl. simpl in H. destruct H ; subst ; auto. right.
-  apply IHψ with (φ:=φ) ; auto.
-- intros. simpl. simpl in H. destruct H ; subst ; auto. right.
-  apply IHψ with (φ:=φ) ; auto.
+intros φ ψ χ. revert ψ χ φ. induction ψ ; intros ; cbn in * ;
+destruct H ; subst ; auto.
+- apply in_app_or in H ; destruct H.
+  + right. apply in_or_app ; left. apply IHψ1 with (φ:=φ) ; auto.
+  + right. apply in_or_app ; right. apply IHψ2 with (φ:=φ) ; auto.
+- apply in_app_or in H ; destruct H.
+  + right. apply in_or_app ; left. apply IHψ1 with (φ:=φ) ; auto.
+  + right. apply in_or_app ; right. apply IHψ2 with (φ:=φ) ; auto.
+- apply in_app_or in H ; destruct H.
+  + right. apply in_or_app ; left. apply IHψ1 with (φ:=φ) ; auto.
+  + right. apply in_or_app ; right. apply IHψ2 with (φ:=φ) ; auto.
 Qed.
 
 (* Equality is decidable over formulas. *)
@@ -115,9 +97,9 @@ match φ with
 | ψ ∧ χ => (subst σ ψ) ∧ (subst σ χ)
 | ψ ∨ χ => (subst σ ψ) ∨ (subst σ χ)
 | ψ → χ => (subst σ ψ) → (subst σ χ)
-| □ ψ => □ (subst σ ψ)
-| ◊ ψ => ◊ (subst σ ψ)
 end.
+
+(* We can also define the implication of a formula by a list. *)
 
 Fixpoint list_Imp (A : form) (l : list form) : form :=
 match l with
@@ -125,21 +107,8 @@ match l with
  | h :: t => h → (list_Imp A t)
 end.
 
-Definition Box_list (l : list form) : list form := map Box l.
-
-Lemma In_form_dec : forall l (A : form), {List.In A l} + {List.In A l -> False}.
-Proof.
-induction l ; simpl ; intros ; auto.
-destruct (IHl A) ; auto.
-destruct (eq_dec_form a A) ; auto.
-right. intro. destruct H ; auto.
-Qed.
-
-Definition UnBox φ : form :=
-  match φ with
-  | Box ψ => ψ
-  | _ => φ
-  end.
+(* We can transform a list of formulas into the conjunction / disjunction
+   of all its elements. *)
 
 Fixpoint list_conj (l : list form) :=
 match l with
@@ -147,50 +116,18 @@ match l with
  | φ :: l => φ ∧ (list_conj l)
 end.
 
-Lemma list_conj_map_Diam : forall l, (forall A, List.In A l -> exists B, A = ◊ B) ->
-                exists l', l = map Diam l'.
-Proof.
-induction l ; cbn ; intros ; auto.
-- exists [] ; auto.
-- destruct (H a) ; auto ; subst.
-  destruct (IHl). intros. apply H ; auto. subst.
-  exists (x :: x0). cbn ; auto.
-Qed.
-
 Fixpoint list_disj (l : list form) :=
 match l with
  | nil => Bot
  | h :: t => Or h (list_disj t)
 end.
 
-Lemma list_disj_map_Box : forall l, (forall A, List.In A l -> exists B, A = □ B) ->
-                exists l', l = map Box l'.
+Lemma In_form_dec : forall l (A : form), {List.In A l} + {List.In A l -> False}.
 Proof.
-induction l ; cbn ; intros ; auto.
-- exists [] ; auto.
-- destruct (H a) ; auto ; subst.
-  destruct (IHl). intros. apply H ; auto. subst.
-  exists (x :: x0). cbn ; auto.
-Qed.
-
-(* More lemmas about lists of formulas. *)
-
-Lemma list_Box_map_repr : forall l, (forall A : form, List.In A l -> exists B : form, A = □ B) ->
-      exists l', l = map Box l'.
-Proof.
-induction l ; cbn ; intros.
-- exists [] ; auto.
-- destruct (H a) ; auto ; subst. destruct IHl ; auto ; subst.
-  exists (x :: x0). cbn ; auto.
-Qed.
-
-Lemma list_Diam_map_repr : forall l, (forall A : form, List.In A l -> exists B : form, A = ◊ B) ->
-      exists l', l = map Diam l'.
-Proof.
-induction l ; cbn ; intros.
-- exists [] ; auto.
-- destruct (H a) ; auto ; subst. destruct IHl ; auto ; subst.
-  exists (x :: x0). cbn ; auto.
+induction l ; simpl ; intros ; auto.
+destruct (IHl A) ; auto.
+destruct (eq_dec_form a A) ; auto.
+right. intro. destruct H ; auto.
 Qed.
 
 
