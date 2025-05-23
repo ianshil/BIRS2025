@@ -1,4 +1,4 @@
-Require Export syntax.
+Require Export syntax syntax_facts.
 
 (** ** Definition of provability in G4ip *)
 Reserved Notation "Γ ⊢ φ" (at level 90).
