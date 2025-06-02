@@ -1,6 +1,5 @@
--R theories/DoNotModify/formulas DNMformulas
--R theories/DoNotModify/axioms DNMaxioms
--R theories/DoNotModify/list_sequents DNMlistseq
--R theories/DoNotModify/multiset_sequents DNMmsseq
--R theories/Playground Playground
+-R theories/formulas formulas
+-R theories/axioms axioms
+-R theories/list_sequents listseq
+-R theories/multiset_sequents msseq
 theories
