@@ -1162,11 +1162,11 @@ enough (forall Γ' θ (Hp : Γ' ⊢G4ip θ), forall φ Γ ψ, Γ' ≡ₚ (φ →
          repeat rewrite <- Permutation_middle in HH.
          apply (@Permutation_cons_app_inv _ _ [(φ → ψ)]) in HH ; auto.
       -- destruct (IHHp2 (ψ0 :: x)) as [Hp2' Hh2'].
-        ++ repeat rewrite <- Permutation_middle. repeat rewrite <- (perm_swap (φ → ψ)).
+        --- repeat rewrite <- Permutation_middle. repeat rewrite <- (perm_swap (φ → ψ)).
             apply Permutation_cons ; auto. rewrite <- p in HH.
             repeat rewrite <- Permutation_middle in HH.
             apply (@Permutation_cons_app_inv _ _ [(φ → ψ)]) in HH ; auto.
-        ++ pose (OrL [ψ] _ _ _ _ Hp1' Hp2').
+        --- pose (OrL [ψ] _ _ _ _ Hp1' Hp2').
            destruct (exchange_hp _ (ψ :: Γ') _ p0) ; [ rewrite <- p ; auto |].
            exists x0 ; cbn in * ; lia.
   + destruct (IHHp (φ0 :: Γ')) as [Hp' Hh'].
@@ -1183,9 +1183,9 @@ enough (forall Γ' θ (Hp : Γ' ⊢G4ip θ), forall φ Γ ψ, Γ' ≡ₚ (φ →
       -- assert (In (# p → φ0) ((φ → ψ) :: Γ')) by (rewrite <- HH ; apply in_or_app ; right ; right ; apply in_or_app ; right ; left ; auto).
          inversion H ; [ exfalso ; auto | auto].
       -- rewrite <- p0 in HH. destruct (in_Permutation x (# p)).
-        ++ assert (In (# p) ((φ → ψ) :: (# p → φ0) :: x)) by (rewrite <- HH ; apply in_or_app ; right ; left ; auto).
+        --- assert (In (# p) ((φ → ψ) :: (# p → φ0) :: x)) by (rewrite <- HH ; apply in_or_app ; right ; left ; auto).
            inversion H ; [ discriminate | ]. inversion H0 ; [ discriminate | auto].
-        ++ rewrite <- p1 in HH.
+        --- rewrite <- p1 in HH.
            destruct (IHHp (φ0 :: # p :: x0)) as [Hp' Hh'].
            ** repeat rewrite <- Permutation_middle. repeat rewrite (perm_swap (#p)) ; apply Permutation_cons ; auto.
               rewrite perm_swap ; apply Permutation_cons ; auto.
@@ -1204,9 +1204,9 @@ enough (forall Γ' θ (Hp : Γ' ⊢G4ip θ), forall φ Γ ψ, Γ' ≡ₚ (φ →
       -- assert (In (# p → φ0) ((φ → ψ) :: Γ')) by (rewrite <- HH ; apply in_or_app ; right ; left ; auto).
          inversion H ; [ exfalso ; auto | auto].
       -- rewrite <- p0 in HH. destruct (in_Permutation x (# p)).
-        ++ assert (In (# p) ((φ → ψ) :: (# p → φ0) :: x)) by (rewrite <- HH ; apply in_or_app ; right ; right ; apply in_or_app ; right ; left ; auto).
+        --- assert (In (# p) ((φ → ψ) :: (# p → φ0) :: x)) by (rewrite <- HH ; apply in_or_app ; right ; right ; apply in_or_app ; right ; left ; auto).
            inversion H ; [ discriminate | ]. inversion H0 ; [ discriminate | auto].
-        ++ rewrite <- p1 in HH.
+        --- rewrite <- p1 in HH.
            destruct (IHHp (φ0 :: # p :: x0)) as [Hp' Hh'].
            ** repeat rewrite <- Permutation_middle. repeat rewrite (perm_swap (#p)) ; apply Permutation_cons ; auto.
               rewrite perm_swap ; apply Permutation_cons ; auto.
@@ -1411,11 +1411,11 @@ destruct Hp1; simpl in Hw,Heqh.
       destruct (exchange_hp _ (Γ' ++ φ0 :: ψ :: Γ'') _ p'') as [p3 Hh3].
       -- repeat rewrite <- Permutation_middle ; auto.
       -- destruct (exchange_hp _ ((φ → ψ0) :: Γ' ++ φ0 :: ψ :: Γ'') _ Hp2) as [Hp2' Hh2'].
-         ++ repeat rewrite <- Permutation_middle.
+         --- repeat rewrite <- Permutation_middle.
             do 2 (rewrite <- (perm_swap (φ → ψ0)) ; apply Permutation_cons ; auto).
            pose (Permutation_app_inv Γ0 Γ1 ((φ → ψ0) :: Γ') Γ'' (φ0 ∧ ψ)). 
            cbn in p0. apply p0 ; rewrite HeqΓ' ; auto.
-         ++ apply IHh with (Hp1 := p3) (Hp2 := Hp2') (y:= height p3 + height Hp2') ; [ cbn in * ; lia | auto ].
+         --- apply IHh with (Hp1 := p3) (Hp2 := Hp2') (y:= height p3 + height Hp2') ; [ cbn in * ; lia | auto ].
   + apply OrR1. pose (ImpR _ _ _ Hp1).
     apply IHh with (Hp1 := p) (Hp2 := Hp2) (y:= height p + height Hp2) ; [ cbn ; lia | auto ].
   + apply OrR2. pose (ImpR _ _ _ Hp1).
@@ -1430,8 +1430,8 @@ destruct Hp1; simpl in Hw,Heqh.
       -- rewrite Permutation_middle ; auto.
       -- destruct (OrL_rev_hp _ _ _ _ p') as [[pl Hlh] [pr Hrh]].
          destruct (exchange_hp _ (Γ' ++ φ0 :: Γ'') _ pl) as [p3 Hh3].
-         ++ rewrite <- Permutation_middle ; auto.
-         ++ destruct (exchange_hp _ ((φ → ψ0) :: Γ' ++ φ0 :: Γ'') _ Hp2_1) as [Hp2_1' Hh2_1'].
+         --- rewrite <- Permutation_middle ; auto.
+         --- destruct (exchange_hp _ ((φ → ψ0) :: Γ' ++ φ0 :: Γ'') _ Hp2_1) as [Hp2_1' Hh2_1'].
             ** repeat rewrite <- Permutation_middle.
                rewrite <- (perm_swap (φ → ψ0)) ; apply Permutation_cons ; auto.
                pose (Permutation_app_inv Γ0 Γ1 ((φ → ψ0) :: Γ') Γ'' (φ0 ∨ ψ)). 
@@ -1441,8 +1441,8 @@ destruct Hp1; simpl in Hw,Heqh.
       -- rewrite Permutation_middle ; auto.
       -- destruct (OrL_rev_hp _ _ _ _ p') as [[pl Hlh] [pr Hrh]].
          destruct (exchange_hp _ (Γ' ++ ψ :: Γ'') _ pr) as [p3 Hh3].
-         ++ rewrite <- Permutation_middle ; auto.
-         ++ destruct (exchange_hp _ ((φ → ψ0) :: Γ' ++ ψ :: Γ'') _ Hp2_2) as [Hp2_2' Hh2_2'].
+         --- rewrite <- Permutation_middle ; auto.
+         --- destruct (exchange_hp _ ((φ → ψ0) :: Γ' ++ ψ :: Γ'') _ Hp2_2) as [Hp2_2' Hh2_2'].
             ** repeat rewrite <- Permutation_middle.
                rewrite <- (perm_swap (φ → ψ0)) ; apply Permutation_cons ; auto.
                pose (Permutation_app_inv Γ0 Γ1 ((φ → ψ0) :: Γ') Γ'' (φ0 ∨ ψ)). 
@@ -1515,8 +1515,8 @@ destruct Hp1; simpl in Hw,Heqh.
         -- rewrite <- Permutation_middle ; auto.
         -- destruct (ImpLAnd_rev_hp _ _ _ _ _ Hp2') as [Hp3 Hh3].
            destruct (exchange_hp _ (Γ' ++ (φ1 → φ2 → φ3) :: Γ'') _ Hp3) as [Hp3' Hh3'].
-           ++ rewrite <- Permutation_middle ; auto.
-           ++ destruct (exchange_hp _ ((φ → ψ0) :: Γ' ++ (φ1 → φ2 → φ3) :: Γ'') _ Hp2) as [Hp4 Hh4].
+           --- rewrite <- Permutation_middle ; auto.
+           --- destruct (exchange_hp _ ((φ → ψ0) :: Γ' ++ (φ1 → φ2 → φ3) :: Γ'') _ Hp2) as [Hp4 Hh4].
               ** repeat rewrite <- Permutation_middle. rewrite perm_swap. apply Permutation_cons ; auto.
                  symmetry. apply Permutation_cons_app_inv with (φ1 ∧ φ2 → φ3). rewrite HeqΓ'.
                  repeat rewrite <- Permutation_middle. apply perm_swap.

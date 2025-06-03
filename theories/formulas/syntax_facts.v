@@ -1,3 +1,6 @@
+(* These lines are mainly taken from a work by Hugo Férée:
+   https://github.com/hferee/UIML/blob/main/theories/iSL/Formulas.v *)
+
 Require Import syntax.
 From stdpp Require Import countable. (* To talk about countability. *)
 
@@ -34,9 +37,7 @@ End order.
 
 (* The results below are mostly useful to have a calculus
    based on multisets (which requires the base type to be
-   countable and have equality decidable on it). 
-   These lines are mainly taken from a work by Hugo Férée:
-   https://github.com/hferee/UIML/blob/main/theories/iSL/Formulas.v *)
+   countable and have equality decidable on it).  *)
 
 
 (* Theory of countability from Iris.

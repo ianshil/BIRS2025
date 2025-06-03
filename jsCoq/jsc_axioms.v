@@ -567,15 +567,15 @@ intros. eapply MP.
     * apply Ax ; eapply A1 ; reflexivity.
     * eapply MP. 
       -- eapply MP.
-        ++ eapply MP ; apply Ax ; eapply A2 ; reflexivity.
-        ++ eapply MP.
+        --- eapply MP ; apply Ax ; eapply A2 ; reflexivity.
+        --- eapply MP.
           ** apply Ax ; eapply A1 ; reflexivity. 
           ** eapply MP ; apply Ax ; eapply A1 ; reflexivity.
       -- eapply MP. 
-        ++ eapply MP.
+        --- eapply MP.
           ** eapply MP ; apply Ax ; eapply A2 ; reflexivity.
           ** eapply MP ; apply Ax ; eapply A1 ; reflexivity.
-        ++ eapply MP ; apply Ax.
+        --- eapply MP ; apply Ax.
           ** eapply A1 ; reflexivity.
           ** eapply A2 ; reflexivity.
 - eapply MP.
@@ -710,10 +710,10 @@ intros φ ψ Γ. split.
     * eapply MP.
       -- apply Imp_trans.
       -- eapply MP.
-        ++ eapply MP.
+        --- eapply MP.
           ** apply Ax ; eapply A8 ; reflexivity.
           ** apply imp_Id_gen.
-        ++ apply IHD2 ; auto.
+        --- apply IHD2 ; auto.
     * eapply MP.
       -- apply Imp_And.
       -- apply IHD1 ; auto.
