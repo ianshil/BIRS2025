@@ -24,10 +24,11 @@ Open Scope stdpp_scope.
 (** ** Definition of provability in G4ip *)
 Reserved Notation "Γ ⊢ φ" (at level 90).
 Inductive Provable : env -> form -> Type :=
-| PId :    ∀ Γ p, Γ • (Var p) ⊢ (Var p)
-| BotL : ∀ Γ φ, Γ • ⊥ ⊢ φ
+| PId :  ∀ Γ p,      Γ • (Var p) ⊢ (Var p)
+| BotL : ∀ Γ φ,      Γ • ⊥ ⊢ φ
 | AndR : ∀ Γ φ ψ,
-    Γ ⊢ φ ->    Γ ⊢ ψ ->
+    Γ ⊢ φ ->
+    Γ ⊢ ψ ->
       Γ ⊢ (φ ∧ ψ)
 | AndL : ∀ Γ φ ψ θ,
     Γ • φ • ψ ⊢ θ ->
@@ -39,7 +40,8 @@ Inductive Provable : env -> form -> Type :=
     Γ ⊢ ψ ->
       Γ ⊢ (φ ∨ ψ)
 | OrL :     ∀ Γ φ ψ θ,
-    Γ • φ  ⊢ θ -> Γ • ψ ⊢ θ ->
+    Γ • φ  ⊢ θ ->
+    Γ • ψ ⊢ θ ->
       Γ • (φ ∨ ψ) ⊢ θ
 | ImpR : ∀ Γ φ ψ,
     Γ • φ ⊢ ψ ->
@@ -54,7 +56,8 @@ Inductive Provable : env -> form -> Type :=
     Γ • (φ1 → φ3) • (φ2 → φ3) ⊢ ψ ->
       Γ • ((φ1 ∨ φ2) → φ3) ⊢ ψ
 | ImpLImp : ∀  Γ φ1 φ2 φ3 ψ,
-    Γ • (φ2 → φ3) ⊢ (φ1 → φ2) ->Γ • φ3 ⊢ ψ ->
+    Γ • (φ2 → φ3) ⊢ (φ1 → φ2) ->
+    Γ • φ3 ⊢ ψ ->
       Γ • ((φ1 → φ2) → φ3) ⊢ ψ
 where "Γ ⊢ φ" := (Provable Γ φ).
 

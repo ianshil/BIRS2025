@@ -6,7 +6,8 @@ Inductive Provable : list form -> form -> Type :=
 | PId Γ0 Γ1 p : Γ0 ++ # p :: Γ1 ⊢ (#p)
 | BotL Γ0 Γ1 φ : Γ0 ++ ⊥ :: Γ1 ⊢ φ
 | AndR Γ φ ψ :
-    Γ ⊢ φ ->    Γ ⊢ ψ ->
+    Γ ⊢ φ -> 
+    Γ ⊢ ψ ->
       Γ ⊢ (φ ∧ ψ)
 | AndL Γ0 Γ1 φ ψ θ :
     Γ0 ++ φ :: ψ :: Γ1 ⊢ θ ->

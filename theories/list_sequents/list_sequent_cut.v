@@ -146,7 +146,9 @@ destruct Hp1; simpl in Hw,Heqh.
            symmetry. apply Permutation_cons_app_inv with (# p → ψ0). rewrite <- HeqΓ'.
            repeat rewrite <- Permutation_middle. apply perm_swap.
       (* If the cut formula is not principal *)
-      * intro Hneq. admit.
+      * intro Hneq.
+        (* Need to make "# p" and "# p → φ0" appear in "Γ" (holds because of HeqΓ'),
+           and then apply ImpLVar1/2 and then IHh on the resulting proof with Hp2. *) admit.
   + case (decide ((#p → φ0) = (φ → ψ0))).
       (* If the cut formula is principal *)
       * intro Heq'; dependent destruction Heq'.
@@ -164,10 +166,33 @@ destruct Hp1; simpl in Hw,Heqh.
            rewrite <- Permutation_middle. apply Permutation_cons ; auto.
            symmetry. apply Permutation_cons_app_inv with (# p → ψ0) ; rewrite HeqΓ' ; auto.
       (* If the cut formula is not principal *)
-      * intro Hneq. admit.
+      * intro Hneq. (* Same as above. *) admit.
   + case (decide (((φ1 ∧ φ2) → φ3)= (φ → ψ0))).
-      * admit.
-      * admit.
+      * intro Heq' ; inversion Heq' ; subst.
+        apply (IHw (φ1 → φ2 → ψ0)) ; auto.
+        -- cbn in * ; lia.
+        -- repeat apply ImpR.
+           apply exchange with (φ1 :: φ2 :: Γ) ; [ apply perm_swap | ].
+           apply AndL_rev ; auto.
+        -- apply exchange with (Γ0 ++ (φ1 → φ2 → ψ0) :: Γ1) ; [ | auto].
+           rewrite <- Permutation_middle. apply Permutation_cons ; auto.
+           symmetry. apply Permutation_cons_app_inv with (φ1 ∧ φ2 → ψ0) ; rewrite HeqΓ' ; auto.
+      * intro Hneq.
+        assert (In (φ1 ∧ φ2 → φ3) Γ).
+        { assert (In (φ1 ∧ φ2 → φ3) ((φ → ψ0) :: Γ)) by (rewrite <- HeqΓ' ; apply in_or_app ; right ; left ; split).
+          inversion H ; [ exfalso ; auto | auto]. }
+        apply in_splitT in H as [Γ' [Γ'' Heq]] ; subst.
+        apply ImpLAnd. pose (ImpR _ _ _ Hp1).
+        destruct (exchange_hp _ ((φ1 ∧ φ2 → φ3) :: Γ' ++ Γ'') _ p) as [Hp2' Hh2'].
+        -- rewrite <- Permutation_middle ; auto.
+        -- destruct (ImpLAnd_rev_hp _ _ _ _ _ Hp2') as [Hp3 Hh3].
+           destruct (exchange_hp _ (Γ' ++ (φ1 → φ2 → φ3) :: Γ'') _ Hp3) as [Hp3' Hh3'].
+           ++ rewrite <- Permutation_middle ; auto.
+           ++ destruct (exchange_hp _ ((φ → ψ0) :: Γ' ++ (φ1 → φ2 → φ3) :: Γ'') _ Hp2) as [Hp4 Hh4].
+              ** repeat rewrite <- Permutation_middle. rewrite perm_swap. apply Permutation_cons ; auto.
+                 symmetry. apply Permutation_cons_app_inv with (φ1 ∧ φ2 → φ3). rewrite HeqΓ'.
+                 repeat rewrite <- Permutation_middle. apply perm_swap.
+              ** apply IHh with (Hp1 :=Hp3') (Hp2 := Hp4) (y:= height Hp3' + height Hp4) ; [ cbn in * ; lia | auto ].
   + case (decide (((φ1 ∨ φ2) → φ3)= (φ → ψ0))).
       * admit.
       * admit.
@@ -178,7 +203,7 @@ destruct Hp1; simpl in Hw,Heqh.
   destruct (exchange_hp _ ((# p → φ) :: ψ0 :: Γ0 ++ # p :: Γ1 ++ Γ2) _ Hp2) as [Hp2' Hh2'].
   + repeat rewrite <- Permutation_middle.
     do 2 (rewrite <- (perm_swap (# p → φ)) ; apply Permutation_cons ; auto).
-  + destruct (imp_cut_hp _ _ _ _ Hp2') as [Hp3 Hh3].
+  + destruct (ImpL_rev_hp _ _ _ _ Hp2') as [Hp3 Hh3].
     destruct (exchange_hp _ (ψ0 :: Γ0 ++ # p :: Γ1 ++ φ :: Γ2) _ Hp3) as [Hp3' Hh3'].
     * repeat rewrite <- Permutation_middle.
       do 2 (rewrite <- (perm_swap (φ)) ; apply Permutation_cons ; auto).
@@ -187,7 +212,7 @@ destruct Hp1; simpl in Hw,Heqh.
   destruct (exchange_hp _ ((# p → φ) :: ψ0 :: Γ0 ++ Γ1 ++ # p :: Γ2) _ Hp2) as [Hp2' Hh2'].
   + repeat rewrite <- Permutation_middle.
     rewrite <- (perm_swap (# p → φ) ψ0) ; apply Permutation_cons ; auto.
-  + destruct (imp_cut_hp _ _ _ _ Hp2') as [Hp3 Hh3].
+  + destruct (ImpL_rev_hp _ _ _ _ Hp2') as [Hp3 Hh3].
     destruct (exchange_hp _ (ψ0 :: Γ0 ++ φ :: Γ1 ++ # p :: Γ2) _ Hp3) as [Hp3' Hh3'].
     * repeat rewrite <- Permutation_middle.
       rewrite <- (perm_swap φ ψ0) ; apply Permutation_cons ; auto.

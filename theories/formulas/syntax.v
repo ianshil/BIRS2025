@@ -258,4 +258,8 @@ subst ; auto.
    We close it by writing "Qed."*)
 Qed.
 
+Lemma subform_weight φ ψ : In ψ (subformlist φ) -> weight ψ <= weight φ.
+Proof.
+Admitted.
+
 End subformulas.

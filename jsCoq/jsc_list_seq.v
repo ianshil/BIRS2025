@@ -1,9 +1,430 @@
+
+(* PART 1 : SYNTAX *)
+
+
+
+(* We can import a library about sets ("ensembles" in French). *)
+Require Import Ensembles.
+Require Import stdpp.list. (* To deal with lists. *)
+Require Import Lia. (* Decision procedure for linear integer arithmetic *)
+
+
+Section formulas.
+
+(* First, let us define propositional formulas. *)
+
+(* We define formulas inductively as an Inductive
+   Type called "form". *)
+
+Inductive form : Type :=
+(* We give the constructors of this inductive type
+   independently (constructors are separated by | ). *)
+ | Var : nat -> form (* for propositional variables we have the constructor Var, 
+                        which takes a natural number (nat) and outputs a formula. *)
+ | Bot : form  (* We also have a constant bottom *)
+ | And : form -> form -> form (* And takes two formulas and outputs a formula *)
+ | Or : form -> form -> form (* Or does the same *)
+ | Imp : form -> form -> form. (* Imp as well *)
+
+(* For example, Var 2 is a formula. *)
+Check Var 2.
+(* So is the following *)
+Check Imp (And (Var 2) (Var 3)) (Or Bot (Var 4)).
+(* But the prefix notation is confusing... We will
+   sort this out soon enough. *)
+
+
+(* We define negation and top. *)
+Definition Neg (A : form) := Imp A (Bot).
+Definition fTop := Imp Bot Bot.
+(* Calling it fTop to avoid clash with another library,
+   but this won't matter for long. *)
+
+End formulas.
+
+
+(* We can get rid of the infix notation and use familiar
+   latex symbols. This makes formulas much easier to read.. *)
+Notation "# p" := (Var p) (at level 1).
+Notation "¬ φ" := (Imp φ Bot) (at level 75, φ at level 75).
+Notation " ⊥ " := Bot.
+Notation " ⊤ " := fTop.
+Notation " φ ∧ ψ" := (And φ ψ) (at level 80, ψ at level 80).
+Notation " φ ∨ ψ" := (Or φ ψ) (at level 85, ψ at level 85).
+Notation " φ → ψ" := (Imp φ ψ) (at level 99, ψ at level 200).
+
+(* Let's check the two formulas again. *)
+Check # 2.
+(* So is the following *)
+Check ((# 2) ∧ (# 3)) → (⊥ ∨ (# 4)).
+
+
+Section more_notions.
+
+(* We define the notion of uniform substitution.
+   The function σ is a substitution over propositional
+   variables (σ is of type nat -> form, but remember
+   that our propositional variables are just nats!),
+   and we define recursively on the structure of the
+   formula φ how to apply the substitution σ to φ. *)
+
+(* Fixpoint tells you that you are doing a recursive
+   definition, so there must be either an inductive
+   type (here form) or some other elements decreasing
+   along a well-founded order, ensuring that the recursion
+   is legitimate. *)
+Fixpoint subst (σ : nat -> form) (φ : form) : form :=
+(* We define the function on the structure of φ:
+   this is what "match φ with ... end" does.
+   We then need to inspect all patterns φ can have. *)
+match φ with
+| # p => (σ p) (* If it is a propositional variable, just apply σ to it! *)
+| ⊥ => ⊥ (* If ⊥ leave the formula as it is *)
+(* And for all other cases do a recursive call on the
+   subformulas. *)
+| ψ ∧ χ => (subst σ ψ) ∧ (subst σ χ)
+| ψ ∨ χ => (subst σ ψ) ∨ (subst σ χ)
+| ψ → χ => (subst σ ψ) → (subst σ χ)
+end.
+
+(* Let's see what we can do with this. *)
+Compute subst (* We want to compute the subst of a function and a formula *)
+    (fun n => # (n + n)) (* This is our function *)
+    ((# 2) ∧ (# 3)) → (⊥ ∨ (# 4)) (* And our formula we saw above. *).
+
+
+(* We can also define the implication of a formula by a list.
+   Note that this time the recursive definition works because
+   we use the (polymorphic) inductive type list. *)
+Fixpoint list_Imp (φ : form) (l : list form) : form :=
+match l with
+ | nil => φ
+ | ψ :: t => ψ → (list_Imp φ t)
+end.
+
+(* We can then create such implications. *)
+Compute list_Imp (# 8) [⊤ ; (⊥ ∧ ⊤) ; (# 42)].
+
+
+(* Other operations on lists of formulas we can
+   perform consist in turning them into the
+   conjunction / disjunction of all their elements. *)
+
+Fixpoint list_conj (l : list form) :=
+match l with
+ | [] => ⊤
+ | φ :: l => φ ∧ (list_conj l)
+end.
+
+(* Reminder about lists:
+  [] is the empty list
+  [φ] is a singleton list
+  [φ1 ; ... ; φn] is a list of n elements 
+  φ :: l is a notation for cons 
+  l ++ l' is a notation for append *)
+
+Compute list_conj [⊤ ; (⊥ ∧ ⊤) ; (# 42)].
+(* Note that we have a conjunction of four elements,
+   while our list only had 3! This is because we need
+   to treat the empty list as well, and output ⊤ for it.
+   ⊤ is in fact the rightmost conjunct, as it is defined
+   as ¬⊥ (Coq simplified it for us).
+   Logically, this is all fine as ⊤ is the unit element
+   of ∧. *)
+
+Fixpoint list_disj (l : list form) :=
+match l with
+ | nil => Bot
+ | h :: t => Or h (list_disj t)
+end.
+
+Compute list_disj [⊤ ; (⊥ ∧ ⊤) ; (# 42)].
+(* A similar phenomenon appears here with ⊥,
+   the unit element of ∨. *)
+
+
+(* We can also recursively define a notion of
+   weight of formulas. It may look a bit weird for
+   the case of conjunction, if you have never seen
+   the terminating sequent calculus for intuitionistic
+   logic. We'll get back to this later. *)
+Fixpoint weight  (φ : form) : nat :=
+match φ with
+| ⊥ => 1
+| Var _ => 1
+| φ ∧ ψ => 2 + weight φ + weight ψ
+| φ ∨ ψ => 1 + weight φ + weight ψ
+| φ → ψ => 1 + weight φ + weight ψ
+end.
+
+Compute weight (list_disj [⊤ ; (⊥ ∧ ⊤) ; (# 42)]).
+Compute weight (list_Imp (list_disj [⊤ ; (⊥ ∧ ⊤) ; (# 42)]) [⊤ ; (⊥ ∧ ⊤) ; (# 42)]).
+
+End more_notions.
+
+
+
+Section subformulas.
+
+(* Next, we define the list of subformulas of a formula. *)
+Fixpoint subformlist (φ : form) : list form :=
+match φ with
+| # p => [# p]
+| ⊥ => [⊥]
+| ψ ∧ χ => (ψ ∧ χ) :: (subformlist ψ) ++ (subformlist χ)
+| ψ ∨ χ => (ψ ∨ χ) :: (subformlist ψ) ++ (subformlist χ)
+| ψ → χ => (ψ → χ) :: (subformlist ψ) ++ (subformlist χ)
+end.
+
+(* We can prove some sort of transitivitiy of subformlist:
+   If a formula χ is a subformula of φ, and
+   φ is a subformula of ψ, then
+   χ is a subformula of ψ. *)
+
+Lemma subform_trans : forall ψ χ φ, In φ (subformlist ψ) ->
+  In χ (subformlist φ) -> In χ (subformlist ψ).
+Proof.
+(* We prove our statement by induction on ψ:
+   this is what "induction ψ" do. *)
+induction ψ ; 
+(* Note that we do not put a "." after this tactic,
+   but a ";". The semantic of "tac1 ; tac2" is 
+   "do tac1 in the current environment, and then do
+    tac2 on all environments generated by the application
+    of tac1".
+   So, by using ";" we can save ourselves from applying a single
+   tactic several times in the generated subgoals. *)
+
+(* What we need to prove remains a universally quantified formula.
+   As one would do on paper, we introduce the quantified
+   variables. This is what "intros" does. We specify the name
+   of each variable after it. *)
+intros χ φ H H0 ;
+(* "cbn" simplifies an expression, and we require it
+   to be applied in a specific location, this is what "in" does,
+   and this location is everywhere, this is what "*" indicates. *)
+cbn in * ;
+(* The hypothesis "H" is "In φ (subformlist ψ)", but remember
+   that we are doing an induction on "ψ", so the structure of
+   "ψ" is inspected. Therefore, the expression "subformlist ψ"
+   will be simplified by "cbn" when the structure of "ψ" will
+   be made visible. This expression always reduce to an expression
+   of the form "δ :: l" for some list "l" (inspect "subformlist" closely),
+   so "In φ (subformlist ψ)" is reduced to an expression of the form
+   "In φ (δ :: l)", which is reduced to the disjunction "φ = δ \/ In φ l".
+   We can therefore "destruct" this disjunction and make a case analysis.
+   This is why we do "destruct H". *)
+destruct H ; 
+(* "subst" performs all the substitutions given by the equalities
+   in our set of assumptions, and "auto" tries to prove automatically
+   our goal (if it does not succeed it leaves the goal / assumptions
+   as they are). *)
+subst ; auto.
+(* After doing the above we only have 3 cases left. We 
+   separate them with "-", which allows us to focus on
+   the first goal. *)
+- (* How do we prove this goal? Well, "H" tells us that 
+     φ is in the list of subformulas of "ψ1"
+     appended by the list of subformulas of "ψ2".
+     So, "φ" should really be in one of those two lists.
+     How can we infer this? A good tool is "Search"
+     (say hi to your new best friend), which spits out
+     what Rocq know at that point about the notions you
+     ask about. *)
+  Search In "++".
+  (* Note that we can search about notion in plain text, like "In",
+     but also about notations, like "++". For the latter you just
+     need to put quotation marks around the notation. *)
+
+  (* We note that the 3rd element in the list is what we need:
+     it transform the fact of being "In" an appended list
+     into the fact of being in the first part or second part
+     of the appended list. As what we get is a disjunction,
+     we can destruct it. *)
+  apply in_app_or in H ; destruct H.
+  + right. (* To prove a disjunction, we need to pick a disjunct. *)
+    apply in_or_app ; left. (* Then we apply the converse of in_app_or. *)
+    (* We can apply the induction hypothesis "IHψ1". Note that we specify
+       that we want to apply IHw with the variable "φ" (in "IHψ1")
+       instantiated by "φ" (in our context). If we did not do that,
+       Rocq would complain as it cannot guess which value of "φ" we
+       want to use. 
+       Then we finish our goal automatically. *)
+    apply IHψ1 with (φ:=φ) ; auto.
+  + right. apply in_or_app ; right. apply IHψ2 with (φ:=φ) ; auto.
+- apply in_app_or in H ; destruct H.
+  + right. apply in_or_app ; left. apply IHψ1 with (φ:=φ) ; auto.
+  + right. apply in_or_app ; right. apply IHψ2 with (φ:=φ) ; auto.
+- apply in_app_or in H ; destruct H.
+  + right. apply in_or_app ; left. apply IHψ1 with (φ:=φ) ; auto.
+  + right. apply in_or_app ; right. apply IHψ2 with (φ:=φ) ; auto.
+(* And that's our first proof! Woohoo!
+   We close it by writing "Qed."*)
+Qed.
+
+Lemma subform_weight φ ψ : In ψ (subformlist φ) -> weight ψ <= weight φ.
+Proof.
+Admitted.
+
+End subformulas.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(* PART 2 : SYNTAX FACTS *)
+
+From stdpp Require Import countable. (* To talk about countability. *)
+Require Import Coq.Program.Equality.
+
+
+Global Instance fomula_bottom : base.Bottom form := Bot.
+Global Instance fomula_top : base.Top form := fTop.
+
+Section decidable.
+
+(* Equality is decidable over formulas. *)
+
+Global Instance form_eq_dec : EqDecision form.
+Proof.
+intros x y. unfold Decision. repeat decide equality.
+Defined.
+
+(* Elementhood in a list of formulas is decidable. *)
+
+Lemma In_form_dec : forall l (A : form), {List.In A l} + {List.In A l -> False}.
+Proof.
+induction l ; simpl ; intros ; auto.
+destruct (IHl A) ; auto.
+destruct (form_eq_dec a A) ; auto.
+right. intro. destruct H ; auto.
+Qed.
+
+End decidable.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(* PART 3 : LIST-SEQUENT CALCULUS *)
+
+(** ** Definition of provability in G4ip *)
+Reserved Notation "Γ ⊢ φ" (at level 90).
+Inductive Provable : list form -> form -> Type :=
+| PId Γ0 Γ1 p : Γ0 ++ # p :: Γ1 ⊢ (#p)
+| BotL Γ0 Γ1 φ : Γ0 ++ ⊥ :: Γ1 ⊢ φ
+| AndR Γ φ ψ :
+    Γ ⊢ φ -> 
+    Γ ⊢ ψ ->
+      Γ ⊢ (φ ∧ ψ)
+| AndL Γ0 Γ1 φ ψ θ :
+    Γ0 ++ φ :: ψ :: Γ1 ⊢ θ ->
+      Γ0 ++ (φ ∧ ψ) :: Γ1 ⊢ θ
+| OrR1 Γ φ ψ :
+    Γ ⊢ φ ->
+      Γ ⊢ (φ ∨ ψ)
+| OrR2 Γ φ ψ :
+    Γ ⊢ ψ ->
+      Γ ⊢ (φ ∨ ψ)
+| OrL Γ0 Γ1 φ ψ θ :
+    Γ0 ++ φ :: Γ1  ⊢ θ ->
+    Γ0 ++ ψ :: Γ1 ⊢ θ ->
+      Γ0 ++ (φ ∨ ψ) :: Γ1 ⊢ θ
+| ImpR Γ φ ψ :
+    φ :: Γ ⊢ ψ ->
+      Γ ⊢ (φ → ψ)
+(* We need to duplicate the rule ImpVar as the order matters. *)
+| ImpLVar1 Γ0 Γ1 Γ2 p φ ψ :
+    Γ0 ++ # p :: Γ1 ++ φ :: Γ2 ⊢ ψ ->
+      Γ0 ++ # p :: Γ1 ++ (# p → φ) :: Γ2 ⊢ ψ
+| ImpLVar2 Γ0 Γ1 Γ2 p φ ψ :
+    Γ0 ++ φ :: Γ1 ++ # p :: Γ2 ⊢ ψ ->
+      Γ0 ++ (# p → φ) :: Γ1 ++ # p :: Γ2 ⊢ ψ
+| ImpLAnd Γ0 Γ1 φ1 φ2 φ3 ψ :
+    Γ0 ++ (φ1 → (φ2 → φ3)) :: Γ1 ⊢ ψ ->
+      Γ0 ++ ((φ1 ∧ φ2) → φ3) :: Γ1 ⊢ ψ
+| ImpLOr Γ0 Γ1 φ1 φ2 φ3 ψ :
+    Γ0 ++ (φ1 → φ3) :: (φ2 → φ3) :: Γ1 ⊢ ψ ->
+      Γ0 ++ ((φ1 ∨ φ2) → φ3) :: Γ1 ⊢ ψ
+| ImpLImp Γ0 Γ1 φ1 φ2 φ3 ψ :
+    Γ0 ++ (φ2 → φ3) :: Γ1 ⊢ (φ1 → φ2) ->
+    Γ0 ++ φ3 :: Γ1 ⊢ ψ ->
+      Γ0 ++ ((φ1 → φ2) → φ3) :: Γ1 ⊢ ψ
+where "Γ ⊢ φ" := (Provable Γ φ).
+
+Notation "Γ ⊢G4ip φ" := (Provable Γ φ) (at level 90).
+
+Global Hint Constructors Provable : proof.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(* PART 4 : A PATH TO CONTRACTION *)
+
 (* This file is a modification of a file by Hugo Férée:
    https://github.com/hferee/UIML/blob/main/theories/iSL/SequentProps.v *)
-
-Require Import list_sequent.
-Require Export stdpp.list.
-Require Import Coq.Program.Equality.
 
 (* We need a standard result but in Type and not in Prop. *)
 
@@ -869,4 +1290,291 @@ induction l ; cbn ; intros ; auto.
   + intro H1 ; subst. apply OrR1 ; auto.
   + intro H1. apply OrR2. apply IHl with ψ ; auto.
     destruct H ; [ contradiction | auto].
+Qed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(* PART 5 : CUT ADMISSIBILITY *)
+
+(* This file is a modification of a file by Hugo Férée:
+   https://github.com/hferee/UIML/blob/main/theories/iSL/Cut.v *)
+
+
+Require Arith.
+
+(** * Cut Admissibility *)
+
+Theorem additive_cut Γ φ ψ :
+  Γ ⊢ φ  -> φ :: Γ ⊢ ψ ->
+  Γ ⊢ ψ.
+Proof.
+remember (weight φ) as w. assert(Hw : weight φ ≤ w) by lia. clear Heqw.
+revert φ Hw ψ Γ.
+(* Primary induction on the weight of the cut formula. *)
+induction w; intros φ Hw ; [destruct φ ; cbn in Hw ; lia|].
+intros ψ Γ.
+(* Secondary induction on the sum of the heights of the 
+   premises of the cut. *)
+intros Hp1 Hp2.
+remember (height Hp1 + height Hp2) as h.
+revert h ψ Γ Hp1 Hp2 Heqh.
+refine  (@well_founded_induction _ _ Nat.lt_wf_0 _ _).
+intros h. intro IHh. intros ψ Γ Hp1 Hp2 Heqh.
+(* We inspect the structure of the proof of the left 
+   premise "Γ ⊢G4ip φ". *)
+destruct Hp1; simpl in Hw,Heqh.
+- eapply exchange ; [ apply Permutation_middle | ].
+  apply contraction. eapply exchange ; [ | exact Hp2].
+  rewrite <- Permutation_middle ; auto.
+- apply BotL.
+- pose (AndL_rev _ _ _ _ Hp2). do 2 apply IHw in p ; auto ; try lia. 
+  all: apply weakening; assumption.
+- apply AndL. destruct (exchange_hp _ ((φ ∧ ψ0) :: θ :: Γ0 ++ Γ1) _ Hp2) as [Hp2' Hh2'].
+  + rewrite <- Permutation_middle. apply perm_swap.
+  + destruct (AndL_rev_hp _ _ _ _ Hp2') as [Hp3 Hh3].
+    destruct (exchange_hp _ (θ :: Γ0 ++ φ :: ψ0 :: Γ1) _ Hp3) as [Hp3' Hh3'].
+    * repeat rewrite <- Permutation_middle.
+      rewrite (perm_swap _ θ) ; apply Permutation_cons ; auto. apply perm_swap.
+    * apply IHh with (Hp1 := Hp1) (Hp2 := Hp3') (y:= height Hp1 + height Hp3') ; [ lia | auto ].
+- destruct (OrL_rev _ _ _ _ Hp2). apply (IHw φ); [lia| |]; tauto.
+- destruct (OrL_rev _ _ _ _ Hp2). apply (IHw ψ0); [lia| |] ; tauto.
+- apply OrL.
+  + destruct (exchange_hp _ ((φ ∨ ψ0) :: θ :: Γ0 ++ Γ1) _ Hp2) as [Hp2' Hh2'].
+    * rewrite <- Permutation_middle ; apply perm_swap.
+    * destruct (OrL_rev_hp _ _ _ _ Hp2') as [[Hp3 Hh3] [Hp4 Hh4]].
+      destruct (exchange_hp _ (θ :: Γ0 ++ φ :: Γ1) _ Hp3) as [Hp3' Hh3'].
+      -- rewrite <- Permutation_middle ; apply perm_swap.
+      -- apply IHh with (Hp1 := Hp1_1) (Hp2 := Hp3') (y:= height Hp1_1 + height Hp3') ; [ lia | auto ].
+  + destruct (exchange_hp _ ((φ ∨ ψ0) :: θ :: Γ0 ++ Γ1) _ Hp2) as [Hp2' Hh2'].
+    * rewrite <- Permutation_middle ; apply perm_swap.
+    * destruct (OrL_rev_hp _ _ _ _ Hp2') as [[Hp3 Hh3] [Hp4 Hh4]].
+      destruct (exchange_hp _ (θ :: Γ0 ++ ψ0 :: Γ1) _ Hp4) as [Hp4' Hh4'].
+      -- rewrite <- Permutation_middle ; apply perm_swap.
+      -- apply IHh with (Hp1 := Hp1_2) (Hp2 := Hp4') (y:= height Hp1_2 + height Hp4') ; [ lia | auto ].
+- (* (V) *)
+  (* The last rule applied was ImpR, so the cut
+     formula is an implication. Here, we need to
+     inspect the structure of the proof of the
+     other premise. *)
+  remember ((φ → ψ0) :: Γ) as Γ'.
+  destruct Hp2 ; subst ; cbn in IHh.
+  + assert (In (#p) Γ).
+    { assert (In # p ((φ → ψ0) :: Γ)) by (rewrite <- HeqΓ' ; apply in_or_app ; right ; left ; split).
+      inversion H ; [discriminate | auto]. }
+    apply in_splitT in H as [Γ' [Γ'' Heq]] ; subst. apply PId.
+  + assert (In ⊥ Γ).
+    { assert (In ⊥ ((φ → ψ0) :: Γ)) by (rewrite <- HeqΓ' ; apply in_or_app ; right ; left ; split).
+      inversion H ; [discriminate | auto]. }
+    apply in_splitT in H as [Γ' [Γ'' Heq]] ; subst. apply BotL.
+  + pose (ImpR _ _ _ Hp1). apply AndR.
+     * apply IHh with (Hp1 := p) (Hp2 := Hp2_1) (y:= height p + height Hp2_1) ; [ cbn ; lia | auto ].
+     * apply IHh with (Hp1 := p) (Hp2 := Hp2_2) (y:= height p + height Hp2_2) ; [ cbn ; lia | auto ].
+  + assert (In (φ0 ∧ ψ) Γ).
+    { assert (In (φ0 ∧ ψ) ((φ → ψ0) :: Γ)) by (rewrite <- HeqΓ' ; apply in_or_app ; right ; left ; split).
+      inversion H ; [discriminate | auto]. }
+    apply in_splitT in H as [Γ' [Γ'' Heq]] ; subst.
+    apply AndL. pose (ImpR _ _ _ Hp1).
+    destruct (exchange_hp _ ((φ0 ∧ ψ) :: Γ' ++ Γ'') _ p) as [p' Hh'].
+    * rewrite Permutation_middle ; auto.
+    * destruct (AndL_rev_hp _ _ _ _ p') as [p'' Hh''].
+      destruct (exchange_hp _ (Γ' ++ φ0 :: ψ :: Γ'') _ p'') as [p3 Hh3].
+      -- repeat rewrite <- Permutation_middle ; auto.
+      -- destruct (exchange_hp _ ((φ → ψ0) :: Γ' ++ φ0 :: ψ :: Γ'') _ Hp2) as [Hp2' Hh2'].
+         ++ repeat rewrite <- Permutation_middle.
+            do 2 (rewrite <- (perm_swap (φ → ψ0)) ; apply Permutation_cons ; auto).
+           pose (Permutation_app_inv Γ0 Γ1 ((φ → ψ0) :: Γ') Γ'' (φ0 ∧ ψ)). 
+           cbn in p0. apply p0 ; rewrite HeqΓ' ; auto.
+         ++ apply IHh with (Hp1 := p3) (Hp2 := Hp2') (y:= height p3 + height Hp2') ; [ cbn in * ; lia | auto ].
+  + apply OrR1. pose (ImpR _ _ _ Hp1).
+    apply IHh with (Hp1 := p) (Hp2 := Hp2) (y:= height p + height Hp2) ; [ cbn ; lia | auto ].
+  + apply OrR2. pose (ImpR _ _ _ Hp1).
+    apply IHh with (Hp1 := p) (Hp2 := Hp2) (y:= height p + height Hp2) ; [ cbn ; lia | auto ].
+  + pose (ImpR _ _ _ Hp1).
+    assert (In (φ0 ∨ ψ) Γ).
+    { assert (In (φ0 ∨ ψ) ((φ → ψ0) :: Γ)) by (rewrite <- HeqΓ' ; apply in_or_app ; right ; left ; split).
+      inversion H ; [discriminate | auto]. }
+    apply in_splitT in H as [Γ' [Γ'' Heq]] ; subst.
+    apply OrL.
+    * destruct (exchange_hp _ ((φ0 ∨ ψ) :: Γ' ++ Γ'') _ p) as [p' Hh'].
+      -- rewrite Permutation_middle ; auto.
+      -- destruct (OrL_rev_hp _ _ _ _ p') as [[pl Hlh] [pr Hrh]].
+         destruct (exchange_hp _ (Γ' ++ φ0 :: Γ'') _ pl) as [p3 Hh3].
+         ++ rewrite <- Permutation_middle ; auto.
+         ++ destruct (exchange_hp _ ((φ → ψ0) :: Γ' ++ φ0 :: Γ'') _ Hp2_1) as [Hp2_1' Hh2_1'].
+            ** repeat rewrite <- Permutation_middle.
+               rewrite <- (perm_swap (φ → ψ0)) ; apply Permutation_cons ; auto.
+               pose (Permutation_app_inv Γ0 Γ1 ((φ → ψ0) :: Γ') Γ'' (φ0 ∨ ψ)). 
+               cbn in p0. apply p0 ; rewrite HeqΓ' ; auto.
+            ** apply IHh with (Hp1 := p3) (Hp2 := Hp2_1') (y:= height p3 + height Hp2_1') ; [ cbn in * ; lia | auto ].
+    * destruct (exchange_hp _ ((φ0 ∨ ψ) :: Γ' ++ Γ'') _ p) as [p' Hh'].
+      -- rewrite Permutation_middle ; auto.
+      -- destruct (OrL_rev_hp _ _ _ _ p') as [[pl Hlh] [pr Hrh]].
+         destruct (exchange_hp _ (Γ' ++ ψ :: Γ'') _ pr) as [p3 Hh3].
+         ++ rewrite <- Permutation_middle ; auto.
+         ++ destruct (exchange_hp _ ((φ → ψ0) :: Γ' ++ ψ :: Γ'') _ Hp2_2) as [Hp2_2' Hh2_2'].
+            ** repeat rewrite <- Permutation_middle.
+               rewrite <- (perm_swap (φ → ψ0)) ; apply Permutation_cons ; auto.
+               pose (Permutation_app_inv Γ0 Γ1 ((φ → ψ0) :: Γ') Γ'' (φ0 ∨ ψ)). 
+               cbn in p0. apply p0 ; rewrite HeqΓ' ; auto.
+            ** apply IHh with (Hp1 := p3) (Hp2 := Hp2_2') (y:= height p3 + height Hp2_2') ; [ cbn in * ; lia | auto ].
+  + apply ImpR. pose (ImpR _ _ _ Hp1).
+    destruct (weakening_hp _ _ p φ0).
+    destruct (exchange_hp _ ((φ → ψ0) :: φ0 :: Γ) _ Hp2) as [Hp2' Hh2'].
+    * apply perm_swap.
+    * apply IHh with (Hp1 := x) (Hp2 := Hp2') (y:= height x + height Hp2') ; [ cbn in * ; lia | auto ].
+  (* The remaining subcases are implication left rule, which may have
+     the cut formula as principal formula. So, in each subcase we check
+     whether the principal formula is the cut formula. *)
+  + case (decide ((#p → φ0) = (φ → ψ0))).
+      (* If the cut formula is principal *)
+      * intro Heq'; dependent destruction Heq'.
+        apply (IHw ψ0) ; auto.
+        -- lia.
+        -- assert (In (#p) Γ).
+           { assert (In (#p) ((#p → ψ0) :: Γ)) by (rewrite <- HeqΓ' ; apply in_or_app ; right ; left ; split).
+             inversion H ; [discriminate | auto]. }
+           apply in_splitT in H as [Γ' [Γ'' Heq]] ; subst.
+           apply exchange with (# p :: Γ' ++ Γ'') ; [ apply Permutation_middle | ].
+           apply contraction.
+           apply exchange with (# p :: Γ' ++ # p :: Γ'') ; [ repeat rewrite <- Permutation_middle ; auto | auto].
+        -- apply exchange with (Γ0 ++ # p :: Γ1 ++ ψ0 :: Γ2) ; [ | auto].
+           rewrite Permutation_middle. rewrite perm_swap. do 2 (rewrite <- Permutation_middle).
+           apply Permutation_cons ; auto.
+           symmetry. apply Permutation_cons_app_inv with (# p → ψ0). rewrite <- HeqΓ'.
+           repeat rewrite <- Permutation_middle. apply perm_swap.
+      (* If the cut formula is not principal *)
+      * intro Hneq.
+        (* Need to make "# p" and "# p → φ0" appear in "Γ" (holds because of HeqΓ'),
+           and then apply ImpLVar1/2 and then IHh on the resulting proof with Hp2. *) admit.
+  + case (decide ((#p → φ0) = (φ → ψ0))).
+      (* If the cut formula is principal *)
+      * intro Heq'; dependent destruction Heq'.
+        apply (IHw ψ0) ; auto.
+        -- lia.
+        -- assert (In (#p) Γ).
+           { assert (In (#p) ((#p → ψ0) :: Γ)) by (rewrite <- HeqΓ' ; apply in_or_app ; right ; right ;
+             apply in_or_app ; right ; left ; split).
+             inversion H ; [discriminate | auto]. }
+           apply in_splitT in H as [Γ' [Γ'' Heq]] ; subst.
+           apply exchange with (# p :: Γ' ++ Γ'') ; [ apply Permutation_middle | ].
+           apply contraction.
+           apply exchange with (# p :: Γ' ++ # p :: Γ'') ; [ repeat rewrite <- Permutation_middle ; auto | auto].
+        -- apply exchange with (Γ0 ++ ψ0 :: Γ1 ++ # p :: Γ2) ; [ | auto].
+           rewrite <- Permutation_middle. apply Permutation_cons ; auto.
+           symmetry. apply Permutation_cons_app_inv with (# p → ψ0) ; rewrite HeqΓ' ; auto.
+      (* If the cut formula is not principal *)
+      * intro Hneq. (* Same as above. *) admit.
+  + case (decide (((φ1 ∧ φ2) → φ3)= (φ → ψ0))).
+      * intro Heq' ; inversion Heq' ; subst.
+        apply (IHw (φ1 → φ2 → ψ0)) ; auto.
+        -- cbn in * ; lia.
+        -- repeat apply ImpR.
+           apply exchange with (φ1 :: φ2 :: Γ) ; [ apply perm_swap | ].
+           apply AndL_rev ; auto.
+        -- apply exchange with (Γ0 ++ (φ1 → φ2 → ψ0) :: Γ1) ; [ | auto].
+           rewrite <- Permutation_middle. apply Permutation_cons ; auto.
+           symmetry. apply Permutation_cons_app_inv with (φ1 ∧ φ2 → ψ0) ; rewrite HeqΓ' ; auto.
+      * intro Hneq.
+        assert (In (φ1 ∧ φ2 → φ3) Γ).
+        { assert (In (φ1 ∧ φ2 → φ3) ((φ → ψ0) :: Γ)) by (rewrite <- HeqΓ' ; apply in_or_app ; right ; left ; split).
+          inversion H ; [ exfalso ; auto | auto]. }
+        apply in_splitT in H as [Γ' [Γ'' Heq]] ; subst.
+        apply ImpLAnd. pose (ImpR _ _ _ Hp1).
+        destruct (exchange_hp _ ((φ1 ∧ φ2 → φ3) :: Γ' ++ Γ'') _ p) as [Hp2' Hh2'].
+        -- rewrite <- Permutation_middle ; auto.
+        -- destruct (ImpLAnd_rev_hp _ _ _ _ _ Hp2') as [Hp3 Hh3].
+           destruct (exchange_hp _ (Γ' ++ (φ1 → φ2 → φ3) :: Γ'') _ Hp3) as [Hp3' Hh3'].
+           ++ rewrite <- Permutation_middle ; auto.
+           ++ destruct (exchange_hp _ ((φ → ψ0) :: Γ' ++ (φ1 → φ2 → φ3) :: Γ'') _ Hp2) as [Hp4 Hh4].
+              ** repeat rewrite <- Permutation_middle. rewrite perm_swap. apply Permutation_cons ; auto.
+                 symmetry. apply Permutation_cons_app_inv with (φ1 ∧ φ2 → φ3). rewrite HeqΓ'.
+                 repeat rewrite <- Permutation_middle. apply perm_swap.
+              ** apply IHh with (Hp1 :=Hp3') (Hp2 := Hp4) (y:= height Hp3' + height Hp4) ; [ cbn in * ; lia | auto ].
+  + case (decide (((φ1 ∨ φ2) → φ3)= (φ → ψ0))).
+      * admit.
+      * admit.
+  + case (decide (((φ1 → φ2) → φ3) = (φ → ψ0))).
+     * admit.
+     * (* (V-d) *) admit.
+- apply ImpLVar1. 
+  destruct (exchange_hp _ ((# p → φ) :: ψ0 :: Γ0 ++ # p :: Γ1 ++ Γ2) _ Hp2) as [Hp2' Hh2'].
+  + repeat rewrite <- Permutation_middle.
+    do 2 (rewrite <- (perm_swap (# p → φ)) ; apply Permutation_cons ; auto).
+  + destruct (ImpL_rev_hp _ _ _ _ Hp2') as [Hp3 Hh3].
+    destruct (exchange_hp _ (ψ0 :: Γ0 ++ # p :: Γ1 ++ φ :: Γ2) _ Hp3) as [Hp3' Hh3'].
+    * repeat rewrite <- Permutation_middle.
+      do 2 (rewrite <- (perm_swap (φ)) ; apply Permutation_cons ; auto).
+    * apply IHh with (Hp1 :=Hp1) (Hp2 := Hp3') (y:= height Hp1 + height Hp3') ; [ cbn in * ; lia | auto ].
+- apply ImpLVar2. 
+  destruct (exchange_hp _ ((# p → φ) :: ψ0 :: Γ0 ++ Γ1 ++ # p :: Γ2) _ Hp2) as [Hp2' Hh2'].
+  + repeat rewrite <- Permutation_middle.
+    rewrite <- (perm_swap (# p → φ) ψ0) ; apply Permutation_cons ; auto.
+  + destruct (ImpL_rev_hp _ _ _ _ Hp2') as [Hp3 Hh3].
+    destruct (exchange_hp _ (ψ0 :: Γ0 ++ φ :: Γ1 ++ # p :: Γ2) _ Hp3) as [Hp3' Hh3'].
+    * repeat rewrite <- Permutation_middle.
+      rewrite <- (perm_swap φ ψ0) ; apply Permutation_cons ; auto.
+    * apply IHh with (Hp1 :=Hp1) (Hp2 := Hp3') (y:= height Hp1 + height Hp3') ; [ cbn in * ; lia | auto ].
+- apply ImpLAnd.
+  destruct (exchange_hp _ ((φ1 ∧ φ2 → φ3) :: ψ0 :: Γ0 ++ Γ1) _ Hp2) as [Hp2' Hh2'].
+  + rewrite perm_swap. apply Permutation_cons ; auto. rewrite Permutation_middle ; auto.
+  + destruct (ImpLAnd_rev_hp _ _ _ _ _ Hp2') as [Hp3 Hh3].
+    destruct (exchange_hp _ (ψ0 :: Γ0 ++ (φ1 → φ2 → φ3) :: Γ1) _ Hp3) as [Hp3' Hh3'].
+    * rewrite perm_swap. apply Permutation_cons ; auto. apply Permutation_middle.
+    * apply IHh with (Hp1 :=Hp1) (Hp2 := Hp3') (y:= height Hp1 + height Hp3') ; [ cbn in * ; lia | auto ].
+- apply ImpLOr.
+  destruct (exchange_hp _ ((φ1 ∨ φ2 → φ3) :: ψ0 :: Γ0 ++ Γ1) _ Hp2) as [Hp2' Hh2'].
+  + rewrite perm_swap. apply Permutation_cons ; auto. rewrite Permutation_middle ; auto.
+  + destruct (ImpLOr_rev_hp _ _ _ _ _ Hp2') as [Hp3 Hh3].
+    destruct (exchange_hp _ (ψ0 :: Γ0 ++ (φ1 → φ3) :: (φ2 → φ3) :: Γ1) _ Hp3) as [Hp3' Hh3'].
+    * repeat rewrite <- Permutation_middle. repeat rewrite (perm_swap ψ0). apply Permutation_cons ; auto.
+    * apply IHh with (Hp1 :=Hp1) (Hp2 := Hp3') (y:= height Hp1 + height Hp3') ; [ cbn in * ; lia | auto ].
+- apply ImpLImp ; auto.
+  destruct (exchange_hp _ (((φ1 → φ2) → φ3) :: ψ0 :: Γ0 ++ Γ1) _ Hp2) as [Hp2' Hh2'].
+  + rewrite perm_swap. apply Permutation_cons ; auto. rewrite Permutation_middle ; auto.
+  + destruct (ImpLImp_rev_hp _ _ _ _ _ Hp2') as [Hp3 Hh3].
+    destruct (exchange_hp _ (ψ0 :: Γ0 ++ φ3 :: Γ1) _ Hp3) as [Hp3' Hh3'].
+    * repeat rewrite <- Permutation_middle. repeat rewrite (perm_swap ψ0) ; auto.
+    * apply IHh with (Hp1 :=Hp1_2) (Hp2 := Hp3') (y:= height Hp1_2 + height Hp3') ; [ cbn in * ; lia | auto ].
+Admitted.
+
+(* Multiplicative cut rule *)
+Theorem cut Γ Γ' φ ψ :
+  Γ ⊢ φ  -> φ :: Γ' ⊢ ψ ->
+  Γ ++ Γ' ⊢ ψ.
+Proof.
+intros π1 π2. apply additive_cut with φ.
+- apply generalised_weakeningR, π1.
+- apply exchange with (Γ ++ φ :: Γ') ; [ rewrite Permutation_middle ; auto | ].
+  apply generalised_weakeningL, π2.
 Qed.

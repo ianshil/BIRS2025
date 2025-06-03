@@ -42,7 +42,6 @@ End order.
 (* Theory of countability from Iris.
     Will be useful for showing that we can enumerate
     our formulas.  *)
-From stdpp Require Import countable.
 Require Import Coq.Program.Equality.
 
 Global Instance fomula_bottom : base.Bottom form := Bot.
