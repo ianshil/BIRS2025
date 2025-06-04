@@ -1499,7 +1499,8 @@ Logic (65):4.
 
 Theorem weakening  φ' Γ φ : Γ ⊢ φ -> Γ•φ' ⊢ φ.
 Proof with (auto with proof).
-intro H. revert φ'.  induction H; intro φ'; auto with proof; try (exch 0; auto with proof).
+intro H. revert φ'.
+induction H; intro φ'; auto with proof; try (exch 0; auto with proof).
 - constructor 4. exch 1; exch 0...
 - constructor 7; exch 0...
 - constructor 8; exch 0...

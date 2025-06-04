@@ -745,8 +745,8 @@ Lemma wLEM Γ φ : Γ ⊢ (¬ ¬ (φ ∨ ¬ φ)).
 Proof.
 Admitted.
 
-Lemma DisjProp Γ φ ψ : Γ ⊢ (φ ∨ ψ) ->
-      (Γ ⊢ φ) \/ (Γ ⊢ ψ).
+Lemma DisjProp φ ψ : (Empty_set _) ⊢ (φ ∨ ψ) ->
+      ( (Empty_set _) ⊢ φ) \/ ((Empty_set _) ⊢ ψ).
 Proof.
 (* Good luck. *)
 Admitted.
