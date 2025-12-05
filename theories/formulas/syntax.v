@@ -1,8 +1,8 @@
 (* We can import a library about sets ("ensembles" in French). *)
-Require Import Ensembles.
-Require Import List. (* To deal with lists. *)
+From Stdlib Require Import Ensembles.
+From Stdlib Require Import List. (* To deal with lists. *)
 Export ListNotations.
-Require Import Lia. (* Decision procedure for linear integer arithmetic *)
+From Stdlib Require Import Lia. (* Decision procedure for linear integer arithmetic *)
 
 
 Section formulas.

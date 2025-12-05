@@ -7,7 +7,7 @@
   mostly for their powerful multiset equivalence tactic. *)
 
 (** Notion of wellfoundedness *)
-Require Import Coq.Program.Wf.
+From Stdlib Require Import Program.Wf.
 
 (** Stdpp implementation of multisets *)
 Require Export stdpp.gmultiset.
@@ -15,7 +15,7 @@ Require Export stdpp.gmultiset.
 (** Our propositional formulas, including their countability. *)
 Require Export syntax syntax_facts.
 
-Require Import Coq.Program.Equality.
+From Stdlib Require Import Program.Equality.
 
 (** An environment is defined as a finite multiset of formulas
 (in the sense of the stdpp library).

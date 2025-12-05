@@ -4,7 +4,7 @@
 Require Import ms_sequent.
 
 (* Required for dependent induction. *)
-Require Import Coq.Program.Equality.
+From Stdlib Require Import Program.Equality.
 
 (** * Admissible rules in G4ip sequent calculus
 

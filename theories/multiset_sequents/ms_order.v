@@ -3,7 +3,7 @@
 
 (** * Ordering *)
 Require Export multisets.
-Require Import Coq.Program.Equality.
+From Stdlib Require Import Program.Equality.
 
 Definition env_weight Γ :=
   list_sum (map (fun x => 5^ weight x) Γ).

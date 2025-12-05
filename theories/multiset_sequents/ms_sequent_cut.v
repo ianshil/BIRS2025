@@ -5,7 +5,7 @@
 (** * Cut Admissibility *)
 Require Import syntax ms_sequent ms_sequent_props. 
 Require Import ms_order.
-Require Import Coq.Program.Equality.
+From Stdlib Require Import Program.Equality.
 
 
 Local Hint Rewrite @elements_env_add : order.

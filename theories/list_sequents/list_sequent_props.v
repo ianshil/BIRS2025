@@ -3,7 +3,7 @@
 
 Require Import list_sequent.
 Require Export stdpp.list.
-Require Import Coq.Program.Equality.
+From Stdlib Require Import Program.Equality.
 
 (* We need a standard result but in Type and not in Prop. *)
 
@@ -343,12 +343,9 @@ Qed.
 Lemma AndL_rev_hp Γ φ ψ θ (Hp : (φ ∧ ψ) :: Γ ⊢ θ) :
       { Hp' : φ :: ψ :: Γ ⊢ θ | height Hp' <= height Hp}.
 Proof.
-Admitted.
-
-Lemma AndL_rev  Γ φ ψ θ: (φ ∧ ψ) :: Γ ⊢ θ -> φ :: ψ :: Γ ⊢ θ.
-Proof.
-intro Hp.
-remember ((φ ∧ ψ) :: Γ) as Γ' eqn:HH.
+remember ((φ ∧ ψ) :: Γ) as Γ' eqn:HH'.
+assert (HH : Γ' ≡ₚ (φ ∧ ψ) :: Γ) by (rewrite HH' ; auto).
+clear HH'.
 revert φ ψ Γ HH.
 induction Hp; intros φ0 ψ0 Γ' Heq ; auto with proof.
 - (* As # p is hidden in Γ', we use in_Permutation to make it 
@@ -358,35 +355,163 @@ induction Hp; intros φ0 ψ0 Γ' Heq ; auto with proof.
     inversion H ; auto ; discriminate. }
   (* Then we can apply our lemma to exhibit # p. *)
   apply in_Permutation in H as [Γ'' H].
+  (* We create the following leaf-proof. *)
+  pose (PId [φ0 ; ψ0] Γ'' p).
   (* At this point we know that our context is a permutation
-     of the context given in the next line. *)
-  apply exchange with ([φ0 ; ψ0] ++ # p :: Γ'') ; auto.
+     of the context given in p0. *)
+  destruct (exchange_hp _ (φ0 :: ψ0 :: Γ') _ p0).
   + cbn ; do 2 (apply Permutation_cons ; auto).
-  + (* Now that we made our # p explicit, we can apply the PId rule. *)
-    apply PId.
-- (* Do the same as above: exhibit Bot, and apply the BotL rule on
-     the propertly structured context. *) admit.
+  + exists x ; cbn in * ; auto.
+- assert (In ⊥ Γ').
+  { assert (In ⊥ ((φ0 ∧ ψ0) :: Γ')) by (rewrite <- Heq ; apply in_or_app ; right ; cbn ; left ; auto).
+    inversion H ; auto ; discriminate. }
+  apply in_Permutation in H as [Γ'' H].
+  pose (BotL [φ0 ; ψ0] Γ'' φ).
+  destruct (exchange_hp _ (φ0 :: ψ0 :: Γ') _ p).
+  + cbn ; do 2 (apply Permutation_cons ; auto).
+  + exists x ; cbn in * ; auto.
+- destruct (IHHp1 _ _ _ Heq) as [Hp1' Hh1'] ; destruct (IHHp2 _ _ _ Heq) as [Hp2' Hh2'].
+  pose (AndR _ _ _ Hp1' Hp2'). exists p ; cbn ; lia.
 (* the main case *)
 - (* Here we do not know whether (φ ∧ ψ) is the same conjunction 
      as (φ0 ∧ ψ0). So, we make a case distinction. *)
   case (decide ((φ ∧ ψ) = (φ0 ∧ ψ0))); intro Heq0. 
   (* If they are the same *)
-  + inversion Heq0 ; subst. eapply exchange ; [ | exact Hp].
-    transitivity (φ0 :: ψ0 :: Γ0 ++ Γ1).
-    * symmetry. apply Permutation_cons_app. apply Permutation_middle.
-    * do 2 (apply Permutation_cons ; auto). apply Permutation_cons_inv with (φ0 ∧ ψ0).
-      rewrite <- Heq. apply Permutation_middle.
+  + inversion Heq0 ; subst.
+    destruct (exchange_hp _ (φ0 :: ψ0 :: Γ') _ Hp).
+    * repeat rewrite <- Permutation_middle ; do 2 (apply Permutation_cons ; auto).
+      assert (Heqp : Γ0 ++ (φ0 ∧ ψ0) :: Γ1 ≡ₚ (φ0 ∧ ψ0) :: Γ') by (rewrite Heq ; auto).
+      repeat rewrite <- Permutation_middle in Heqp ; apply Permutation_cons_inv in Heqp ; auto.
+    * exists x ; cbn ; lia.
   (* If they are not *)
-  + (* Here again, we need to exhibit the conjunction and then apply the rule. *) admit.
-(* All remaining cases require that we exhibit the adequate formula in order
-   to apply the rule. *)
-- admit.
-- admit.
-- admit.
-- admit.
-- admit.
-- admit.
-- admit.
+  + assert (In (φ ∧ ψ) Γ').
+    { assert (In (φ ∧ ψ) ((φ0 ∧ ψ0) :: Γ')) by (rewrite <- Heq ; apply in_or_app ; right ; cbn ; left ; auto).
+      inversion H ; auto. exfalso ; auto. }
+    apply in_Permutation in H as [Γ'' H].
+    destruct (IHHp φ0 ψ0 (φ :: ψ :: Γ'')) as [Hp' Hh'].
+    * repeat rewrite <- Permutation_middle. repeat rewrite <- (perm_swap (φ0 ∧ ψ0)).
+      do 2 (apply Permutation_cons ; auto). rewrite <- H in Heq.
+      rewrite perm_swap in Heq. repeat rewrite <- Permutation_middle in Heq.
+      apply Permutation_cons_inv in Heq ; auto.
+    * pose (AndL [φ0 ; ψ0] Γ'' _ _ _ Hp').
+       destruct (exchange_hp _ (φ0 :: ψ0 :: Γ') _ p).
+       -- rewrite H ; auto.
+       -- exists x ; cbn in * ; lia.
+- destruct (IHHp _ _ _ Heq) as [Hp' Hh'].
+  pose (OrR1 _ _ ψ Hp'). exists p ; cbn ; lia.
+- destruct (IHHp _ _ _ Heq) as [Hp' Hh'].
+  pose (OrR2 _ φ _ Hp'). exists p ; cbn ; lia.
+- assert (In (φ ∨ ψ) Γ').
+  { assert (In (φ ∨ ψ) ((φ0 ∧ ψ0) :: Γ')) by (rewrite <- Heq ; apply in_or_app ; right ; cbn ; left ; auto).
+    inversion H ; auto ; discriminate. }
+  apply in_Permutation in H as [Γ'' H].
+  destruct (IHHp1 φ0 ψ0 (φ :: Γ'')) as [Hp1' Hh1'].
+  + repeat rewrite <- Permutation_middle. repeat rewrite <- (perm_swap (φ0 ∧ ψ0)).
+    apply Permutation_cons ; auto. rewrite <- H in Heq.
+    rewrite perm_swap in Heq. repeat rewrite <- Permutation_middle in Heq.
+    apply Permutation_cons_inv in Heq ; auto.
+  + destruct (IHHp2 φ0 ψ0 (ψ :: Γ'')) as [Hp2' Hh2'].
+    * repeat rewrite <- Permutation_middle. repeat rewrite <- (perm_swap (φ0 ∧ ψ0)).
+      apply Permutation_cons ; auto. rewrite <- H in Heq.
+      rewrite perm_swap in Heq. repeat rewrite <- Permutation_middle in Heq.
+      apply Permutation_cons_inv in Heq ; auto.
+    * pose (OrL [φ0 ; ψ0] Γ'' _ _ _ Hp1' Hp2').
+      destruct (exchange_hp _ (φ0 :: ψ0 :: Γ') _ p).
+      -- rewrite H ; auto.
+      -- exists x ; cbn in * ; lia.
+- destruct (IHHp φ0 ψ0 (φ :: Γ')) as [Hp' Hh'].
+  + rewrite perm_swap ; apply Permutation_cons ; auto.
+  + destruct (exchange_hp _ (φ :: φ0 :: ψ0 :: Γ') _ Hp').
+    * repeat rewrite (perm_swap φ0) ; apply Permutation_cons ; auto.
+      apply perm_swap.
+    * pose (ImpR _ _ _ x). exists p ; cbn ; lia.
+- assert (In (# p) Γ').
+  { assert (In (# p) ((φ0 ∧ ψ0) :: Γ')) by (rewrite <- Heq ; apply in_or_app ; right ; cbn ; left ; auto).
+    inversion H ; auto ; discriminate. }
+  apply in_Permutation in H as [Γ'' H].
+  assert (In (# p → φ) Γ'').
+  { assert (In (# p → φ) ((φ0 ∧ ψ0) :: # p :: Γ'')) by (rewrite H ; rewrite <- Heq ; apply in_or_app ; right ; cbn ; right ; 
+    apply in_or_app ; right ; cbn ; left ; auto).
+    inversion H0 ; try discriminate. inversion H1 ; auto ; discriminate. }
+  apply in_Permutation in H0 as [Γ''' H0].
+  destruct (IHHp φ0 ψ0 (# p :: φ :: Γ''')) as [Hp' Hh'].
+  + repeat rewrite <- Permutation_middle. repeat rewrite <- (perm_swap (φ0 ∧ ψ0)).
+    do 2 (apply Permutation_cons ; auto). rewrite <- H in Heq. rewrite <- H0 in Heq.
+    rewrite perm_swap in Heq. repeat rewrite <- Permutation_middle in Heq.
+    apply Permutation_cons_inv in Heq. rewrite perm_swap in Heq.
+    apply Permutation_cons_inv in Heq ; auto.
+  + pose (ImpLVar1 [φ0 ; ψ0] [] Γ''' _ _ _ Hp').
+    destruct (exchange_hp _ (φ0 :: ψ0 :: Γ') _ p0).
+    -- cbn. rewrite H0 ; rewrite H ; auto.
+    -- exists x ; cbn in * ; lia.
+- assert (In (# p → φ) Γ').
+  { assert (In (# p → φ) ((φ0 ∧ ψ0) :: Γ')) by (rewrite <- Heq ; apply in_or_app ; right ; cbn ; left ; auto).
+    inversion H ; auto ; discriminate. }
+  apply in_Permutation in H as [Γ'' H].
+  assert (In (# p) Γ'').
+  { assert (In (# p) ((φ0 ∧ ψ0) :: (# p → φ) :: Γ'')) by (rewrite H ; rewrite <- Heq ; apply in_or_app ; right ; cbn ; right ; 
+    apply in_or_app ; right ; cbn ; left ; auto).
+    inversion H0 ; try discriminate. inversion H1 ; auto ; discriminate. }
+  apply in_Permutation in H0 as [Γ''' H0].
+  destruct (IHHp φ0 ψ0 (φ :: # p :: Γ''')) as [Hp' Hh'].
+  + repeat rewrite <- Permutation_middle. repeat rewrite <- (perm_swap (φ0 ∧ ψ0)).
+    do 2 (apply Permutation_cons ; auto). rewrite <- H in Heq. rewrite <- H0 in Heq.
+    rewrite perm_swap in Heq. repeat rewrite <- Permutation_middle in Heq.
+    apply Permutation_cons_inv in Heq. rewrite perm_swap in Heq.
+    apply Permutation_cons_inv in Heq ; auto.
+  + pose (ImpLVar2 [φ0 ; ψ0] [] Γ''' _ _ _ Hp').
+    destruct (exchange_hp _ (φ0 :: ψ0 :: Γ') _ p0).
+    -- cbn. rewrite H0 ; rewrite H ; auto.
+    -- exists x ; cbn in * ; lia.
+- assert (In (φ1 ∧ φ2 → φ3) Γ').
+  { assert (In (φ1 ∧ φ2 → φ3) ((φ0 ∧ ψ0) :: Γ')) by (rewrite <- Heq ; apply in_or_app ; right ; cbn ; left ; auto).
+    inversion H ; auto ; discriminate. }
+  apply in_Permutation in H as [Γ'' H].
+  destruct (IHHp φ0 ψ0 ((φ1 → φ2 → φ3) :: Γ'')) as [Hp' Hh'].
+  + repeat rewrite <- Permutation_middle. repeat rewrite <- (perm_swap (φ0 ∧ ψ0)).
+    apply Permutation_cons ; auto. rewrite <- H in Heq.
+    rewrite perm_swap in Heq. repeat rewrite <- Permutation_middle in Heq.
+    apply Permutation_cons_inv in Heq ; auto.
+  + pose (ImpLAnd [φ0 ; ψ0] Γ'' _ _ _ _ Hp').
+    destruct (exchange_hp _ (φ0 :: ψ0 :: Γ') _ p).
+    -- cbn. rewrite H ; auto.
+    -- exists x ; cbn in * ; lia.
+- assert (In (φ1 ∨ φ2 → φ3) Γ').
+  { assert (In (φ1 ∨ φ2 → φ3) ((φ0 ∧ ψ0) :: Γ')) by (rewrite <- Heq ; apply in_or_app ; right ; cbn ; left ; auto).
+    inversion H ; auto ; discriminate. }
+  apply in_Permutation in H as [Γ'' H].
+  destruct (IHHp φ0 ψ0 ((φ1 → φ3) :: (φ2 → φ3) :: Γ'')) as [Hp' Hh'].
+  + repeat rewrite <- Permutation_middle. repeat rewrite <- (perm_swap (φ0 ∧ ψ0)).
+    do 2 (apply Permutation_cons ; auto). rewrite <- H in Heq.
+    rewrite perm_swap in Heq. repeat rewrite <- Permutation_middle in Heq.
+    apply Permutation_cons_inv in Heq ; auto.
+  + pose (ImpLOr [φ0 ; ψ0] Γ'' _ _ _ _ Hp').
+    destruct (exchange_hp _ (φ0 :: ψ0 :: Γ') _ p).
+    -- cbn. rewrite H ; auto.
+    -- exists x ; cbn in * ; lia.
+- assert (In ((φ1 → φ2) → φ3) Γ').
+  { assert (In ((φ1 → φ2) → φ3) ((φ0 ∧ ψ0) :: Γ')) by (rewrite <- Heq ; apply in_or_app ; right ; cbn ; left ; auto).
+    inversion H ; auto ; discriminate. }
+  apply in_Permutation in H as [Γ'' H].
+  destruct (IHHp1 φ0 ψ0 ((φ2 → φ3) :: Γ'')) as [Hp1' Hh1'].
+  + repeat rewrite <- Permutation_middle. repeat rewrite <- (perm_swap (φ0 ∧ ψ0)).
+    apply Permutation_cons ; auto. rewrite <- H in Heq.
+    rewrite perm_swap in Heq. repeat rewrite <- Permutation_middle in Heq.
+    apply Permutation_cons_inv in Heq ; auto.
+  + destruct (IHHp2 φ0 ψ0 (φ3 :: Γ'')) as [Hp2' Hh2'].
+    * repeat rewrite <- Permutation_middle. repeat rewrite <- (perm_swap (φ0 ∧ ψ0)).
+      apply Permutation_cons ; auto. rewrite <- H in Heq.
+      rewrite perm_swap in Heq. repeat rewrite <- Permutation_middle in Heq.
+      apply Permutation_cons_inv in Heq ; auto.
+    * pose (ImpLImp [φ0 ; ψ0] Γ'' _ _ _ _ Hp1' Hp2').
+      destruct (exchange_hp _ (φ0 :: ψ0 :: Γ') _ p).
+      -- cbn. rewrite H ; auto.
+      -- exists x ; cbn in * ; lia.
+Qed.
+
+Lemma AndL_rev  Γ φ ψ θ: (φ ∧ ψ) :: Γ ⊢ θ -> φ :: ψ :: Γ ⊢ θ.
+Proof.
+intro Hp. destruct (AndL_rev_hp Γ φ ψ θ Hp) as [Hp' Hh'] ; auto.
 Admitted.
 
 Lemma OrL_rev_hp  Γ φ ψ θ (Hp : (φ ∨ ψ) :: Γ ⊢ θ) :
@@ -407,7 +532,12 @@ Admitted.
 
 Local Hint Immediate TopL_rev : proof.
 
-Lemma ImpLVar_rev  Γ p φ ψ: (# p) :: (# p → φ) :: Γ ⊢ ψ  → (# p) :: φ :: Γ ⊢ ψ.
+Lemma ImpLVar_rev_hp Γ p φ ψ (Hp : (# p → φ) :: Γ ⊢ ψ) :
+      { Hp' : φ :: Γ ⊢ ψ | height Hp' <= height Hp}.
+Proof.
+Admitted.
+
+Lemma ImpLVar_rev  Γ p φ ψ: (# p → φ) :: Γ ⊢ ψ  → φ :: Γ ⊢ ψ.
 Proof.
 Admitted.
 
@@ -441,6 +571,7 @@ Lemma ImpLAnd_rev  Γ φ1 φ2 φ3 ψ: (φ1 ∧ φ2 → φ3) :: Γ ⊢ ψ ->  (φ
 Proof.
 intro Hp. destruct (ImpLAnd_rev_hp Γ φ1 φ2 φ3 ψ Hp) ; auto.
 Qed.
+
 
 Global Hint Resolve AndL_rev : proof.
 Global Hint Resolve OrL_rev : proof.
@@ -519,30 +650,22 @@ intro Hp. revert ψ θ. induction Hp ; intros ψ0 θ0 Hp'.
   apply perm_swap.
 - apply exchange with (((ψ → ψ0) :: Γ0) ++ # p :: Γ1 ++ (# p → φ) :: Γ2) ; auto.
   apply ImpLVar1 ; cbn ; auto. apply IHHp.
-  eapply exchange ; [ | apply ImpLVar_rev ; eapply exchange ; [ | exact Hp']].
-  + transitivity ((ψ0 :: Γ0) ++ # p :: Γ1 ++ φ :: Γ2) ; auto.
-    rewrite <- Permutation_middle. apply Permutation_cons ; [ reflexivity | ].
-    transitivity ((ψ0 :: Γ0 ++ Γ1) ++ φ :: Γ2).
-    * rewrite <- Permutation_middle. cbn ; repeat rewrite <- app_assoc ; reflexivity.
-    * cbn ; repeat rewrite <- app_assoc ; auto.
-  + transitivity ((ψ0 :: Γ0) ++ # p :: Γ1 ++ (# p → φ) :: Γ2 ) ; auto.
-    rewrite <- Permutation_middle. apply Permutation_cons ; [ reflexivity | ].
-    transitivity ((ψ0 :: Γ0 ++ Γ1) ++ (# p → φ) :: Γ2).
-    * cbn ; repeat rewrite <- app_assoc ; auto.
-    * rewrite <- Permutation_middle. cbn ; repeat rewrite <- app_assoc ; reflexivity.
+  eapply exchange ; [ | apply ImpLVar_rev with p ; eapply exchange ; [ | exact Hp']].
+  + repeat rewrite <- Permutation_middle.
+    transitivity (φ :: ψ0 :: # p :: Γ0 ++ Γ1 ++ Γ2).
+    * apply Permutation_cons ; reflexivity.
+    * repeat rewrite (perm_swap φ) ; apply Permutation_cons ; auto.
+  + repeat rewrite <- Permutation_middle.
+    repeat rewrite (perm_swap ψ0) ; apply Permutation_cons ; auto. apply perm_swap.
 - apply exchange with (((ψ → ψ0) :: Γ0) ++ (# p → φ) :: Γ1 ++ # p :: Γ2) ; auto.
   apply ImpLVar2 ; cbn ; auto. apply IHHp.
-  eapply exchange ; [ | apply ImpLVar_rev ; eapply exchange ; [ | exact Hp']].
-  + transitivity ((ψ0 :: Γ0 ++ φ :: Γ1) ++ # p :: Γ2) ; [ | cbn ; repeat rewrite <- app_assoc ; auto].
-    rewrite <- Permutation_middle. apply Permutation_cons ; [ reflexivity | ].
-    transitivity ((ψ0 :: Γ0) ++ φ :: Γ1 ++ Γ2).
-    * rewrite <- Permutation_middle. cbn ; repeat rewrite <- app_assoc ; reflexivity.
-    * cbn ; repeat rewrite <- app_assoc ; auto.
-  + transitivity ((ψ0 :: Γ0 ++ (# p → φ) :: Γ1) ++ # p :: Γ2 ) ; [ cbn ; repeat rewrite <- app_assoc ; auto | ].
-    rewrite <- Permutation_middle. apply Permutation_cons ; [ reflexivity | ].
-    transitivity ((ψ0 :: Γ0) ++ (# p → φ) :: Γ1 ++ Γ2).
-    * cbn ; repeat rewrite <- app_assoc ; auto.
-    * rewrite <- Permutation_middle. cbn ; repeat rewrite <- app_assoc ; reflexivity.
+  eapply exchange ; [ | apply ImpLVar_rev with p ; eapply exchange ; [ | exact Hp']].
+  + repeat rewrite <- Permutation_middle.
+    transitivity (φ :: ψ0 :: # p :: Γ0 ++ Γ1 ++ Γ2).
+    * apply Permutation_cons ; reflexivity.
+    * repeat rewrite (perm_swap φ) ; apply Permutation_cons ; auto.
+  + repeat rewrite <- Permutation_middle.
+    repeat rewrite (perm_swap ψ0) ; apply Permutation_cons ; auto.
 - apply exchange with (((ψ → ψ0) :: Γ0) ++ (φ1 ∧ φ2 → φ3) :: Γ1) ; auto.
   apply ImpLAnd ; cbn ; auto. apply IHHp. 
   eapply exchange ; [ | apply ImpLAnd_rev ; eapply exchange ; [ | exact Hp']].
@@ -686,14 +809,12 @@ Proof. intros H1 H2. apply contraction, weak_ImpL; auto with proof. Qed.
 (* Lemma 5.3 (Dyckhoff Negri 2000) shows that an implication on the left may be
    weakened. *)
 
-Lemma ImpL_rev_hp : forall φ Γ ψ θ (Hp : (φ → ψ) :: Γ ⊢ θ),
-    { Hp' : ψ :: Γ ⊢ θ | height Hp' <= height Hp}.
+Lemma ImpL_rev : forall φ Γ ψ θ, (φ → ψ) :: Γ ⊢ θ -> ψ :: Γ ⊢ θ.
 Proof.
 (* We need to manage a bit our goal so that we can
    more freely use permutations / exchange. *)
-enough (forall Γ' θ (Hp : Γ' ⊢G4ip θ), forall φ Γ ψ, Γ' ≡ₚ (φ → ψ) :: Γ -> { Hp' : ψ :: Γ ⊢ θ | height Hp' <= height Hp}).
-- intros. destruct (H _ _ Hp φ Γ ψ) ; auto.
-  exists x ; auto. 
+enough (forall Γ' θ, Γ' ⊢G4ip θ -> forall φ Γ ψ, Γ' ≡ₚ (φ → ψ) :: Γ -> ψ :: Γ ⊢ θ).
+- intros. apply (H _ _ H0 φ Γ ψ) ; auto. 
 - intros Γ' θ Hp φ Γ ψ HH.
   remember (weight φ) as w.
   assert(Hle : weight φ ≤ w) by lia.
@@ -704,116 +825,133 @@ enough (forall Γ' θ (Hp : Γ' ⊢G4ip θ), forall φ Γ ψ, Γ' ≡ₚ (φ →
   + destruct (in_Permutation Γ' (# p)).
     * assert (In # p ((φ → ψ) :: Γ')) by (rewrite <- HH ; apply in_or_app ; right ; left ; auto).
       inversion H ; try discriminate ; auto.
-    * pose (PId [ψ] x p).
-      destruct (exchange_hp _ (ψ :: Γ') _ p1).
-      -- cbn ; apply Permutation_cons ; auto.
-      -- exists x0 ; cbn in * ; lia.
+    * eapply exchange.
+      -- rewrite <- p0 ; reflexivity.
+      -- apply (PId [ψ]) ; auto.
   + destruct (in_Permutation Γ' ⊥).
     * assert (In ⊥ ((φ → ψ) :: Γ')) by (rewrite <- HH ; apply in_or_app ; right ; left ; auto).
       inversion H ; try discriminate ; auto.
-    * pose (BotL [ψ] x φ0).
-      destruct (exchange_hp _ (ψ :: Γ') _ p0).
-      -- cbn ; apply Permutation_cons ; auto.
-      -- exists x0 ; cbn in * ; lia.
-  + destruct (IHHp1 _ HH) as [Hp1' Hh1'] ; destruct (IHHp2 _ HH) as [Hp2' Hh2'].
-    pose (AndR _ _ _ Hp1' Hp2'). exists p ; cbn ; lia.
+    * eapply exchange.
+      -- rewrite <- p ; reflexivity.
+      -- apply (BotL [ψ]) ; auto.
+  + apply AndR.
+    * apply IHHp1 ; auto.
+    * apply IHHp2 ; auto.
   + destruct (in_Permutation Γ' (φ0 ∧ ψ0)).
     * assert (In (φ0 ∧ ψ0) ((φ → ψ) :: Γ')) by (rewrite <- HH ; apply in_or_app ; right ; left ; auto).
       inversion H ; try discriminate ; auto.
-    * destruct (IHHp (φ0 :: ψ0 :: x)) as [Hp' Hh'].
-      -- repeat rewrite <- Permutation_middle. repeat rewrite <- (perm_swap (φ → ψ)).
-         do 2 (apply Permutation_cons ; auto). rewrite <- p in HH.
+    * eapply exchange. 
+      -- rewrite <- p ; reflexivity.
+      -- apply (AndL [ψ]). apply IHHp. rewrite <- p in HH.
+         repeat rewrite <- Permutation_middle.
+         repeat rewrite (perm_swap φ0) ; apply Permutation_cons ; auto.
+         rewrite (perm_swap ψ0) ; apply Permutation_cons ; auto.
          repeat rewrite <- Permutation_middle in HH.
-         apply (@Permutation_cons_app_inv _ _ [(φ → ψ)]) in HH ; auto.
-      -- pose (AndL [ψ] _ _ _ _ Hp').
-         destruct (exchange_hp _ (ψ :: Γ') _ p0) ; [ rewrite <- p ; auto |].
-         exists x0 ; cbn in * ; lia.
-  + destruct (IHHp _ HH) as [Hp' Hh'].
-    pose (OrR1 _ _ ψ0 Hp'). exists p ; cbn ; lia.
-  + destruct (IHHp _ HH) as [Hp' Hh'].
-    pose (OrR2 _ φ0 _ Hp'). exists p ; cbn ; lia.
+         rewrite perm_swap in HH ; apply Permutation_cons_inv in HH ; auto.
+  + apply OrR1 ; auto. 
+  + apply OrR2 ; auto. 
   + destruct (in_Permutation Γ' (φ0 ∨ ψ0)).
     * assert (In (φ0 ∨ ψ0) ((φ → ψ) :: Γ')) by (rewrite <- HH ; apply in_or_app ; right ; left ; auto).
       inversion H ; try discriminate ; auto.
-    * destruct (IHHp1 (φ0 :: x)) as [Hp1' Hh1'].
-      -- repeat rewrite <- Permutation_middle. repeat rewrite <- (perm_swap (φ → ψ)).
-         apply Permutation_cons ; auto. rewrite <- p in HH.
-         repeat rewrite <- Permutation_middle in HH.
-         apply (@Permutation_cons_app_inv _ _ [(φ → ψ)]) in HH ; auto.
-      -- destruct (IHHp2 (ψ0 :: x)) as [Hp2' Hh2'].
-        ++ repeat rewrite <- Permutation_middle. repeat rewrite <- (perm_swap (φ → ψ)).
-            apply Permutation_cons ; auto. rewrite <- p in HH.
-            repeat rewrite <- Permutation_middle in HH.
-            apply (@Permutation_cons_app_inv _ _ [(φ → ψ)]) in HH ; auto.
-        ++ pose (OrL [ψ] _ _ _ _ Hp1' Hp2').
-           destruct (exchange_hp _ (ψ :: Γ') _ p0) ; [ rewrite <- p ; auto |].
-           exists x0 ; cbn in * ; lia.
-  + destruct (IHHp (φ0 :: Γ')) as [Hp' Hh'].
-    * rewrite HH. apply perm_swap.
-    * destruct (exchange_hp _ (φ0 :: ψ :: Γ') _ Hp') ; [apply perm_swap | ].
-      pose (ImpR _ _ _ x). exists p ; cbn in * ; lia.
+    * eapply exchange.
+      -- rewrite <- p. reflexivity.
+      -- apply (OrL [ψ]).
+        ++ apply IHHp1. repeat rewrite <- Permutation_middle.
+           rewrite perm_swap ; apply Permutation_cons ; auto.
+           repeat rewrite <- Permutation_middle in HH. rewrite <- p in HH.
+           rewrite perm_swap in HH ; apply Permutation_cons_inv in HH ; auto.
+        ++ apply IHHp2. repeat rewrite <- Permutation_middle.
+           rewrite perm_swap ; apply Permutation_cons ; auto.
+           repeat rewrite <- Permutation_middle in HH. rewrite <- p in HH.
+           rewrite perm_swap in HH ; apply Permutation_cons_inv in HH ; auto.
+  + apply ImpR. eapply exchange.
+    * apply perm_swap.
+    * apply IHHp. rewrite perm_swap ; apply Permutation_cons ; auto. 
   + case (decide ((# p → φ0) = (φ → ψ))); intro Heq0.
     * inversion Heq0 ; subst.
-      destruct (exchange_hp _ (ψ :: Γ') _ Hp).
-      -- repeat rewrite <- Permutation_middle ; rewrite perm_swap ; apply Permutation_cons ; auto.
-         repeat rewrite <- Permutation_middle in HH ; rewrite perm_swap in HH ; apply Permutation_cons_inv in HH ; auto.
-      -- exists x ; cbn in * ; lia.
+      apply exchange with (Γ0 ++ # p :: Γ1 ++ ψ :: Γ2) ; auto.
+      repeat rewrite <- Permutation_middle ; rewrite perm_swap ; apply Permutation_cons ; auto.
+      repeat rewrite <- Permutation_middle in HH ; rewrite perm_swap in HH ; apply Permutation_cons_inv in HH ; auto.
     * destruct (in_Permutation Γ' (# p → φ0)).
       -- assert (In (# p → φ0) ((φ → ψ) :: Γ')) by (rewrite <- HH ; apply in_or_app ; right ; right ; apply in_or_app ; right ; left ; auto).
          inversion H ; [ exfalso ; auto | auto].
       -- rewrite <- p0 in HH. destruct (in_Permutation x (# p)).
         ++ assert (In (# p) ((φ → ψ) :: (# p → φ0) :: x)) by (rewrite <- HH ; apply in_or_app ; right ; left ; auto).
            inversion H ; [ discriminate | ]. inversion H0 ; [ discriminate | auto].
-        ++ rewrite <- p1 in HH.
-           destruct (IHHp (φ0 :: # p :: x0)) as [Hp' Hh'].
-           ** repeat rewrite <- Permutation_middle. repeat rewrite (perm_swap (#p)) ; apply Permutation_cons ; auto.
-              rewrite perm_swap ; apply Permutation_cons ; auto.
-              repeat rewrite <- Permutation_middle in HH. repeat rewrite (perm_swap (#p)) in HH ; apply Permutation_cons_inv in HH ; auto.
-              rewrite perm_swap in HH ; apply Permutation_cons_inv in HH ; auto.
-           ** pose (ImpLVar2 [ψ] [] _ _ _ _ Hp') ; cbn in p2.
-              destruct (exchange_hp _ (ψ :: Γ') _ p2) ; [rewrite p1 ; rewrite p0 ; auto| ].
-              exists x1 ; cbn in * ; lia.
+        ++ rewrite <- p1 in HH,p0.
+           eapply exchange with (ψ :: (# p → φ0) :: # p :: x0) ; [ apply Permutation_cons ; auto | ].
+           apply (ImpLVar2 [ψ] []).
+           apply IHHp ; cbn.
+           repeat rewrite <- Permutation_middle. repeat rewrite (perm_swap (#p)) ; apply Permutation_cons ; auto.
+           rewrite perm_swap ; apply Permutation_cons ; auto.
+           repeat rewrite <- Permutation_middle in HH. repeat rewrite (perm_swap (#p)) in HH ; apply Permutation_cons_inv in HH ; auto.
+           rewrite perm_swap in HH ; apply Permutation_cons_inv in HH ; auto.
   + case (decide ((# p → φ0) = (φ → ψ))); intro Heq0.
     * inversion Heq0 ; subst.
-      destruct (exchange_hp _ (ψ :: Γ') _ Hp).
-      -- repeat rewrite <- Permutation_middle. apply Permutation_cons ; auto.
-         repeat rewrite <- Permutation_middle in HH ; apply Permutation_cons_inv in HH ; auto.
-      -- exists x ; cbn in * ; lia.
+      apply exchange with (Γ0 ++ ψ :: Γ1 ++ # p :: Γ2) ; auto.
+      repeat rewrite <- Permutation_middle ; apply Permutation_cons ; auto.
+      repeat rewrite <- Permutation_middle in HH ; apply Permutation_cons_inv in HH ; auto.
     * destruct (in_Permutation Γ' (# p → φ0)).
       -- assert (In (# p → φ0) ((φ → ψ) :: Γ')) by (rewrite <- HH ; apply in_or_app ; right ; left ; auto).
          inversion H ; [ exfalso ; auto | auto].
       -- rewrite <- p0 in HH. destruct (in_Permutation x (# p)).
         ++ assert (In (# p) ((φ → ψ) :: (# p → φ0) :: x)) by (rewrite <- HH ; apply in_or_app ; right ; right ; apply in_or_app ; right ; left ; auto).
            inversion H ; [ discriminate | ]. inversion H0 ; [ discriminate | auto].
-        ++ rewrite <- p1 in HH.
-           destruct (IHHp (φ0 :: # p :: x0)) as [Hp' Hh'].
-           ** repeat rewrite <- Permutation_middle. repeat rewrite (perm_swap (#p)) ; apply Permutation_cons ; auto.
-              rewrite perm_swap ; apply Permutation_cons ; auto.
-              repeat rewrite <- Permutation_middle in HH. repeat rewrite (perm_swap (#p)) in HH ; apply Permutation_cons_inv in HH ; auto.
-              rewrite perm_swap in HH ; apply Permutation_cons_inv in HH ; auto.
-           ** pose (ImpLVar2 [ψ] [] _ _ _ _ Hp') ; cbn in p2.
-              destruct (exchange_hp _ (ψ :: Γ') _ p2) ; [rewrite p1 ; rewrite p0 ; auto| ].
-              exists x1 ; cbn in * ; lia.
+        ++ rewrite <- p1 in HH,p0.
+           eapply exchange with (ψ :: (# p → φ0) :: # p :: x0) ; [ apply Permutation_cons ; auto | ].
+           apply (ImpLVar2 [ψ] []).
+           apply IHHp ; cbn.
+           repeat rewrite <- Permutation_middle. repeat rewrite (perm_swap (#p)) ; apply Permutation_cons ; auto.
+           rewrite perm_swap ; apply Permutation_cons ; auto.
+           repeat rewrite <- Permutation_middle in HH. repeat rewrite (perm_swap (#p)) in HH ; apply Permutation_cons_inv in HH ; auto.
+           rewrite perm_swap in HH ; apply Permutation_cons_inv in HH ; auto.
   + case (decide ((φ1 ∧ φ2 → φ3) = (φ → ψ))); intro Heq0.
     * inversion Heq0 ; subst.
-      destruct (exchange_hp _ ((φ1 → φ2 → ψ) :: Γ') _ Hp).
-      -- rewrite <- Permutation_middle ; apply Permutation_cons ; auto.
+      apply exchange with (ψ :: Γ0 ++ Γ1).
+      -- apply Permutation_cons ; auto.
          rewrite <- Permutation_middle in HH ; apply Permutation_cons_inv in HH ; auto.
-      -- assert (weight φ1 ≤ w) by (cbn in * ; lia).
-         destruct (IHw Γ' _ φ1 (φ2 → ψ) ψ0 H (Permutation_refl _) x) ; auto.
-         assert (weight φ2 ≤ w) by (cbn in * ; lia).
-         destruct (IHw Γ' _ φ2 ψ ψ0 H0 (Permutation_refl _) x0) ; auto.
-         exists x1 ; cbn in * ; lia.
-    * (* Need to exhibit "(φ1 ∧ φ2 → φ3)" in "Γ'" and
-         apply ImpLAnd, and then apply "IHHp". *) admit.
-(* We proceed as in the previous cases for the remaining ones. *)
-  + admit.
-  + admit.
-Admitted.
-
-Lemma ImpL_rev : forall φ Γ ψ θ, (φ → ψ) :: Γ ⊢ θ -> ψ :: Γ ⊢ θ.
-Proof.
-intros φ Γ ψ θ Hp. destruct (ImpL_rev_hp φ Γ ψ θ Hp) ; auto.
+      -- apply IHw with ((φ2 → ψ) :: Γ0 ++ Γ1) φ2 ; [ cbn in * ; lia | auto | ].
+         apply IHw with ((φ1 → φ2 → ψ) :: Γ0 ++ Γ1) φ1 ; [ cbn in * ; lia | auto | ].
+         apply exchange with (Γ0 ++ (φ1 → φ2 → ψ) :: Γ1) ; auto. rewrite Permutation_middle ; auto.
+    * assert (In (φ1 ∧ φ2 → φ3) (Γ')).
+      { assert (In (φ1 ∧ φ2 → φ3) ((φ → ψ) :: Γ')) by (rewrite <- HH ; apply in_or_app ; right ; left ; auto).
+        inversion H ; auto ; exfalso ; auto. }
+      destruct (in_Permutation _ _ H) as [Γ'' Heq'].
+      eapply exchange ; [ rewrite <- Heq' ; reflexivity | ].
+      apply (ImpLAnd [ψ]). apply IHHp.
+      rewrite perm_swap ; rewrite <- Permutation_middle ; apply Permutation_cons ; auto.
+      rewrite <- Heq' in HH ; rewrite <- Permutation_middle in HH ; rewrite perm_swap in HH ; apply Permutation_cons_inv in HH ; auto.
+  + case (decide ((φ1 ∨ φ2 → φ3) = (φ → ψ))); intro Heq0.
+    * inversion Heq0 ; subst.
+      apply contraction.
+      apply IHw with (ψ :: (φ2 → ψ) :: Γ') φ2 ; [ cbn in * ; lia | apply perm_swap | ].
+      apply IHw with ((φ1 → ψ) :: (φ2 → ψ) :: Γ') φ1 ; [ cbn in * ; lia | auto | ].
+      apply exchange with (Γ0 ++ (φ1 → ψ) :: (φ2 → ψ) :: Γ1) ; auto.
+      do 2 (rewrite <- Permutation_middle ; apply Permutation_cons ; auto).
+      rewrite <- Permutation_middle in HH ; apply Permutation_cons_inv in HH ; auto.
+    * assert (In (φ1 ∨ φ2 → φ3) (Γ')).
+      { assert (In (φ1 ∨ φ2 → φ3) ((φ → ψ) :: Γ')) by (rewrite <- HH ; apply in_or_app ; right ; left ; auto).
+        inversion H ; auto ; exfalso ; auto. }
+      destruct (in_Permutation _ _ H) as [Γ'' Heq'].
+      eapply exchange ; [ rewrite <- Heq' ; reflexivity | ].
+      apply (ImpLOr [ψ]). apply IHHp.
+      repeat rewrite <- (perm_swap (φ → ψ)) ; repeat rewrite <- Permutation_middle ; do 2 (apply Permutation_cons ; auto).
+      rewrite <- Heq' in HH ; rewrite <- Permutation_middle in HH ; rewrite perm_swap in HH ; apply Permutation_cons_inv in HH ; auto.
+  + case (decide (((φ1 → φ2) → φ3) = (φ → ψ))); intro Heq0.
+    * inversion Heq0 ; subst.
+      apply exchange with (Γ0 ++ ψ :: Γ1) ; auto.
+      rewrite <- Permutation_middle ; apply Permutation_cons ; auto.
+      rewrite <- Permutation_middle in HH ; apply Permutation_cons_inv in HH ; auto.
+    * assert (In ((φ1 → φ2) → φ3) (Γ')).
+      { assert (In ((φ1 → φ2) → φ3) ((φ → ψ) :: Γ')) by (rewrite <- HH ; apply in_or_app ; right ; left ; auto).
+        inversion H ; auto ; exfalso ; auto. }
+      destruct (in_Permutation _ _ H) as [Γ'' Heq'].
+      eapply exchange ; [ rewrite <- Heq' ; reflexivity | ].
+      apply (ImpLImp [ψ]).
+      -- apply IHHp1. repeat rewrite <- (perm_swap (φ → ψ)) ; repeat rewrite <- Permutation_middle ; apply Permutation_cons ; auto.
+         rewrite <- Heq' in HH ; rewrite <- Permutation_middle in HH ; rewrite perm_swap in HH ; apply Permutation_cons_inv in HH ; auto.
+      -- apply IHHp2. repeat rewrite <- (perm_swap (φ → ψ)) ; repeat rewrite <- Permutation_middle ; apply Permutation_cons ; auto.
+         rewrite <- Heq' in HH ; rewrite <- Permutation_middle in HH ; rewrite perm_swap in HH ; apply Permutation_cons_inv in HH ; auto.
 Qed.
 
 Global Hint Resolve ImpL_rev : proof.

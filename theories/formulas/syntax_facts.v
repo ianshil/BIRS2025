@@ -43,7 +43,7 @@ End order.
 (* Theory of countability from Iris.
     Will be useful for showing that we can enumerate
     our formulas.  *)
-Require Import Coq.Program.Equality.
+From Stdlib Require Import Program.Equality.
 
 Global Instance fomula_bottom : base.Bottom form := Bot.
 Global Instance fomula_top : base.Top form := fTop.

@@ -1,5 +1,5 @@
-Require Import Ensembles. (* To use sets. *)
-Require Import List. (* To talk about lists (useful in finiteness). *)
+From Stdlib Require Import Ensembles. (* To use sets. *)
+From Stdlib Require Import List. (* To talk about lists (useful in finiteness). *)
 Require Import syntax. (* To import the syntax. *)
 
 (* We define here the intuitionistic axioms. *)
@@ -445,8 +445,8 @@ Lemma wLEM Γ φ : Γ ⊢ (¬ ¬ (φ ∨ ¬ φ)).
 Proof.
 Admitted.
 
-Lemma DisjProp Γ φ ψ : Γ ⊢ (φ ∨ ψ) ->
-      (Γ ⊢ φ) \/ (Γ ⊢ ψ).
+Lemma DisjProp  φ ψ :  (Empty_set _) ⊢ (φ ∨ ψ) ->
+      ((Empty_set _) ⊢ φ) \/ ((Empty_set _) ⊢ ψ).
 Proof.
 (* Good luck. *)
 Admitted.
